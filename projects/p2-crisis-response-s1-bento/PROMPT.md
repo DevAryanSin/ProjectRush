@@ -72,9 +72,11 @@ DO NOT: use white backgrounds, use equal-sized cards, use standard list layouts.
 ---
 
 ## GEMINI API INTEGRATION
-- Model: `gemini-1.5-flash`
+- Model: `gemini-2.5-flash
+`
 - API Key env var: `process.env.GEMINI_API_KEY` (available server-side only)
-- API Endpoint in your route: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`
+- API Endpoint in your route: `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash
+:generateContent?key=${API_KEY}`
 - The API route is at: `/api/generate` (POST)
 - Request body your page sends: `{ "prompt": "user input text here" }`
 - Response your API route returns: `{ "result": "gemini response text" }`
@@ -97,6 +99,7 @@ Append the user's actual input to this system prompt when calling Gemini.
 - The Gemini API call happens in `app/api/generate/route.ts` (server-side only)
 - The page uses client-side fetch to call `/api/generate`
 - Add `'use client'` directive to `app/page.tsx`
+- Add `suppressHydrationWarning` to any `<button>` or `<input>` element that uses a dynamic `disabled` prop — React 19 serializes `disabled={false}` as `null` in SSR causing hydration mismatches
 
 ---
 

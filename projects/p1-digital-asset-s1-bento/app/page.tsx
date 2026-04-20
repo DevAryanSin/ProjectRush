@@ -218,6 +218,7 @@ export default function ScanGuardPage() {
             className={`sg-btn ${loading ? 'sg-btn-loading' : ''}`}
             onClick={handleAnalyze}
             disabled={loading || !input.trim()}
+            suppressHydrationWarning
           >
             {loading ? (
               <>
