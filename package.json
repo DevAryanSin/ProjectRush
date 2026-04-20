@@ -1,0 +1,11 @@
+{
+  "name": "hackathon-factory",
+  "version": "1.0.0",
+  "private": true,
+  "description": "30 standalone Next.js MVPs — 5 problem statements × 6 UI styles",
+  "scripts": {
+    "scaffold": "bash scripts/scaffold.sh",
+    "prompts":  "python3 scripts/generate_prompts.py",
+    "deploy":   "bash scripts/deploy.sh"
+  }
+}

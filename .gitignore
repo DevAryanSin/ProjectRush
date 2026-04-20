@@ -1,2 +1,29 @@
-.env*
-node_modules
+# Environment — NEVER commit this
+.env
+.env.local
+projects/**/.env.local
+
+# Dependencies
+node_modules/
+projects/**/node_modules/
+
+# Next.js build output
+.next/
+projects/**/.next/
+out/
+
+# Vercel
+.vercel/
+projects/**/.vercel/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temp files
+/tmp/
+*.tmp
