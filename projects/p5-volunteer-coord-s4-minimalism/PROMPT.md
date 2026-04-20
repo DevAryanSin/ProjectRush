@@ -72,14 +72,15 @@ DO NOT: add decorative elements, use multiple colors, add shadows or effects.
 ---
 
 ## GEMINI API INTEGRATION
-- Model: `gemini-2.5-flash
-`
+- Model: `gemini-1.5-flash`
 - API Key env var: `process.env.GEMINI_API_KEY` (available server-side only)
-- API Endpoint in your route: `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash
-:generateContent?key=${API_KEY}`
+- API Endpoint in your route: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`
 - The API route is at: `/api/generate` (POST)
 - Request body your page sends: `{ "prompt": "user input text here" }`
 - Response your API route returns: `{ "result": "gemini response text" }`
+
+### CRITICAL: FIX HYDRATION ERROR
+React 19 / Next.js 16 serializes `disabled={false}` as `null` during SSR, which causes a hydration mismatch on the client. You MUST add `suppressHydrationWarning` to any `<button>` or `<input>` that uses a dynamic `disabled` attribute (e.g., `disabled={isLoading}`).
 
 Gemini prompt to use in your API route (customize for this tool):
 "You are an NGO impact reporting AI. Transform this volunteer activity data into a compelling impact report. Include: headline impact metric, narrative summary (3 sentences), key metrics with context (e.g., '120 meals delivered = 40 families fed for 3 days'), volunteer efficiency score, and a 1-sentence stakeholder quote-ready summary. Make numbers feel human and meaningful."

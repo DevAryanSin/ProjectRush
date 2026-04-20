@@ -70,14 +70,15 @@ DO NOT: use white backgrounds, use equal-sized cards, use standard list layouts.
 ---
 
 ## GEMINI API INTEGRATION
-- Model: `gemini-2.5-flash
-`
+- Model: `gemini-1.5-flash`
 - API Key env var: `process.env.GEMINI_API_KEY` (available server-side only)
-- API Endpoint in your route: `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash
-:generateContent?key=${API_KEY}`
+- API Endpoint in your route: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`
 - The API route is at: `/api/generate` (POST)
 - Request body your page sends: `{ "prompt": "user input text here" }`
 - Response your API route returns: `{ "result": "gemini response text" }`
+
+### CRITICAL: FIX HYDRATION ERROR
+React 19 / Next.js 16 serializes `disabled={false}` as `null` during SSR, which causes a hydration mismatch on the client. You MUST add `suppressHydrationWarning` to any `<button>` or `<input>` that uses a dynamic `disabled` attribute (e.g., `disabled={isLoading}`).
 
 Gemini prompt to use in your API route (customize for this tool):
 "You are an AI bias risk analyst. Analyze this dataset description or model output for bias. Provide: overall bias risk rating (HIGH/MEDIUM/LOW), types of bias detected (historical/representation/measurement/aggregation), demographic groups most at risk, severity score for each bias type (1-5), and top 3 recommended audit actions. Be specific and cite evidence from the input."

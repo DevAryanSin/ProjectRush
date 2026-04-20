@@ -73,14 +73,15 @@ DO NOT: add shadows, add gradients, add blur, use rounded pill shapes.
 ---
 
 ## GEMINI API INTEGRATION
-- Model: `gemini-2.5-flash
-`
+- Model: `gemini-1.5-flash`
 - API Key env var: `process.env.GEMINI_API_KEY` (available server-side only)
-- API Endpoint in your route: `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash
-:generateContent?key=${API_KEY}`
+- API Endpoint in your route: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`
 - The API route is at: `/api/generate` (POST)
 - Request body your page sends: `{ "prompt": "user input text here" }`
 - Response your API route returns: `{ "result": "gemini response text" }`
+
+### CRITICAL: FIX HYDRATION ERROR
+React 19 / Next.js 16 serializes `disabled={false}` as `null` during SSR, which causes a hydration mismatch on the client. You MUST add `suppressHydrationWarning` to any `<button>` or `<input>` that uses a dynamic `disabled` attribute (e.g., `disabled={isLoading}`).
 
 Gemini prompt to use in your API route (customize for this tool):
 "You are an emergency evacuation planning AI for hospitality venues. Generate a complete evacuation plan for this venue and crisis type. Include: primary and backup evacuation routes, staff role assignments, guest announcement scripts (calm, clear language), special needs guest protocol, and assembly point management."
