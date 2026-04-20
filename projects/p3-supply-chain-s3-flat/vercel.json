@@ -1,0 +1,9 @@
+{
+  "name": "p3-supply-chain-s3-flat",
+  "version": 2,
+  "framework": "nextjs",
+  "buildCommand": "next build --no-turbo",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- projects/p3-supply-chain-s3-flat/"
+}

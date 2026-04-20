@@ -22,16 +22,25 @@ echo ""
 # ─────────────────────────────────────────────
 echo -e "${YELLOW}▶ Phase 1 — Environment Check${NC}"
 
+# Support for Windows/WSL where node might be node.exe
+if ! command -v node >/dev/null 2>&1 && command -v node.exe >/dev/null 2>&1; then
+  mkdir -p "$ROOT_DIR/.bin"
+  ln -sf "$(command -v node.exe)" "$ROOT_DIR/.bin/node"
+  ln -sf "$(command -v npm.cmd)" "$ROOT_DIR/.bin/npm"
+  export PATH="$ROOT_DIR/.bin:$PATH"
+fi
+
 command -v node >/dev/null 2>&1    || { echo -e "${RED}✗ Node.js not found. Install Node 24.x from nodejs.org${NC}"; exit 1; }
 command -v npm  >/dev/null 2>&1    || { echo -e "${RED}✗ npm not found.${NC}"; exit 1; }
 command -v vercel >/dev/null 2>&1  || { echo -e "${RED}✗ Vercel CLI not found. Run: npm i -g vercel${NC}"; exit 1; }
 command -v python3 >/dev/null 2>&1 || { echo -e "${RED}✗ python3 not found. Required for generate_prompts.py${NC}"; exit 1; }
 
-NODE_MAJOR=$(node -v | sed 's/v//' | cut -d'.' -f1)
+NODE_VERSION=$(node -v)
+NODE_MAJOR=$(echo "$NODE_VERSION" | sed 's/v//' | cut -d'.' -f1)
 if [ "$NODE_MAJOR" -lt 24 ]; then
-  echo -e "${YELLOW}⚠  Node $(node -v) detected. Recommended: 24.x. Proceeding anyway.${NC}"
+  echo -e "${YELLOW}⚠  Node $NODE_VERSION detected. Recommended: 24.x. Proceeding anyway.${NC}"
 else
-  echo -e "${GREEN}✓  Node $(node -v)${NC}"
+  echo -e "${GREEN}✓  Node $NODE_VERSION${NC}"
 fi
 
 if [ ! -f "$ROOT_DIR/.env" ]; then

@@ -1,0 +1,9 @@
+{
+  "name": "p5-volunteer-coord-s5-normal",
+  "version": 2,
+  "framework": "nextjs",
+  "buildCommand": "next build --no-turbo",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- projects/p5-volunteer-coord-s5-normal/"
+}
