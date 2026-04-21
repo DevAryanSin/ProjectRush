@@ -1,4 +1,105 @@
-/* Style theme injected by agentic Claude — do not edit manually */
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --navy: #050B14;
+  --navy-light: #0A1428;
+  --gold: #FFD600;
+  --gold-dark: #E5C000;
+  --white: #FFFFFF;
+  --gray: #F0F2F5;
+  --gray-dark: #CED4DA;
+  --danger: #FF2E00;
+}
+
+body {
+  font-family: 'Chivo', sans-serif;
+  background-color: var(--gray);
+  color: var(--navy);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+/* Strict flat design reset */
+*, *::before, *::after {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.flat-input {
+  background-color: var(--white);
+  border: 3px solid var(--navy);
+  color: var(--navy);
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  width: 100%;
+  transition: all 0.1s ease-in-out;
+}
+
+.flat-input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--white) inset !important;
+  -webkit-text-fill-color: var(--navy) !important;
+}
+
+.flat-input:focus {
+  outline: none;
+  border-width: 5px;
+  padding: calc(1rem - 2px); /* adjust padding to prevent layout shift */
+}
+
+.flat-button {
+  background-color: var(--gold);
+  border: 3px solid var(--navy);
+  color: var(--navy);
+  padding: 1.25rem 2rem;
+  font-size: 1.25rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: background-color 0.1s;
+}
+
+.flat-button:hover:not(:disabled) {
+  background-color: var(--gold-dark);
+}
+
+.flat-button:disabled {
+  background-color: var(--gray-dark);
+  color: var(--navy-light);
+  cursor: not-allowed;
+  border-color: var(--navy-light);
+}
+
+.flat-panel {
+  border: 4px solid var(--navy);
+  background-color: var(--white);
+}
+
+/* Custom Scrollbar for results */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--white);
+  border-left: 3px solid var(--navy);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--navy);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--navy-light);
+}
