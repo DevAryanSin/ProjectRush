@@ -1,4 +1,175 @@
-/* Style theme injected by agentic Claude — do not edit manually */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --glass-bg: rgba(20, 20, 25, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --glass-blur: 16px;
+  
+  --accent-red: #ff3b30;
+  --accent-blue: #0a84ff;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.65);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: #020108;
+  color: var(--text-primary);
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Syne', sans-serif;
+}
+
+/* Background Atmosphere Orbs */
+.bg-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  opacity: 0.6;
+  animation: floatOrb 20s ease-in-out infinite alternate;
+}
+
+.orb-1 {
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(140,20,50,0.8) 0%, rgba(30,5,20,0) 70%);
+  top: -10vw;
+  left: -10vw;
+}
+
+.orb-2 {
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(20,60,140,0.7) 0%, rgba(5,15,40,0) 70%);
+  bottom: -10vw;
+  right: -5vw;
+  animation-delay: -5s;
+}
+
+.orb-3 {
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle, rgba(160,20,20,0.6) 0%, rgba(20,0,0,0) 70%);
+  top: 40%;
+  left: 30%;
+  animation-delay: -10s;
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(5%, 8%) scale(1.05); }
+  66% { transform: translate(-5%, 4%) scale(0.95); }
+  100% { transform: translate(3%, -5%) scale(1.1); }
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 20px;
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.glass-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+.glass-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.glass-button {
+  background: linear-gradient(135deg, rgba(255,59,48,0.8) 0%, rgba(210,15,15,0.9) 100%);
+  box-shadow: 0 4px 15px rgba(255, 59, 48, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 59, 48, 0.5);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.glass-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 59, 48, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  filter: brightness(1.1);
+}
+
+.glass-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.glass-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.glass-tag {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: var(--text-secondary);
+}
+
+.glass-tag.active {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.result-card {
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.urgent-marker {
+  color: #ff453a;
+  text-shadow: 0 0 10px rgba(255, 69, 58, 0.5);
+}
+
+.loader-pulse {
+  background: linear-gradient(90deg, rgba(255,255,255,0.02) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.02) 75%);
+  background-size: 200% 100%;
+  animation: pulseLoad 1.5s infinite;
+}
+
+@keyframes pulseLoad {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
