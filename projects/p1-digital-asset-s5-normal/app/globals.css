@@ -1,4 +1,123 @@
-/* Style theme injected by agentic Claude — do not edit manually */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --color-bg: #f8f9fa;
+  --color-surface: #ffffff;
+  --color-primary: #0a192f;
+  --color-primary-hover: #112240;
+  --color-accent: #ffd700;
+  --color-text-primary: #1f2937;
+  --color-text-secondary: #4b5563;
+  --color-border: #e2e8f0;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+  box-shadow: 0 4px 6px rgba(10, 25, 47, 0.2);
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background-color: white;
+  color: var(--color-text-primary);
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(10, 25, 47, 0.1);
+}
+
+.label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.results-content h2, .results-content h3 {
+  color: var(--color-primary);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+
+.results-content p {
+  margin-bottom: 1em;
+}
+
+.results-content ul {
+  list-style-type: disc;
+  padding-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+.results-content li {
+  margin-bottom: 0.5em;
+}
+
+.results-content strong {
+  font-weight: 600;
+  color: var(--color-primary);
+}
