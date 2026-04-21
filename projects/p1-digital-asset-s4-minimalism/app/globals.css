@@ -1,4 +1,54 @@
-/* Style theme injected by agentic Claude — do not edit manually */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: #fafafa;
+  --foreground: #020617; /* Slate 950 - Near Black */
+  --accent: #d4af37; /* Electric Gold */
+  --accent-hover: #b5952f;
+  --navy: #0f172a; /* Slate 900 - Deep Navy */
+  --navy-light: #1e293b; /* Slate 800 */
+  --border: #e2e8f0; /* Slate 200 - Fine hairline */
+  --success: #166534;
+  --error: #991b1b;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Space Grotesk', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer utilities {
+  .minimal-input {
+    @apply w-full bg-transparent border-b border-[var(--border)] py-4 px-0 focus:outline-none focus:border-[var(--navy)] transition-colors placeholder:text-slate-400 text-lg;
+  }
+  
+  .minimal-button {
+    @apply w-full bg-[var(--navy)] text-white py-5 px-6 text-sm tracking-[0.2em] uppercase font-medium hover:bg-black transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-12;
+  }
+  
+  .section-divider {
+    @apply w-full h-[1px] bg-[var(--border)] my-16;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
