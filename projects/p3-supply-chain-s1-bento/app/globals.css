@@ -1,4 +1,163 @@
-/* Style theme injected by agentic Claude — do not edit manually */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Syncopate:wght@400;700&family=B612+Mono&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: #050505;
+  --foreground: #f8fafc;
+  --card-bg: #0d0d0d;
+  --card-border: #1a1a1a;
+  --industrial-teal: #14b8a6;
+  --industrial-teal-glow: rgba(20, 184, 166, 0.15);
+  --warning-amber: #f59e0b;
+  --warning-amber-glow: rgba(245, 158, 11, 0.1);
+  --accent-blue: #0ea5e9;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .font-display {
+  font-family: 'Syncopate', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.font-mono {
+  font-family: 'B612 Mono', monospace;
+}
+
+@layer components {
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(180px, auto);
+    gap: 1.5rem;
+  }
+
+  .bento-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bento-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, var(--industrial-teal-glow), transparent 70%);
+    opacity: 0.5;
+    z-index: 0;
+  }
+
+  .bento-card:hover {
+    border-color: var(--industrial-teal);
+    box-shadow: 0 0 30px rgba(20, 184, 166, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .bento-card-amber::before {
+    background: radial-gradient(circle at top right, var(--warning-amber-glow), transparent 70%);
+  }
+
+  .bento-card-amber:hover {
+    border-color: var(--warning-amber);
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.1);
+  }
+
+  .glass-input {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: white;
+    width: 100%;
+    transition: all 0.2s;
+  }
+
+  .glass-input:focus {
+    outline: none;
+    border-color: var(--industrial-teal);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .btn-primary {
+    background: var(--industrial-teal);
+    color: #000;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    font-family: 'Syncopate', sans-serif;
+    letter-spacing: 0.1em;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary:not(:disabled):hover {
+    background: #1de9b6;
+    box-shadow: 0 0 20px var(--industrial-teal);
+    transform: scale(1.02);
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.05),
+      transparent
+    );
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+
+  .cyber-grid {
+    background-image: 
+      linear-gradient(rgba(20, 184, 166, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(20, 184, 166, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+}
