@@ -1,11 +1,17 @@
 # AGENT PROMPT — p4-unbiased-ai-s3-flat
+
 # Unbiased AI Decision — Ensuring Fairness and Detecting Bias in Automated Decisions
+
 # Tool: DataMirror | UI: Flat Design
+
 # ═══════════════════════════════════════════════════════════
+
 # READ THIS ENTIRE FILE BEFORE GENERATING ANY CODE.
+
 # ═══════════════════════════════════════════════════════════
 
 ## YOUR TASK
+
 You are an expert frontend developer and UI designer. You will generate a complete,
 production-ready Next.js 16 web application as a functional MVP.
 
@@ -15,6 +21,7 @@ Do not add any explanation text, markdown, or commentary outside the delimiters.
 ---
 
 ## PROBLEM CONTEXT
+
 Computer programs now make life-changing decisions about who gets a job, a bank loan,
 or even medical care. However, if these programs learn from flawed or unfair historical data,
 they will repeat and amplify those exact same discriminatory mistakes.
@@ -26,6 +33,7 @@ and fix harmful bias before their systems impact real people.
 ---
 
 ## THIS SPECIFIC TOOL
+
 **Name:** DataMirror
 **Tagline:** Input your dataset columns and sample values — detect discriminatory proxies hiding in your data
 **Domain:** AI fairness, bias detection, algorithmic accountability, ethics
@@ -42,12 +50,14 @@ Analyze the dataset features for proxy discrimination — features that correlat
 ---
 
 ## UI STYLE REQUIREMENT
+
 FLAT DESIGN UI STYLE
 ━━━━━━━━━━━━━━━━━━━
 Core concept: Zero depth. No shadows, no gradients, no skeuomorphism. Pure color blocks,
 sharp edges, and bold typography. Every element is defined by color contrast alone.
 
 Visual language:
+
 - Bright, saturated flat colors (pick a bold primary + 2-3 complementary colors)
 - No box-shadows, no gradients, no blur effects
 - Sharp 0px or minimal (4px max) border radius
@@ -58,6 +68,7 @@ Visual language:
 - Flat illustration-style decorative elements using CSS shapes
 
 Layout rules:
+
 - Clear section-based layout with color-defined zones
 - Full-width colored header section
 - Content in a clean grid below
@@ -71,14 +82,16 @@ DO NOT: add shadows, add gradients, add blur, use rounded pill shapes.
 ---
 
 ## GEMINI API INTEGRATION
-- Model: `gemini-1.5-flash`
+
+- Model: `gemini-2.5-flash`
 - API Key env var: `process.env.GEMINI_API_KEY` (available server-side only)
-- API Endpoint in your route: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`
+- API Endpoint in your route: `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`
 - The API route is at: `/api/generate` (POST)
 - Request body your page sends: `{ "prompt": "user input text here" }`
 - Response your API route returns: `{ "result": "gemini response text" }`
 
 ### CRITICAL: FIX HYDRATION ERROR
+
 React 19 / Next.js 16 serializes `disabled={false}` as `null` during SSR, which causes a hydration mismatch on the client. You MUST add `suppressHydrationWarning` to any `<button>` or `<input>` that uses a dynamic `disabled` attribute (e.g., `disabled={isLoading}`).
 
 Gemini prompt to use in your API route (customize for this tool):
@@ -89,6 +102,7 @@ Append the user's actual input to this system prompt when calling Gemini.
 ---
 
 ## TECH CONSTRAINTS (STRICT)
+
 - Framework: Next.js 16, App Router (`app/` directory)
 - Language: TypeScript (.tsx files)
 - Styling: Tailwind CSS + custom CSS variables in globals.css
@@ -104,6 +118,7 @@ Append the user's actual input to this system prompt when calling Gemini.
 ---
 
 ## FUNCTIONAL REQUIREMENTS
+
 1. User sees a clean, styled input form matching the UI style described above
 2. User fills in the required input fields (described in "What the user does" above)
 3. User clicks a submit/analyze button
@@ -116,6 +131,7 @@ Append the user's actual input to this system prompt when calling Gemini.
 ---
 
 ## OUTPUT FORMAT (MANDATORY)
+
 Respond with EXACTLY this structure. No text before or after. No markdown code fences
 inside the blocks. Use these exact delimiters:
 
@@ -130,6 +146,7 @@ inside the blocks. Use these exact delimiters:
 ---
 
 ## QUALITY REQUIREMENTS
+
 - The UI must look PROFESSIONAL and POLISHED — not like a placeholder
 - The UI style must be immediately recognizable as Flat Design
 - Loading states must be visually clear

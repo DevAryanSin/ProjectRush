@@ -65,16 +65,16 @@ Layout rules:
 - Background has 2-3 large blurred color orbs (position: absolute, blur: 80-120px)
 - Smooth CSS animations on load (fade + translateY)
 
-Colors: Pick 2-3 saturated colors for background orbs. White for text.
+ 
 Fonts: Choose an elegant, slightly rounded sans-serif. Light weights for body.
 DO NOT: use white/light backgrounds, use solid opaque cards, skip the blur effect.
 
 ---
 
 ## GEMINI API INTEGRATION
-- Model: `gemini-1.5-flash`
+- Model: `gemini-2.5-flash`
 - API Key env var: `process.env.GEMINI_API_KEY` (available server-side only)
-- API Endpoint in your route: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`
+- API Endpoint in your route: `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`
 - The API route is at: `/api/generate` (POST)
 - Request body your page sends: `{ "prompt": "user input text here" }`
 - Response your API route returns: `{ "result": "gemini response text" }`

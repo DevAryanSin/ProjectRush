@@ -387,7 +387,7 @@ cards vary in size (1×1, 2×1, 1×2, 2×2 units) creating visual hierarchy.
 Visual language:
 - Dark background (near-black #0a0a0a or deep navy) with colored card backgrounds
 - Cards have subtle borders and slight rounded corners (8-12px)
-- Each card has its own accent color or subtle gradient
+- Each card has its the common accent color or subtle gradient
 - Typography is bold and large for headers inside cards
 - Dense but organized — lots of information visible at once
 - Card hover states with subtle glow or border highlight
@@ -428,7 +428,7 @@ Layout rules:
 - Background has 2-3 large blurred color orbs (position: absolute, blur: 80-120px)
 - Smooth CSS animations on load (fade + translateY)
 
-Colors: Pick 2-3 saturated colors for background orbs. White for text.
+ 
 Fonts: Choose an elegant, slightly rounded sans-serif. Light weights for body.
 DO NOT: use white/light backgrounds, use solid opaque cards, skip the blur effect.
 """,
@@ -603,9 +603,9 @@ Do not add any explanation text, markdown, or commentary outside the delimiters.
 ---
 
 ## GEMINI API INTEGRATION
-- Model: `gemini-1.5-flash`
+- Model: `gemini-2.5-flash`
 - API Key env var: `process.env.GEMINI_API_KEY` (available server-side only)
-- API Endpoint in your route: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${{API_KEY}}`
+- API Endpoint in your route: `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${{API_KEY}}`
 - The API route is at: `/api/generate` (POST)
 - Request body your page sends: `{{ "prompt": "user input text here" }}`
 - Response your API route returns: `{{ "result": "gemini response text" }}`

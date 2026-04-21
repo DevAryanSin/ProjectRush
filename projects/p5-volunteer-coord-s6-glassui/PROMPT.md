@@ -1,11 +1,17 @@
 # AGENT PROMPT — p5-volunteer-coord-s6-glassui
+
 # Smart Resource Allocation — Data-Driven Volunteer Coordination for Social Impact
+
 # Tool: UrgencyRank | UI: Glass UI
+
 # ═══════════════════════════════════════════════════════════
+
 # READ THIS ENTIRE FILE BEFORE GENERATING ANY CODE.
+
 # ═══════════════════════════════════════════════════════════
 
 ## YOUR TASK
+
 You are an expert frontend developer and UI designer. You will generate a complete,
 production-ready Next.js 16 web application as a functional MVP.
 
@@ -15,6 +21,7 @@ Do not add any explanation text, markdown, or commentary outside the delimiters.
 ---
 
 ## PROBLEM CONTEXT
+
 Local social groups and NGOs collect a lot of important information about community needs
 through paper surveys and field reports. However, this valuable data is often scattered across
 different places, making it hard to see the biggest problems clearly.
@@ -26,6 +33,7 @@ with the specific tasks and areas where they are needed most.
 ---
 
 ## THIS SPECIFIC TOOL
+
 **Name:** UrgencyRank
 **Tagline:** Input multiple community needs — get them ranked by urgency and resource priority
 **Domain:** NGO operations, volunteer management, community needs assessment, social impact
@@ -42,6 +50,7 @@ Reason across competing community needs to produce a prioritized allocation reco
 ---
 
 ## UI STYLE REQUIREMENT
+
 GLASS UI STYLE
 ━━━━━━━━━━━━━━
 Core concept: Similar to glassmorphism but more structured and UI-focused. Glass cards
@@ -49,6 +58,7 @@ within a defined application layout. More opaque than pure glassmorphism — fee
 a premium dark-mode application, not an ethereal design concept.
 
 Visual language:
+
 - Dark base background (#0d1117 or similar very dark color)
 - Cards use: background: rgba(255,255,255,0.05-0.08), backdrop-filter: blur(8px)
 - More defined borders: border: 1px solid rgba(255,255,255,0.1)
@@ -59,6 +69,7 @@ Visual language:
 - Icons and text in white/light grey
 
 Layout rules:
+
 - App-style dark layout with header nav
 - Glass sidebar or panel on left (optional)
 - Main glass card for input
@@ -72,14 +83,16 @@ DO NOT: use light backgrounds, use fully opaque cards, skip the glow/accent effe
 ---
 
 ## GEMINI API INTEGRATION
-- Model: `gemini-1.5-flash`
+
+- Model: `gemini-2.5-flash`
 - API Key env var: `process.env.GEMINI_API_KEY` (available server-side only)
-- API Endpoint in your route: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`
+- API Endpoint in your route: `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`
 - The API route is at: `/api/generate` (POST)
 - Request body your page sends: `{ "prompt": "user input text here" }`
 - Response your API route returns: `{ "result": "gemini response text" }`
 
 ### CRITICAL: FIX HYDRATION ERROR
+
 React 19 / Next.js 16 serializes `disabled={false}` as `null` during SSR, which causes a hydration mismatch on the client. You MUST add `suppressHydrationWarning` to any `<button>` or `<input>` that uses a dynamic `disabled` attribute (e.g., `disabled={isLoading}`).
 
 Gemini prompt to use in your API route (customize for this tool):
@@ -90,6 +103,7 @@ Append the user's actual input to this system prompt when calling Gemini.
 ---
 
 ## TECH CONSTRAINTS (STRICT)
+
 - Framework: Next.js 16, App Router (`app/` directory)
 - Language: TypeScript (.tsx files)
 - Styling: Tailwind CSS + custom CSS variables in globals.css
@@ -105,6 +119,7 @@ Append the user's actual input to this system prompt when calling Gemini.
 ---
 
 ## FUNCTIONAL REQUIREMENTS
+
 1. User sees a clean, styled input form matching the UI style described above
 2. User fills in the required input fields (described in "What the user does" above)
 3. User clicks a submit/analyze button
@@ -117,6 +132,7 @@ Append the user's actual input to this system prompt when calling Gemini.
 ---
 
 ## OUTPUT FORMAT (MANDATORY)
+
 Respond with EXACTLY this structure. No text before or after. No markdown code fences
 inside the blocks. Use these exact delimiters:
 
@@ -131,6 +147,7 @@ inside the blocks. Use these exact delimiters:
 ---
 
 ## QUALITY REQUIREMENTS
+
 - The UI must look PROFESSIONAL and POLISHED — not like a placeholder
 - The UI style must be immediately recognizable as Glass UI
 - Loading states must be visually clear

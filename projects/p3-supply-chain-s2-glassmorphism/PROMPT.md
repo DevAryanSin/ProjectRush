@@ -1,11 +1,17 @@
 # AGENT PROMPT — p3-supply-chain-s2-glassmorphism
+
 # Smart Supply Chains — Resilient Logistics and Dynamic Supply Chain Optimization
+
 # Tool: RouteRethink | UI: Glassmorphism
+
 # ═══════════════════════════════════════════════════════════
+
 # READ THIS ENTIRE FILE BEFORE GENERATING ANY CODE.
+
 # ═══════════════════════════════════════════════════════════
 
 ## YOUR TASK
+
 You are an expert frontend developer and UI designer. You will generate a complete,
 production-ready Next.js 16 web application as a functional MVP.
 
@@ -15,6 +21,7 @@ Do not add any explanation text, markdown, or commentary outside the delimiters.
 ---
 
 ## PROBLEM CONTEXT
+
 Modern global supply chains manage millions of concurrent shipments across highly complex
 and inherently volatile transportation networks. Critical transit disruptions ranging from sudden
 weather events to hidden operational bottlenecks are chronically identified only after delivery
@@ -28,6 +35,7 @@ bottlenecks cascade into broader delays.
 ---
 
 ## THIS SPECIFIC TOOL
+
 **Name:** RouteRethink
 **Tagline:** Describe a blocked or delayed route — get 3 optimized alternative routes instantly
 **Domain:** logistics, supply chain management, route optimization, disruption detection
@@ -44,12 +52,14 @@ Generate three distinct alternative routing options for the disrupted shipment. 
 ---
 
 ## UI STYLE REQUIREMENT
+
 GLASSMORPHISM UI STYLE
 ━━━━━━━━━━━━━━━━━━━━━━
 Core concept: Frosted glass cards floating over a rich gradient or blurred background.
 Everything feels translucent, layered, and ethereal. Depth is created through blur and opacity.
 
 Visual language:
+
 - Rich gradient background (deep, saturated — not flat)
 - Cards use: backdrop-filter: blur(12-20px), background: rgba(255,255,255,0.08-0.15)
 - Subtle white border: border: 1px solid rgba(255,255,255,0.18)
@@ -60,26 +70,28 @@ Visual language:
 - Buttons have gradient fills or glass variants
 
 Layout rules:
+
 - Centered card layout, max-width 680px for main panel
 - Multiple layered glass panels for result sections
 - Background has 2-3 large blurred color orbs (position: absolute, blur: 80-120px)
 - Smooth CSS animations on load (fade + translateY)
 
-Colors: Pick 2-3 saturated colors for background orbs. White for text.
 Fonts: Choose an elegant, slightly rounded sans-serif. Light weights for body.
 DO NOT: use white/light backgrounds, use solid opaque cards, skip the blur effect.
 
 ---
 
 ## GEMINI API INTEGRATION
-- Model: `gemini-1.5-flash`
+
+- Model: `gemini-2.5-flash`
 - API Key env var: `process.env.GEMINI_API_KEY` (available server-side only)
-- API Endpoint in your route: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`
+- API Endpoint in your route: `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`
 - The API route is at: `/api/generate` (POST)
 - Request body your page sends: `{ "prompt": "user input text here" }`
 - Response your API route returns: `{ "result": "gemini response text" }`
 
 ### CRITICAL: FIX HYDRATION ERROR
+
 React 19 / Next.js 16 serializes `disabled={false}` as `null` during SSR, which causes a hydration mismatch on the client. You MUST add `suppressHydrationWarning` to any `<button>` or `<input>` that uses a dynamic `disabled` attribute (e.g., `disabled={isLoading}`).
 
 Gemini prompt to use in your API route (customize for this tool):
@@ -90,6 +102,7 @@ Append the user's actual input to this system prompt when calling Gemini.
 ---
 
 ## TECH CONSTRAINTS (STRICT)
+
 - Framework: Next.js 16, App Router (`app/` directory)
 - Language: TypeScript (.tsx files)
 - Styling: Tailwind CSS + custom CSS variables in globals.css
@@ -105,6 +118,7 @@ Append the user's actual input to this system prompt when calling Gemini.
 ---
 
 ## FUNCTIONAL REQUIREMENTS
+
 1. User sees a clean, styled input form matching the UI style described above
 2. User fills in the required input fields (described in "What the user does" above)
 3. User clicks a submit/analyze button
@@ -117,6 +131,7 @@ Append the user's actual input to this system prompt when calling Gemini.
 ---
 
 ## OUTPUT FORMAT (MANDATORY)
+
 Respond with EXACTLY this structure. No text before or after. No markdown code fences
 inside the blocks. Use these exact delimiters:
 
@@ -131,6 +146,7 @@ inside the blocks. Use these exact delimiters:
 ---
 
 ## QUALITY REQUIREMENTS
+
 - The UI must look PROFESSIONAL and POLISHED — not like a placeholder
 - The UI style must be immediately recognizable as Glassmorphism
 - Loading states must be visually clear
