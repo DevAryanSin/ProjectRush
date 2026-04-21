@@ -1,4 +1,93 @@
-/* Style theme injected by agentic Claude — do not edit manually */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;600;900&family=Space+Mono&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary: #3d2b56;
+  --primary-light: #5a4282;
+  --accent: #ff007f;
+  --bg-white: #ffffff;
+  --bg-off: #f4f2f8;
+  --text-dark: #1a1a1a;
+  --text-light: #ffffff;
+  --border-thick: 4px;
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+    @apply antialiased;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Syne', sans-serif;
+    @apply font-black uppercase tracking-tight;
+  }
+}
+
+@layer components {
+  .flat-button {
+    @apply relative inline-flex items-center justify-center px-8 py-4 font-black transition-colors duration-200 border-none outline-none;
+    background-color: var(--accent);
+    color: var(--text-light);
+    border-radius: 0px;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+  }
+
+  .flat-button:hover {
+    @apply opacity-90;
+  }
+
+  .flat-button:active {
+    @apply translate-y-1;
+  }
+
+  .flat-button:disabled {
+    @apply bg-gray-400 cursor-not-allowed translate-y-0;
+  }
+
+  .flat-input {
+    @apply w-full px-4 py-4 bg-white border-4 border-primary text-black focus:outline-none transition-all;
+    border-radius: 0px;
+  }
+
+  .flat-card {
+    @apply p-8 border-4 border-primary bg-white;
+    border-radius: 0px;
+  }
+
+  .section-purple {
+    background-color: var(--primary);
+    color: var(--text-light);
+  }
+
+  .section-white {
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+  }
+
+  .section-off {
+    background-color: var(--bg-off);
+    color: var(--text-dark);
+  }
+}
+
+/* Custom Utilities */
+.text-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+.title-xl {
+  font-size: clamp(3rem, 10vw, 8rem);
+  line-height: 0.9;
+}
+
+.title-lg {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1;
+}

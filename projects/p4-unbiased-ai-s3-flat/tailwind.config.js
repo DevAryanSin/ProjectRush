@@ -4,14 +4,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: 'hsl(var(--background) / <alpha-value>)',
-        foreground: 'hsl(var(--foreground) / <alpha-value>)',
-        primary:    'hsl(var(--primary)    / <alpha-value>)',
-        secondary:  'hsl(var(--secondary)  / <alpha-value>)',
-        accent:     'hsl(var(--accent)     / <alpha-value>)',
-        muted:      'hsl(var(--muted)      / <alpha-value>)',
-        border:     'hsl(var(--border)     / <alpha-value>)',
-        card:       'hsl(var(--card)       / <alpha-value>)',
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
+        primary:    'var(--primary)',
+        secondary:  'var(--secondary)',
+        accent:     'var(--accent)',
+        muted:      'var(--muted)',
+        border:     'var(--border)',
+        card:       'var(--card)',
       },
     },
   },
