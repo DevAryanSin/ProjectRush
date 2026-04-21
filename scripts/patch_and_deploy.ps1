@@ -140,7 +140,7 @@ foreach ($P_SLUG in $projectList) {
         name            = $P_SLUG
         version         = 2
         framework       = "nextjs"
-        buildCommand    = "next build --no-turbo"
+        buildCommand    = "next build"
         outputDirectory = ".next"
         installCommand  = "npm install"
         ignoreCommand   = "git diff --quiet HEAD^ HEAD -- $ROOT_DIRECTORY/"
