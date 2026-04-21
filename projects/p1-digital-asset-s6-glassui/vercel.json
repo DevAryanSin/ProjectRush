@@ -2,7 +2,7 @@
   "name": "p1-digital-asset-s6-glassui",
   "version": 2,
   "framework": "nextjs",
-  "buildCommand": "next build --no-turbo",
+  "buildCommand": "next build",
   "outputDirectory": ".next",
   "installCommand": "npm install",
   "ignoreCommand": "git diff --quiet HEAD^ HEAD -- projects/p1-digital-asset-s6-glassui/"

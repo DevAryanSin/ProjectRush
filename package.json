@@ -2,5 +2,8 @@
   "name": "hackathon-factory",
   "version": "1.0.0",
   "private": true,
-  "description": "30 standalone Next.js MVPs — 5 problems × 6 UI styles"
+  "description": "30 standalone Next.js MVPs — 5 problems × 6 UI styles",
+  "dependencies": {
+    "vercel": "^51.8.0"
+  }
 }
