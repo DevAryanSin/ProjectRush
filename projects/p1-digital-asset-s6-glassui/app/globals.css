@@ -1,4 +1,65 @@
-/* Style theme injected by agentic Claude — do not edit manually */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg-dark: #070911;
+  --bg-darker: #040509;
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --accent-gold: 247 186 20; /* #f7ba14 */
+  --accent-blue: 68 116 250; /* #4474fa */
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: #f1f5f9;
+  font-family: 'Inter', sans-serif; /* Fallback */
+  background-image: 
+    radial-gradient(circle at 0% 0%, rgba(68, 116, 250, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(247, 186, 20, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.03) 0%, transparent 30%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.font-sans {
+  font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-[var(--bg-card)] backdrop-blur-xl border border-[var(--border-glass)] rounded-3xl shadow-[0_8px_32px_0_rgba(0,0,0,0.37)];
+  }
+}
+
+/* Animations */
+@keyframes borderPulse {
+  0%, 100% { border-color: rgba(var(--accent-blue), 0.3); box-shadow: 0 0 20px rgba(var(--accent-blue), 0.1); }
+  50% { border-color: rgba(var(--accent-blue), 0.8); box-shadow: 0 0 30px rgba(var(--accent-blue), 0.2); }
+}
+
+.animated-border {
+  animation: borderPulse 2s infinite ease-in-out;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
