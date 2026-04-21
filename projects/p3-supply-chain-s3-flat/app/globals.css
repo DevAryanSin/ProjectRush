@@ -1,4 +1,103 @@
-/* Style theme injected by agentic Claude — do not edit manually */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary-teal: #006D77;
+  --accent-amber: #FF9F1C;
+  --bg-flat: #F5F5F5;
+  --text-dark: #1A1A1A;
+  --border-width: 3px;
+}
+
+body {
+  background-color: var(--bg-flat);
+  color: var(--text-dark);
+  font-family: 'Archivo', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Flat Design Elements */
+.flat-border {
+  border: var(--border-width) solid var(--text-dark);
+}
+
+.flat-shadow-none {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+.flat-button {
+  background-color: var(--accent-amber);
+  color: var(--text-dark);
+  border: var(--border-width) solid var(--text-dark);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 1rem 2rem;
+  transition: transform 0.1s ease;
+  cursor: pointer;
+}
+
+.flat-button:active {
+  transform: translateY(2px);
+}
+
+.flat-button:disabled {
+  background-color: #CCC;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.flat-input {
+  background: white;
+  border: var(--border-width) solid var(--text-dark);
+  padding: 1rem;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 500;
+  width: 100%;
+}
+
+.flat-card {
+  background: white;
+  border: var(--border-width) solid var(--text-dark);
+  padding: 1.5rem;
+}
+
+.flat-header {
+  background-color: var(--primary-teal);
+  color: white;
+  border-bottom: var(--border-width) solid var(--text-dark);
+  padding: 3rem 1rem;
+}
+
+.label-flat {
+  display: block;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.status-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-weight: 900;
+  border: 2px solid var(--text-dark);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+/* Animations without blurs or soft gradients */
+@keyframes stepLoading {
+  0% { background-color: var(--accent-amber); }
+  50% { background-color: white; }
+  100% { background-color: var(--accent-amber); }
+}
+
+.loading-flat {
+  animation: stepLoading 1s steps(2, end) infinite;
+}
