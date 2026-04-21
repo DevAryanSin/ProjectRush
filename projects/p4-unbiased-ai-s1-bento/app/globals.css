@@ -1,4 +1,69 @@
-/* Style theme injected by agentic Claude — do not edit manually */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Mono&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: #05020a;
+  --foreground: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --accent-purple: #a855f7;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Outfit', sans-serif;
+  background-image: 
+    radial-gradient(circle at 50% -20%, rgba(168, 85, 247, 0.15), transparent 60%),
+    radial-gradient(circle at 0% 100%, rgba(168, 85, 247, 0.05), transparent 40%);
+  background-attachment: fixed;
+}
+
+.bg-card-purple {
+  background: linear-gradient(135deg, #1e0b36 0%, #0d041a 100%);
+}
+
+.font-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Animations */
+@keyframes glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Bento Item Hover Glow */
+.bento-item-hover {
+  transition: all 0.3s ease;
+}
+.bento-item-hover:hover {
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.1);
+}
+
+/* Hydration Fix Styles */
+[suppressHydrationWarning] {
+  transition: opacity 0.2s ease-in-out;
+}
