@@ -1,4 +1,48 @@
-/* Style theme injected by agentic Claude — do not edit manually */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:italic@0;1&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: #fcfcfc;
+  --foreground: #111111;
+  --accent: #e11d48;
+  --border: #e5e5e5;
+  --muted: #737373;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)] selection:bg-[var(--accent)] selection:text-white;
+    font-family: 'Instrument Sans', sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Instrument Serif', serif;
+  }
+}
+
+@layer components {
+  .minimal-input {
+    @apply w-full bg-transparent border-b border-[var(--border)] py-4 px-0 focus:outline-none focus:border-[var(--accent)] transition-colors text-xl font-light placeholder:text-neutral-400;
+  }
+
+  .minimal-button {
+    @apply mt-12 w-full py-4 px-6 border border-[var(--foreground)] hover:bg-[var(--foreground)] hover:text-white transition-all duration-300 text-sm tracking-widest uppercase font-medium;
+  }
+
+  .minimal-card {
+    @apply border border-[var(--border)] p-12 bg-white/50 backdrop-blur-sm;
+  }
+}
+
+/* Custom fade-in animation for minimalist feel */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
