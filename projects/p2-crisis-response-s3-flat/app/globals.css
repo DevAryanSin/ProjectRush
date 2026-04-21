@@ -1,4 +1,97 @@
-/* Style theme injected by agentic Claude — do not edit manually */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary: #FF3B30;
+  --primary-dark: #D70015;
+  --bg: #F2F2F7;
+  --surface: #FFFFFF;
+  --text: #1C1C1E;
+  --text-muted: #8E8E93;
+  --border: #000000;
+  --radius: 0px;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--bg)] text-[var(--text)];
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Archivo', sans-serif;
+    @apply font-black uppercase tracking-tighter;
+  }
+}
+
+@layer components {
+  .flat-card {
+    @apply bg-[var(--surface)] border-2 border-[var(--border)] p-6;
+    box-shadow: none;
+  }
+
+  .flat-button {
+    @apply bg-[var(--primary)] text-white border-2 border-[var(--border)] px-6 py-3 font-bold uppercase transition-all flex items-center justify-center gap-2;
+    box-shadow: none;
+  }
+
+  .flat-button:hover:not(:disabled) {
+    @apply bg-black text-white;
+  }
+
+  .flat-button:active:not(:disabled) {
+    transform: translate(0px, 0px);
+  }
+
+  .flat-button:disabled {
+    @apply opacity-50 cursor-not-allowed grayscale;
+  }
+
+  .flat-input {
+    @apply w-full bg-white border-2 border-[var(--border)] px-4 py-3 focus:outline-none focus:bg-red-50 transition-colors;
+    border-radius: var(--radius);
+  }
+
+  .flat-label {
+    @apply block text-sm font-black uppercase mb-1 tracking-wider;
+  }
+
+  .section-block {
+    @apply py-12 px-6 border-b-2 border-[var(--border)];
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border: 3px solid var(--bg);
+}
+
+.flat-tag {
+  @apply inline-block px-3 py-1 bg-black text-white text-xs font-bold uppercase tracking-widest border border-black;
+}
+
+.animate-in {
+  animation: flatIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes flatIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
