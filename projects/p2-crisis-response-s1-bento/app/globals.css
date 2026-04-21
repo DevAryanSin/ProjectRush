@@ -1,4 +1,140 @@
-/* Style theme injected by agentic Claude — do not edit manually */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg-color: #050505;
+  --card-bg: #111111;
+  --card-border: #222222;
+  --accent-red: #ff3333;
+  --accent-red-glow: rgba(255, 51, 51, 0.15);
+  --text-main: #f0f0f0;
+  --text-muted: #888888;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Syne', sans-serif;
+  overflow-x: hidden;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(180px, auto);
+  gap: 16px;
+  padding: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 220px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 240px;
+  }
+}
+
+.bento-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-card:hover {
+  border-color: var(--card-border);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  transform: translateY(-2px);
+}
+
+.bento-card:hover {
+  border-color: #333;
+}
+
+/* Span definitions */
+.card-span-2x2 {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.card-span-2x1 {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+@media (min-width: 768px) {
+  .card-span-2x2 {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  .card-span-2x1 {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+}
+
+.loading-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+input, textarea, select {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  transition: border-color 0.2s, background 0.2s;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent-red);
+  background: rgba(255,51,51,0.02);
+}
+
+select option {
+  background: var(--card-bg);
+  color: white;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
