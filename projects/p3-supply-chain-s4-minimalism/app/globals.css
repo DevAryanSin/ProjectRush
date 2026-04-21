@@ -1,4 +1,93 @@
-/* Style theme injected by agentic Claude — do not edit manually */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: #fafafa;
+  --foreground: #111111;
+  --accent: #0d9488; /* Industrial Teal */
+  --accent-secondary: #f59e0b; /* Amber */
+  --grid-color: rgba(0, 0, 0, 0.03);
+  --border-color: #e5e5e5;
+  --input-focus: #0d9488;
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Instrument Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Instrument Serif', serif;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+  }
+}
+
+@layer components {
+  .minimal-input {
+    @apply w-full bg-transparent border-b border-gray-200 py-3 transition-all duration-300 outline-none;
+    @apply focus:border-accent text-lg;
+  }
+
+  .minimal-label {
+    @apply text-[10px] uppercase tracking-[0.2em] text-gray-400 font-semibold mb-1 block;
+  }
+
+  .minimal-button {
+    @apply relative overflow-hidden px-8 py-4 bg-foreground text-background font-medium transition-all duration-300;
+    @apply hover:bg-accent hover:text-white disabled:opacity-30 disabled:cursor-not-allowed;
+  }
+
+  .result-card {
+    border: 1px solid var(--border-color);
+    @apply p-8 bg-white/50 backdrop-blur-sm transition-all duration-500 opacity-0 translate-y-4;
+  }
+
+  .result-card.visible {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit_scrollbar {
+  width: 6px;
+}
+::-webkit_scrollbar-track {
+  background: var(--background);
+}
+::-webkit_scrollbar-thumb {
+  background: #ddd;
+}
+::-webkit_scrollbar-thumb:hover {
+  background: #ccc;
+}
+
+.loader-line {
+  height: 1px;
+  width: 100%;
+  background-color: var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.loader-line::after {
+  content: '';
+  position: absolute;
+  left: -50%;
+  height: 100%;
+  width: 50%;
+  background-color: var(--accent);
+  animation: line-anim 1.5s infinite ease-in-out;
+}
+
+@keyframes line-anim {
+  0% { left: -50%; }
+  100% { left: 100%; }
+}
