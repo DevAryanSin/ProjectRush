@@ -1,4 +1,59 @@
-/* Style theme injected by agentic Claude — do not edit manually */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 4%;
+    --accent: 264 67% 35%;
+    --accent-foreground: 0 0% 100%;
+    --muted: 0 0% 98%;
+    --muted-foreground: 0 0% 40%;
+    --border: 0 0% 93%;
+  }
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.minimal-input {
+  @apply w-full bg-transparent border-b border-border py-4 focus:outline-none focus:border-accent transition-all duration-500 placeholder:text-muted-foreground/30 font-light;
+}
+
+.stagger-in > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+::placeholder {
+  font-weight: 300;
+}
+
+select {
+  background-image: none;
+}
