@@ -1,4 +1,98 @@
-/* Style theme injected by agentic Claude — do not edit manually */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: #05070a;
+  --foreground: #f8fafc;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --accent-primary: #8b5cf6; /* Electric Violet */
+  --accent-secondary: #06b6d4; /* Cyan */
+  --accent-glow: rgba(139, 92, 246, 0.4);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 40%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4, .font-syne {
+  font-family: 'Syne', sans-serif;
+}
+
+@layer components {
+  .glass-panel {
+    @apply backdrop-blur-md bg-opacity-5 border border-white/10;
+    background: var(--glass-bg);
+  }
+
+  .glass-card {
+    @apply glass-panel rounded-2xl p-6 transition-all duration-300;
+  }
+
+  .glass-card:hover {
+    @apply border-white/20;
+    box-shadow: 0 0 30px var(--accent-glow);
+  }
+
+  .glass-input {
+    @apply glass-panel rounded-xl px-4 py-3 w-full outline-none transition-all duration-200;
+  }
+
+  .glass-input:focus {
+    border-color: rgba(139, 92, 246, 0.5);
+    box-shadow: 0 0 15px var(--accent-glow);
+  }
+
+  .glass-button {
+    @apply relative overflow-hidden px-6 py-3 rounded-xl font-semibold transition-all duration-300 active:scale-95;
+    background: linear-gradient(135deg, var(--accent-primary), #6d28d9);
+  }
+
+  .glass-button::after {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+  }
+
+  .glass-button:hover::after {
+    @apply opacity-100;
+  }
+}
+
+.animate-glow {
+  animation: glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+  }
+  to {
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.5);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
