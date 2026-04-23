@@ -9,7 +9,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 ROOT_DIR = Path("projects")
 API_KEY = os.getenv("GEMINI_API_KEY")
 
-MODEL_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={API_KEY}"
+MODEL_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key={API_KEY}"
 
 MAX_WORKERS = 5          # parallelism
 RETRY_LIMIT = 3          # retry on bad output

@@ -1,0 +1,1 @@
+FixItFlow is a Next.js 16 web application designed to combat algorithmic bias in AI systems. It provides a clear, accessible solution for organizations to input details about observed biased model outcomes. Leveraging Gemini AI, the tool generates a concrete, prioritized action plan to debias their models, ensuring fairness and ethical decision-making in automated processes.

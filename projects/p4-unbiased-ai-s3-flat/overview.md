@@ -1,0 +1,1 @@
+DataMirror is a Next.js 16 application built with a Flat Design UI that empowers users to detect discriminatory proxy features within their datasets. By analyzing column names and sample values, it leverages Gemini AI to identify correlations with protected attributes, assess risk levels, and suggest data transformations, promoting fairness and algorithmic accountability.
