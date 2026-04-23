@@ -1,9 +1,12 @@
 {
-  "name": "p4-unbiased-ai-s3-flat",
-  "version": 2,
-  "framework": "nextjs",
-  "buildCommand": "next build",
-  "outputDirectory": ".next",
-  "installCommand": "npm install",
-  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- projects/p4-unbiased-ai-s3-flat/"
+    "version":  2,
+    "outputDirectory":  ".next",
+    "ignoreCommand":  "git diff --quiet HEAD^ HEAD -- projects/p4-unbiased-ai-s3-flat/",
+    "name":  "p4-unbiased-ai-s3-flat",
+    "git":  {
+                "deploymentEnabled":  true
+            },
+    "framework":  "nextjs",
+    "buildCommand":  "next build",
+    "installCommand":  "npm install"
 }

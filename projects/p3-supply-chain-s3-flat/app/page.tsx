@@ -54,7 +54,7 @@ export default function BottleneckBot() {
           if (!section.trim()) return null;
           
           const isHeader = section.match(/^(Root cause|Bottleneck|Cascade|Targeted fix|3 targeted fix)/i);
-          const [title, ...content] = isHeader ? section.split(/:(.*)/s) : ['', section];
+          const [title, ...content] = isHeader ? section.split(/:([\s\S]*)/) : ['', section];
 
           return (
             <div key={idx} className="flat-card">

@@ -46,7 +46,7 @@ function parseMarkdown(text: string) {
       closeList(index);
       const level = trimmed.match(/^#+/)?.[0].length || 1;
       const content = trimmed.replace(/^#+\s*/, '');
-      const Tag = `h${Math.min(level + 2, 6)}` as keyof JSX.IntrinsicElements;
+      const Tag = `h${Math.min(level + 2, 6)}` as keyof React.JSX.IntrinsicElements;
       
       elements.push(
         <Tag key={index} className={`font-bold text-white mt-8 mb-4 tracking-tight ${level === 1 ? 'text-2xl' : level === 2 ? 'text-xl' : 'text-lg'}`}>

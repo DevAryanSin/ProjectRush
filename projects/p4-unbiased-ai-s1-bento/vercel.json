@@ -1,9 +1,12 @@
 {
-  "name": "p4-unbiased-ai-s1-bento",
-  "version": 2,
-  "framework": "nextjs",
-  "buildCommand": "next build",
-  "outputDirectory": ".next",
-  "installCommand": "npm install",
-  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- projects/p4-unbiased-ai-s1-bento/"
+    "version":  2,
+    "outputDirectory":  ".next",
+    "ignoreCommand":  "git diff --quiet HEAD^ HEAD -- projects/p4-unbiased-ai-s1-bento/",
+    "name":  "p4-unbiased-ai-s1-bento",
+    "git":  {
+                "deploymentEnabled":  true
+            },
+    "framework":  "nextjs",
+    "buildCommand":  "next build",
+    "installCommand":  "npm install"
 }

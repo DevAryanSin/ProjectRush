@@ -7,6 +7,6 @@
                 "deploymentEnabled":  true
             },
     "framework":  "nextjs",
-    "buildCommand":  "next build --no-turbo",
+    "buildCommand":  "next build",
     "installCommand":  "npm install"
 }
