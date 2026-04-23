@@ -35,3 +35,4 @@ npm-debug.log*
 manifest.json
 
 .vercel
+.zip*
