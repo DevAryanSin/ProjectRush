@@ -1,22 +1,27 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
-export async function POST(req: NextRequest) {
+export async function POST(req: Request) {
   try {
     const { prompt } = await req.json();
 
     if (!prompt) {
-      return NextResponse.json({ error: 'Prompt is required' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Prompt is required' },
+        { status: 400 }
+      );
     }
 
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
-      return NextResponse.json({ error: 'API key not configured' }, { status: 500 });
+      return NextResponse.json(
+        { error: 'API key not configured' },
+        { status: 500 }
+      );
     }
 
-    // System prompt from requirements
     const systemPrompt = "You are a guest safety AI for a hospitality venue. A guest is in distress. Give them: (1) 5 immediate actions numbered simply, (2) 3 things NOT to do, (3) one reassuring closing sentence. Use the simplest possible language. No jargon. Write as if texting someone who is panicking.";
-
-    const fullPrompt = `${systemPrompt}\n\nUser Situation: ${prompt}`;
+    
+    const finalPrompt = `${systemPrompt}\n\nGuest Situation:\n${prompt}`;
 
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
@@ -28,7 +33,7 @@ export async function POST(req: NextRequest) {
         body: JSON.stringify({
           contents: [
             {
-              parts: [{ text: fullPrompt }],
+              parts: [{ text: finalPrompt }],
             },
           ],
         }),
@@ -36,17 +41,30 @@ export async function POST(req: NextRequest) {
     );
 
     if (!response.ok) {
-      const errorData = await response.json();
-      console.error('Gemini API Error:', errorData);
-      return NextResponse.json({ error: 'Failed to generate response' }, { status: response.status });
+      const err = await response.text();
+      console.error('Gemini API Error:', err);
+      return NextResponse.json(
+        { error: 'Failed to generate response from Gemini API' },
+        { status: response.status }
+      );
     }
 
     const data = await response.json();
-    const resultText = data.candidates?.[0]?.content?.parts?.[0]?.text || 'No response generated.';
+    const resultText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+    if (!resultText) {
+      return NextResponse.json(
+        { error: 'No content generated' },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json({ result: resultText });
   } catch (error) {
-    console.error('Error in generate route:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    console.error('Generate route error:', error);
+    return NextResponse.json(
+      { error: 'An unexpected error occurred' },
+      { status: 500 }
+    );
   }
 }

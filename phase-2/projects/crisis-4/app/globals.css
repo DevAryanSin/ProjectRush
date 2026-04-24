@@ -1,4 +1,97 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: #000000;
+  --text-primary: #39ff14;
+  --text-secondary: #008f11;
+  --accent: #00ffff;
+  --border-color: #39ff14;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: 'Fira Code', monospace;
+  margin: 0;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Scanline effect */
+body::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 50;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+/* Terminal input cursor blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+  border-left: 1px solid var(--text-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-primary);
+}
+
+.terminal-box {
+  border: 1px solid var(--border-color);
+  background: rgba(0, 20, 0, 0.4);
+}
+
+.terminal-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed var(--text-secondary);
+  color: var(--text-primary);
+  outline: none;
+  font-family: inherit;
+  width: 100%;
+}
+.terminal-input:focus {
+  border-bottom: 1px solid var(--text-primary);
+}
+
+.scanline-overlay {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  z-index: 9999;
+}
