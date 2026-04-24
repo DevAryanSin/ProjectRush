@@ -1,4 +1,83 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: #f0f0f0;
+  --foreground: #000000;
+  --primary: #00d2ff; /* Electric Blue */
+  --accent: #ff0055; /* Loud Pink/Red for accents */
+  --storm-grey: #2d3436;
+  --brutal-border: 4px solid #000000;
+  --brutal-shadow: 8px 8px 0px #000000;
+  --brutal-shadow-hover: 2px 2px 0px #000000;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+@layer components {
+  .brutal-card {
+    @apply bg-white border-[4px] border-black;
+    box-shadow: var(--brutal-shadow);
+  }
+
+  .brutal-button {
+    @apply bg-primary text-black font-black uppercase py-4 px-8 border-[4px] border-black transition-all duration-75 active:translate-x-[6px] active:translate-y-[6px] active:shadow-none;
+    box-shadow: var(--brutal-shadow);
+  }
+
+  .brutal-button:hover {
+    box-shadow: var(--brutal-shadow-hover);
+    transform: translate(4px, 4px);
+  }
+
+  .brutal-input {
+    @apply w-full p-4 border-[4px] border-black bg-white focus:outline-none focus:ring-0 text-lg font-bold;
+  }
+
+  .brutal-label {
+    @apply block uppercase font-black mb-2 text-sm tracking-widest;
+  }
+
+  .accent-box {
+    @apply bg-black text-white p-2 inline-block border-[3px] border-black font-black uppercase text-xs mb-4;
+    box-shadow: 4px 4px 0px #000000;
+  }
+  
+  .storm-bg {
+    background-color: var(--storm-grey);
+    color: white;
+  }
+}
+
+h1, h2, h3, h4 {
+  @apply font-black uppercase leading-tight;
+}
+
+h1 { @apply text-6xl md:text-8xl; }
+h2 { @apply text-4xl md:text-5xl; }
+
+.marquee-container {
+  @apply overflow-hidden whitespace-nowrap border-y-[4px] border-black bg-primary py-2 mb-12;
+}
+
+.marquee-content {
+  @apply inline-block animate-marquee font-black uppercase text-xl;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}

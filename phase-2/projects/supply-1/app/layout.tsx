@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'weathershield',
-  description: 'AI-powered MVP — Hackathon Factory Phase 2',
+  title: 'WeatherShield',
+  description: 'Input your route and forecast — predict weather-based delay risk',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
