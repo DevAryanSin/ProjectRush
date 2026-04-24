@@ -1,4 +1,118 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --lavender: #e0e7ff;
+  --lavender-dark: #818cf8;
+  --mint: #dcfce7;
+  --mint-dark: #34d399;
+  --clay-bg: #f8fafc;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+}
+
+body {
+  background-color: var(--lavender);
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+  background-attachment: fixed;
+  color: var(--text-main);
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+}
+
+/* Claymorphism Effects */
+.clay-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 8px 25px rgba(0,0,0,0.08),
+    inset 0 4px 8px rgba(255, 255, 255, 0.6),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.clay-button {
+  background: white;
+  border-radius: 50px;
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.1),
+    inset 0 4px 6px rgba(255, 255, 255, 0.8),
+    inset 0 -4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.clay-button:active {
+  transform: scale(0.95);
+  box-shadow: 
+    0 5px 10px rgba(0, 0, 0, 0.1),
+    inset 0 2px 4px rgba(255, 255, 255, 0.8),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.clay-input {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  border: 2px solid transparent;
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.05),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.clay-input:focus {
+  outline: none;
+  border-color: var(--lavender-dark);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.clay-mint {
+  background: var(--mint);
+  color: #065f46;
+}
+
+.clay-lavender {
+  background: var(--lavender);
+  color: #3730a3;
+}
+
+h1, h2, h3 {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+}
+
+.puffy-text {
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
