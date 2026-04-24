@@ -1,4 +1,87 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg: #e0e5ec;
+  --shadow-light: #ffffff;
+  --shadow-dark: rgba(163, 177, 198, 0.6);
+  --accent: #4a90e2;
+  --text: #44476a;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.neo-flat {
+  background: var(--bg);
+  box-shadow: 9px 9px 16px var(--shadow-dark), -9px -9px 16px var(--shadow-light);
+  border-radius: 20px;
+}
+
+.neo-pressed {
+  background: var(--bg);
+  box-shadow: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
+  border-radius: 20px;
+}
+
+.neo-button {
+  background: var(--bg);
+  box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.neo-button:active {
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+  transform: scale(0.98);
+}
+
+.neo-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+  background: rgba(0,0,0,0.05);
+}
+
+.neo-input {
+  background: var(--bg);
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  padding: 16px;
+  color: var(--text);
+  width: 100%;
+  font-family: inherit;
+}
+
+.neo-input:focus {
+  box-shadow: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
+}
+
+.accent-text {
+  color: var(--accent);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg);
+  box-shadow: 2px 2px 5px var(--shadow-dark), -2px -2px 5px var(--shadow-light);
+  border-radius: 10px;
+}
