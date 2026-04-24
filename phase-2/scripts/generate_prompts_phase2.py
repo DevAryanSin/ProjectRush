@@ -8,8 +8,8 @@ Usage: python3 phase-2/scripts/generate_prompts_phase2.py
 import os, sys
 
 ROOT_DIR     = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PHASE2_DIR   = os.path.join(ROOT_DIR, "phase-2")
-PROJECTS_DIR = os.path.join(PHASE2_DIR, "projects")
+# PHASE2_DIR   = os.path.join(ROOT_DIR, "phase-2")
+PROJECTS_DIR = os.path.join(ROOT_DIR, "projects")
 
 # ─────────────────────────────────────────────────────────────
 # PROBLEM STATEMENTS
