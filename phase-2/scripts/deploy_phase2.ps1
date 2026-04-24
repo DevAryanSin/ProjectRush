@@ -12,6 +12,7 @@ $ROOT_DIR    = (Get-Item -Path "$PSScriptRoot\..\..").FullName
 $PHASE2_DIR  = Join-Path $ROOT_DIR "phase-2"
 $PROJECTS    = Join-Path $PHASE2_DIR "projects"
 $MANIFEST    = Join-Path $PHASE2_DIR "manifest.json"
+$URLS_FILE   = Join-Path $PHASE2_DIR "urls.txt"
 $FAILED_LOG  = Join-Path $PHASE2_DIR "failed_deploys.txt"
 $ENV_FILE    = Join-Path $ROOT_DIR ".env"
 
@@ -173,6 +174,11 @@ foreach ($P_SLUG in $projectList) {
         url  = $URL
     }
     $manifestData | ConvertTo-Json -Depth 5 | Set-Content $MANIFEST
+
+    # Step 7: Save to text file
+    $cleanName = $projectName -replace "-sc$",""
+    $txtBlock = "slug : $P_SLUG`nproject name $cleanName`nurl ${projectName}.vercel.app`n"
+    Add-Content $URLS_FILE $txtBlock
 
     $SUCCESS++
     Write-Host ""

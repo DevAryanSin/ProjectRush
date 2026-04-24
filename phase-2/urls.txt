@@ -1,0 +1,120 @@
+slug : bias-1
+project name promptbias
+url promptbias-sc.vercel.app
+
+slug : bias-2
+project name hiringlens
+url hiringlens-sc.vercel.app
+
+slug : bias-3
+project name modelcard
+url modelcard-sc.vercel.app
+
+slug : bias-4
+project name counterfactualai
+url counterfactualai-sc.vercel.app
+
+slug : bias-5
+project name biastranslator
+url biastranslator-sc.vercel.app
+
+slug : bias-6
+project name redteamai
+url redteamai-sc.vercel.app
+
+slug : crisis-1
+project name panictranslate
+url panictranslate-sc.vercel.app
+
+slug : crisis-2
+project name staffpulse
+url staffpulse-sc.vercel.app
+
+slug : crisis-3
+project name guestsos
+url guestsos-sc.vercel.app
+
+slug : crisis-4
+project name crisisscript
+url crisisscript-sc.vercel.app
+
+slug : crisis-5
+project name postmortempeg
+url postmortempeg-sc.vercel.app
+
+slug : crisis-6
+project name hazardmap
+url hazardmap-sc.vercel.app
+
+slug : digital-1
+project name watermarkiq
+url watermarkiq-sc.vercel.app
+
+slug : digital-2
+project name clonecourt
+url clonecourt-sc.vercel.app
+
+slug : digital-3
+project name assetvault
+url assetvault-sc.vercel.app
+
+slug : digital-4
+project name platformspy
+url platformspy-sc.vercel.app
+
+slug : digital-5
+project name reversetrace
+url reversetrace-sc.vercel.app
+
+slug : digital-6
+project name licensegen
+url licensegen-sc.vercel.app
+
+slug : supply-1
+project name weathershield
+url weathershield-sc.vercel.app
+
+slug : supply-2
+project name vendorscore
+url vendorscore-sc.vercel.app
+
+slug : supply-3
+project name shipmentnarrator
+url shipmentnarrator-sc.vercel.app
+
+slug : supply-4
+project name costleakfinder
+url costleakfinder-sc.vercel.app
+
+slug : supply-5
+project name contractclause
+url contractclause-sc.vercel.app
+
+slug : supply-6
+project name demandsignal
+url demandsignal-sc.vercel.app
+
+slug : volunteer-1
+project name grantwriter
+url grantwriter-sc.vercel.app
+
+slug : volunteer-2
+project name volunteerbio
+url volunteerbio-sc.vercel.app
+
+slug : volunteer-3
+project name communitypulse
+url communitypulse-sc.vercel.app
+
+slug : volunteer-4
+project name tasknarrator
+url tasknarrator-sc.vercel.app
+
+slug : volunteer-5
+project name skillgapfinder
+url skillgapfinder-sc.vercel.app
+
+slug : volunteer-6
+project name eventplanner
+url eventplanner-sc.vercel.app
+
