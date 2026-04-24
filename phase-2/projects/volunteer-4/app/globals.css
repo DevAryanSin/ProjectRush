@@ -1,4 +1,155 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --term-bg: #050a05;
+  --term-text: #39ff14;
+  --term-text-dim: #008f11;
+  --term-border: #00ff41;
+  --term-accent: #00ffff;
+  --term-error: #ff3333;
+}
+
+body {
+  background-color: var(--term-bg);
+  color: var(--term-text);
+  font-family: 'Fira Code', monospace;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Scanline effect */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 2px,
+    rgba(0, 255, 65, 0.03) 2px,
+    rgba(0, 255, 65, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 50;
+  animation: scroll-scanlines 10s linear infinite;
+}
+
+@keyframes scroll-scanlines {
+  from { background-position: 0 0; }
+  to { background-position: 0 100vh; }
+}
+
+.terminal-border {
+  border: 1px solid var(--term-border);
+  box-shadow: inset 0 0 10px rgba(0, 255, 65, 0.1), 0 0 10px rgba(0, 255, 65, 0.1);
+}
+
+.terminal-dashed-border {
+  border: 1px dashed var(--term-border);
+}
+
+.terminal-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed var(--term-text-dim);
+  color: var(--term-text);
+  font-family: 'Fira Code', monospace;
+  width: 100%;
+  padding: 4px 0;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.terminal-input:focus {
+  border-bottom-color: var(--term-accent);
+}
+
+.terminal-button {
+  background: transparent;
+  color: var(--term-text);
+  border: 1px solid var(--term-border);
+  font-family: 'Fira Code', monospace;
+  cursor: pointer;
+  padding: 8px 16px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+
+.terminal-button:hover:not(:disabled) {
+  background: var(--term-text);
+  color: var(--term-bg);
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
+}
+
+.terminal-button:disabled {
+  border-color: var(--term-text-dim);
+  color: var(--term-text-dim);
+  cursor: not-allowed;
+}
+
+.blink-cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Glitch animation for title */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--term-bg);
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -1px 0 red;
+  clip: rect(24px, 550px, 90px, 0);
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -1px 0 blue;
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch-anim 2.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(78px, 9999px, 86px, 0); }
+  20% { clip: rect(6px, 9999px, 84px, 0); }
+  40% { clip: rect(98px, 9999px, 19px, 0); }
+  60% { clip: rect(10px, 9999px, 20px, 0); }
+  80% { clip: rect(21px, 9999px, 59px, 0); }
+  100% { clip: rect(48px, 9999px, 86px, 0); }
+}
+
+@keyframes glitch-anim-2 {
+  0% { clip: rect(29px, 9999px, 98px, 0); }
+  20% { clip: rect(73px, 9999px, 63px, 0); }
+  40% { clip: rect(35px, 9999px, 94px, 0); }
+  60% { clip: rect(88px, 9999px, 4px, 0); }
+  80% { clip: rect(6px, 9999px, 7px, 0); }
+  100% { clip: rect(58px, 9999px, 48px, 0); }
+}
