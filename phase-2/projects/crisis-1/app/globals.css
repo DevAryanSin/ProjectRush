@@ -1,4 +1,108 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Epilogue:wght@400;700;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg-color: #f4f4f0;
+  --accent-red: #ff2a00;
+  --accent-yellow: #ffe600;
+  --text-main: #0a0a0a;
+  --border-thick: 4px solid var(--text-main);
+  --shadow-brutal: 6px 6px 0px var(--text-main);
+  --shadow-brutal-hover: 2px 2px 0px var(--text-main);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Epilogue', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  /* Brutalist grid paper effect */
+  background-image: 
+    linear-gradient(var(--text-main) 1px, transparent 1px),
+    linear-gradient(90deg, var(--text-main) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center center;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(244, 244, 240, 0.85);
+  z-index: -1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Archivo Black', sans-serif;
+  text-transform: uppercase;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.brutal-box {
+  background: white;
+  border: var(--border-thick);
+  box-shadow: var(--shadow-brutal);
+  transition: all 0.1s ease-in-out;
+}
+
+.brutal-button {
+  background: var(--accent-red);
+  color: white;
+  border: var(--border-thick);
+  box-shadow: var(--shadow-brutal);
+  font-family: 'Archivo Black', sans-serif;
+  text-transform: uppercase;
+  transition: all 0.1s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.brutal-button:hover {
+  transform: translate(4px, 4px);
+  box-shadow: var(--shadow-brutal-hover);
+}
+
+.brutal-button:active {
+  transform: translate(6px, 6px);
+  box-shadow: 0px 0px 0px var(--text-main);
+}
+
+.brutal-button-yellow {
+  background: var(--accent-yellow);
+  color: var(--text-main);
+}
+
+.brutal-input {
+  background: white;
+  border: var(--border-thick);
+  font-family: 'Epilogue', sans-serif;
+  width: 100%;
+  border-radius: 0;
+  outline: none;
+}
+
+.brutal-input:focus {
+  background: #fffdf5;
+  box-shadow: inset 4px 4px 0px rgba(0,0,0,0.1);
+}
+
+/* Custom scrollbar for brutalism */
+::-webkit-scrollbar {
+  width: 12px;
+  border-left: var(--border-thick);
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--text-main);
+}
