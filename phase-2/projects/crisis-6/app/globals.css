@@ -1,4 +1,112 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: 200 100% 98%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --primary: 199 89% 48%;
+  --primary-foreground: 210 40% 98%;
+  --accent: 0 91% 71%;
+  --accent-foreground: 210 40% 98%;
+  --radius: 32px;
+}
+
+body {
+  background-color: #f0f9ff;
+  color: #1e293b;
+  font-family: 'Nunito', sans-serif;
+}
+
+h1, h2, h3, .font-display {
+  font-family: 'Fredoka', sans-serif;
+}
+
+@layer components {
+  .clay-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: var(--radius);
+    box-shadow: 
+      0 20px 60px rgba(0, 0, 0, 0.08),
+      inset 0 -8px 15px rgba(0, 0, 0, 0.05),
+      inset 0 8px 15px rgba(255, 255, 255, 0.8);
+    border: 4px solid rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .clay-button {
+    background: #38bdf8;
+    color: white;
+    border-radius: 9999px;
+    box-shadow: 
+      0 10px 25px rgba(56, 189, 248, 0.3),
+      inset 0 -6px 12px rgba(0, 0, 0, 0.1),
+      inset 0 6px 12px rgba(255, 255, 255, 0.2);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.2s ease;
+  }
+
+  .clay-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 15px 30px rgba(56, 189, 248, 0.4),
+      inset 0 -6px 12px rgba(0, 0, 0, 0.1),
+      inset 0 6px 12px rgba(255, 255, 255, 0.3);
+  }
+
+  .clay-button:active {
+    transform: translateY(2px);
+    box-shadow: 
+      0 5px 15px rgba(56, 189, 248, 0.2),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.1),
+      inset 0 4px 8px rgba(255, 255, 255, 0.2);
+  }
+
+  .clay-input {
+    background: #f8fafc;
+    border-radius: 20px;
+    box-shadow: 
+      inset 0 4px 10px rgba(0, 0, 0, 0.05),
+      0 2px 5px rgba(255, 255, 255, 0.8);
+    border: 2px solid #e2e8f0;
+    padding: 1rem 1.5rem;
+    transition: all 0.2s ease;
+  }
+
+  .clay-input:focus {
+    outline: none;
+    border-color: #38bdf8;
+    box-shadow: 
+      inset 0 4px 10px rgba(56, 189, 248, 0.1),
+      0 0 0 4px rgba(56, 189, 248, 0.1);
+  }
+
+  .clay-pill {
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    box-shadow: 
+      0 4px 10px rgba(0, 0, 0, 0.05),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.1),
+      inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  }
+
+  .clay-badge-high {
+    background: #fca5a5;
+    color: #991b1b;
+  }
+
+  .clay-badge-medium {
+    background: #fde047;
+    color: #854d0e;
+  }
+
+  .clay-badge-low {
+    background: #86efac;
+    color: #166534;
+  }
+}
