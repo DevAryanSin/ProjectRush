@@ -1,12 +1,19 @@
 # AGENT PROMPT — crisis-2
+
 # Tool: StaffPulse | UI: Neomorphism
+
 # Deployment domain: staffpulse-sc
+
 # ═══════════════════════════════════════════════════════════════
+
 # READ THIS ENTIRE FILE BEFORE WRITING ANY CODE.
+
 # Generate ALL files in ONE response using EXACT delimiters below.
+
 # ═══════════════════════════════════════════════════════════════
 
 ## YOUR TASK
+
 You are an expert frontend developer and UI designer. Generate a complete,
 production-ready Next.js 16 web application as a working MVP.
 
@@ -15,6 +22,7 @@ The website title (shown in browser tab and on page) must be: **StaffPulse**
 ---
 
 ## PROBLEM CONTEXT
+
 Hospitality venues face unpredictable, high-stakes emergencies that demand instantaneous,
 coordinated reactions to protect lives and property. During a crisis, critical information is
 often siloed, fracturing communication between distressed guests, on-site staff, and first responders.
@@ -27,6 +35,7 @@ and emergency services.
 ---
 
 ## THIS TOOL
+
 **Name:** StaffPulse
 **Tagline:** Staff check-in during a crisis — get a live team status synthesis
 **Domain:** hospitality emergency management, crisis coordination, safety systems
@@ -38,12 +47,14 @@ and emergency services.
 ---
 
 ## UI STYLE
+
 NEOMORPHISM UI STYLE
 ━━━━━━━━━━━━━━━━━━━
 Core concept: Soft extruded 3D elements that appear pressed from the same material as
 the background. Everything is the same color family. Depth through dual shadows only.
 
 Visual language:
+
 - Background: a mid-tone flat color (e.g. #e0e5ec or soft warm grey)
 - Elements use TWO shadows: light shadow top-left, dark shadow bottom-right
   e.g. box-shadow: -5px -5px 10px #ffffff, 5px 5px 10px rgba(0,0,0,0.15)
@@ -61,9 +72,10 @@ DO NOT: use multiple colors, use hard borders, use flat shadows, use dark backgr
 ---
 
 ## GEMINI API INTEGRATION
-- Model: `gemini-1.5-flash`
+
+- Model: `gemini-2.5-flash`
 - API key env var: `process.env.GEMINI_API_KEY` (server-side only)
-- Endpoint: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${KEY}`
+- Endpoint: `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${KEY}`
 - Your API route: `app/api/generate/route.ts` (POST)
 - Page sends: `{ "prompt": "assembled user input" }`
 - Route returns: `{ "result": "gemini response text" }`
@@ -76,6 +88,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## TECH CONSTRAINTS
+
 - Next.js 16, App Router (`app/` directory), TypeScript (.tsx)
 - Tailwind CSS + custom CSS variables in globals.css
 - Icons: lucide-react only
@@ -89,6 +102,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## FUNCTIONAL REQUIREMENTS
+
 1. Page title and prominent heading = **StaffPulse**
 2. Tagline shown below title: "Staff check-in during a crisis — get a live team status synthesis"
 3. Input form matching the UI style — all required fields visible
@@ -101,6 +115,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## OUTPUT FORMAT — MANDATORY
+
 No text outside these delimiters. No markdown fences inside blocks.
 
 --- FILE: app/page.tsx ---
@@ -114,6 +129,7 @@ No text outside these delimiters. No markdown fences inside blocks.
 ---
 
 ## QUALITY BAR
+
 - UI must be immediately recognizable as Neomorphism
 - Must look like a real product — not a template or placeholder
 - Font choice must match the style (imported via Google Fonts in globals.css)

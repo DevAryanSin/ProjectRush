@@ -1,4 +1,49 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg-color: #fdfbf7;
+  --accent-color: #8A2BE2; /* Bold purple */
+  --border-color: #000000;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: #000000;
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Brutalism specific utility classes */
+@layer utilities {
+  .brutal-border {
+    border: 4px solid var(--border-color);
+  }
+  
+  .brutal-shadow {
+    box-shadow: 6px 6px 0px 0px var(--border-color);
+    transition: all 0.1s ease-in-out;
+  }
+  
+  .brutal-shadow:active {
+    box-shadow: 2px 2px 0px 0px var(--border-color);
+    transform: translate(4px, 4px);
+  }
+
+  .brutal-shadow-hover:hover {
+    box-shadow: 2px 2px 0px 0px var(--border-color);
+    transform: translate(4px, 4px);
+  }
+
+  .brutal-container {
+    background-color: #ffffff;
+    border: 4px solid var(--border-color);
+    box-shadow: 8px 8px 0px 0px var(--border-color);
+  }
+}

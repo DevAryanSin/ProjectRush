@@ -567,9 +567,9 @@ The website title (shown in browser tab and on page) must be: **{tool_name}**
 ---
 
 ## GEMINI API INTEGRATION
-- Model: `gemini-1.5-flash`
+- Model: `gemini-2.5-flash`
 - API key env var: `process.env.GEMINI_API_KEY` (server-side only)
-- Endpoint: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${{KEY}}`
+- Endpoint: `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${{KEY}}`
 - Your API route: `app/api/generate/route.ts` (POST)
 - Page sends: `{{ "prompt": "assembled user input" }}`
 - Route returns: `{{ "result": "gemini response text" }}`

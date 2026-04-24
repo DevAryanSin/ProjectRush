@@ -1,12 +1,19 @@
 # AGENT PROMPT — supply-4
+
 # Tool: CostLeakFinder | UI: Terminal
+
 # Deployment domain: costleakfinder-sc
+
 # ═══════════════════════════════════════════════════════════════
+
 # READ THIS ENTIRE FILE BEFORE WRITING ANY CODE.
+
 # Generate ALL files in ONE response using EXACT delimiters below.
+
 # ═══════════════════════════════════════════════════════════════
 
 ## YOUR TASK
+
 You are an expert frontend developer and UI designer. Generate a complete,
 production-ready Next.js 16 web application as a working MVP.
 
@@ -15,6 +22,7 @@ The website title (shown in browser tab and on page) must be: **CostLeakFinder**
 ---
 
 ## PROBLEM CONTEXT
+
 Modern global supply chains manage millions of concurrent shipments across highly complex
 and inherently volatile transportation networks. Critical transit disruptions ranging from sudden
 weather events to hidden operational bottlenecks are chronically identified only after delivery
@@ -28,6 +36,7 @@ bottlenecks cascade into broader delays.
 ---
 
 ## THIS TOOL
+
 **Name:** CostLeakFinder
 **Tagline:** Describe your supply chain — find hidden cost inefficiencies instantly
 **Domain:** logistics, supply chain management, route optimization, disruption detection
@@ -39,12 +48,14 @@ bottlenecks cascade into broader delays.
 ---
 
 ## UI STYLE
+
 TERMINAL / HACKER UI STYLE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 Core concept: Command-line interface aesthetic. Monospace everything. Green on black.
 Feels like you're in a 90s hacker movie but functional and modern.
 
 Visual language:
+
 - Background: pure black (#000000) or very dark green-black (#0a0f0a)
 - Primary text: bright green (#00ff41 or #39ff14)
 - Secondary text: dim green (#008f11)
@@ -52,7 +63,7 @@ Visual language:
 - Font: monospace ONLY (Courier New, Fira Code, JetBrains Mono)
 - Borders: 1px solid green, sometimes dashed
 - Buttons look like CLI commands: [> EXECUTE] or [$ SUBMIT]
-- Input fields look like terminal prompts: "> _"
+- Input fields look like terminal prompts: "> \_"
 - Fake loading/typing animations using CSS
 - Scanline effect optional (CSS repeating-gradient overlay)
 
@@ -63,9 +74,10 @@ DO NOT: use colors other than green/black/white/cyan, use rounded corners, use s
 ---
 
 ## GEMINI API INTEGRATION
-- Model: `gemini-1.5-flash`
+
+- Model: `gemini-2.5-flash`
 - API key env var: `process.env.GEMINI_API_KEY` (server-side only)
-- Endpoint: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${KEY}`
+- Endpoint: `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${KEY}`
 - Your API route: `app/api/generate/route.ts` (POST)
 - Page sends: `{ "prompt": "assembled user input" }`
 - Route returns: `{ "result": "gemini response text" }`
@@ -78,6 +90,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## TECH CONSTRAINTS
+
 - Next.js 16, App Router (`app/` directory), TypeScript (.tsx)
 - Tailwind CSS + custom CSS variables in globals.css
 - Icons: lucide-react only
@@ -91,6 +104,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## FUNCTIONAL REQUIREMENTS
+
 1. Page title and prominent heading = **CostLeakFinder**
 2. Tagline shown below title: "Describe your supply chain — find hidden cost inefficiencies instantly"
 3. Input form matching the UI style — all required fields visible
@@ -103,6 +117,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## OUTPUT FORMAT — MANDATORY
+
 No text outside these delimiters. No markdown fences inside blocks.
 
 --- FILE: app/page.tsx ---
@@ -116,6 +131,7 @@ No text outside these delimiters. No markdown fences inside blocks.
 ---
 
 ## QUALITY BAR
+
 - UI must be immediately recognizable as Terminal
 - Must look like a real product — not a template or placeholder
 - Font choice must match the style (imported via Google Fonts in globals.css)

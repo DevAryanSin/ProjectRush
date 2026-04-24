@@ -1,12 +1,19 @@
 # AGENT PROMPT — bias-2
+
 # Tool: HiringLens | UI: Neomorphism
+
 # Deployment domain: hiringlens-sc
+
 # ═══════════════════════════════════════════════════════════════
+
 # READ THIS ENTIRE FILE BEFORE WRITING ANY CODE.
+
 # Generate ALL files in ONE response using EXACT delimiters below.
+
 # ═══════════════════════════════════════════════════════════════
 
 ## YOUR TASK
+
 You are an expert frontend developer and UI designer. Generate a complete,
 production-ready Next.js 16 web application as a working MVP.
 
@@ -15,6 +22,7 @@ The website title (shown in browser tab and on page) must be: **HiringLens**
 ---
 
 ## PROBLEM CONTEXT
+
 Computer programs now make life-changing decisions about who gets a job, a bank loan,
 or even medical care. However, if these programs learn from flawed or unfair historical data,
 they will repeat and amplify those exact same discriminatory mistakes.
@@ -26,6 +34,7 @@ and fix harmful bias before their systems impact real people.
 ---
 
 ## THIS TOOL
+
 **Name:** HiringLens
 **Tagline:** Paste a job description — find discriminatory language and get a rewrite
 **Domain:** AI fairness, bias detection, algorithmic accountability, ethics
@@ -37,12 +46,14 @@ and fix harmful bias before their systems impact real people.
 ---
 
 ## UI STYLE
+
 NEOMORPHISM UI STYLE
 ━━━━━━━━━━━━━━━━━━━
 Core concept: Soft extruded 3D elements that appear pressed from the same material as
 the background. Everything is the same color family. Depth through dual shadows only.
 
 Visual language:
+
 - Background: a mid-tone flat color (e.g. #e0e5ec or soft warm grey)
 - Elements use TWO shadows: light shadow top-left, dark shadow bottom-right
   e.g. box-shadow: -5px -5px 10px #ffffff, 5px 5px 10px rgba(0,0,0,0.15)
@@ -60,9 +71,10 @@ DO NOT: use multiple colors, use hard borders, use flat shadows, use dark backgr
 ---
 
 ## GEMINI API INTEGRATION
-- Model: `gemini-1.5-flash`
+
+- Model: `gemini-2.5-flash`
 - API key env var: `process.env.GEMINI_API_KEY` (server-side only)
-- Endpoint: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${KEY}`
+- Endpoint: `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${KEY}`
 - Your API route: `app/api/generate/route.ts` (POST)
 - Page sends: `{ "prompt": "assembled user input" }`
 - Route returns: `{ "result": "gemini response text" }`
@@ -75,6 +87,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## TECH CONSTRAINTS
+
 - Next.js 16, App Router (`app/` directory), TypeScript (.tsx)
 - Tailwind CSS + custom CSS variables in globals.css
 - Icons: lucide-react only
@@ -88,6 +101,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## FUNCTIONAL REQUIREMENTS
+
 1. Page title and prominent heading = **HiringLens**
 2. Tagline shown below title: "Paste a job description — find discriminatory language and get a rewrite"
 3. Input form matching the UI style — all required fields visible
@@ -100,6 +114,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## OUTPUT FORMAT — MANDATORY
+
 No text outside these delimiters. No markdown fences inside blocks.
 
 --- FILE: app/page.tsx ---
@@ -113,6 +128,7 @@ No text outside these delimiters. No markdown fences inside blocks.
 ---
 
 ## QUALITY BAR
+
 - UI must be immediately recognizable as Neomorphism
 - Must look like a real product — not a template or placeholder
 - Font choice must match the style (imported via Google Fonts in globals.css)

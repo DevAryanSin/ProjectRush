@@ -1,12 +1,19 @@
 # AGENT PROMPT — bias-5
+
 # Tool: BiasTranslator | UI: Paper
+
 # Deployment domain: biastranslator-sc
+
 # ═══════════════════════════════════════════════════════════════
+
 # READ THIS ENTIRE FILE BEFORE WRITING ANY CODE.
+
 # Generate ALL files in ONE response using EXACT delimiters below.
+
 # ═══════════════════════════════════════════════════════════════
 
 ## YOUR TASK
+
 You are an expert frontend developer and UI designer. Generate a complete,
 production-ready Next.js 16 web application as a working MVP.
 
@@ -15,6 +22,7 @@ The website title (shown in browser tab and on page) must be: **BiasTranslator**
 ---
 
 ## PROBLEM CONTEXT
+
 Computer programs now make life-changing decisions about who gets a job, a bank loan,
 or even medical care. However, if these programs learn from flawed or unfair historical data,
 they will repeat and amplify those exact same discriminatory mistakes.
@@ -26,6 +34,7 @@ and fix harmful bias before their systems impact real people.
 ---
 
 ## THIS TOOL
+
 **Name:** BiasTranslator
 **Tagline:** Explain any AI bias concept in plain language for non-technical stakeholders
 **Domain:** AI fairness, bias detection, algorithmic accountability, ethics
@@ -37,12 +46,14 @@ and fix harmful bias before their systems impact real people.
 ---
 
 ## UI STYLE
+
 PAPER / EDITORIAL UI STYLE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 Core concept: A well-designed newspaper or magazine layout. Serif fonts, structured
 columns, clear typographic hierarchy. Serious, trustworthy, readable.
 
 Visual language:
+
 - Background: off-white/cream (#fafaf7 or #f5f0e8)
 - Text: near-black (#1a1a1a) primary, dark grey secondary
 - Accent: one ink color (dark red, dark blue, or forest green)
@@ -61,9 +72,10 @@ DO NOT: use sans-serif for content, use gradients, use rounded cards, use bright
 ---
 
 ## GEMINI API INTEGRATION
-- Model: `gemini-1.5-flash`
+
+- Model: `gemini-2.5-flash`
 - API key env var: `process.env.GEMINI_API_KEY` (server-side only)
-- Endpoint: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${KEY}`
+- Endpoint: `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${KEY}`
 - Your API route: `app/api/generate/route.ts` (POST)
 - Page sends: `{ "prompt": "assembled user input" }`
 - Route returns: `{ "result": "gemini response text" }`
@@ -76,6 +88,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## TECH CONSTRAINTS
+
 - Next.js 16, App Router (`app/` directory), TypeScript (.tsx)
 - Tailwind CSS + custom CSS variables in globals.css
 - Icons: lucide-react only
@@ -89,6 +102,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## FUNCTIONAL REQUIREMENTS
+
 1. Page title and prominent heading = **BiasTranslator**
 2. Tagline shown below title: "Explain any AI bias concept in plain language for non-technical stakeholders"
 3. Input form matching the UI style — all required fields visible
@@ -101,6 +115,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## OUTPUT FORMAT — MANDATORY
+
 No text outside these delimiters. No markdown fences inside blocks.
 
 --- FILE: app/page.tsx ---
@@ -114,6 +129,7 @@ No text outside these delimiters. No markdown fences inside blocks.
 ---
 
 ## QUALITY BAR
+
 - UI must be immediately recognizable as Paper
 - Must look like a real product — not a template or placeholder
 - Font choice must match the style (imported via Google Fonts in globals.css)

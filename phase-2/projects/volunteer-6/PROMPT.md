@@ -1,12 +1,19 @@
 # AGENT PROMPT — volunteer-6
+
 # Tool: EventPlanner | UI: Claymorphism
+
 # Deployment domain: eventplanner-sc
+
 # ═══════════════════════════════════════════════════════════════
+
 # READ THIS ENTIRE FILE BEFORE WRITING ANY CODE.
+
 # Generate ALL files in ONE response using EXACT delimiters below.
+
 # ═══════════════════════════════════════════════════════════════
 
 ## YOUR TASK
+
 You are an expert frontend developer and UI designer. Generate a complete,
 production-ready Next.js 16 web application as a working MVP.
 
@@ -15,6 +22,7 @@ The website title (shown in browser tab and on page) must be: **EventPlanner**
 ---
 
 ## PROBLEM CONTEXT
+
 Local social groups and NGOs collect a lot of important information about community needs
 through paper surveys and field reports. However, this valuable data is often scattered across
 different places, making it hard to see the biggest problems clearly.
@@ -26,6 +34,7 @@ with the specific tasks and areas where they are needed most.
 ---
 
 ## THIS TOOL
+
 **Name:** EventPlanner
 **Tagline:** Describe a community need — generate a complete volunteer event plan
 **Domain:** NGO operations, volunteer management, community needs assessment, social impact
@@ -37,12 +46,14 @@ with the specific tasks and areas where they are needed most.
 ---
 
 ## UI STYLE
+
 CLAYMORPHISM UI STYLE
 ━━━━━━━━━━━━━━━━━━━━
 Core concept: Soft, inflated, 3D-looking shapes that appear molded from clay. Pastel
 colors, thick shadows, rounded everything. Playful and modern.
 
 Visual language:
+
 - Light pastel background (soft lavender, mint, peach, or sky blue)
 - Cards appear inflated: border-radius 20-30px, strong drop shadow
   box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 8px 25px rgba(0,0,0,0.08)
@@ -60,9 +71,10 @@ DO NOT: use sharp corners, use dark backgrounds, use thin elements, use flat sha
 ---
 
 ## GEMINI API INTEGRATION
-- Model: `gemini-1.5-flash`
+
+- Model: `gemini-2.5-flash`
 - API key env var: `process.env.GEMINI_API_KEY` (server-side only)
-- Endpoint: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${KEY}`
+- Endpoint: `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${KEY}`
 - Your API route: `app/api/generate/route.ts` (POST)
 - Page sends: `{ "prompt": "assembled user input" }`
 - Route returns: `{ "result": "gemini response text" }`
@@ -75,6 +87,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## TECH CONSTRAINTS
+
 - Next.js 16, App Router (`app/` directory), TypeScript (.tsx)
 - Tailwind CSS + custom CSS variables in globals.css
 - Icons: lucide-react only
@@ -88,6 +101,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## FUNCTIONAL REQUIREMENTS
+
 1. Page title and prominent heading = **EventPlanner**
 2. Tagline shown below title: "Describe a community need — generate a complete volunteer event plan"
 3. Input form matching the UI style — all required fields visible
@@ -100,6 +114,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## OUTPUT FORMAT — MANDATORY
+
 No text outside these delimiters. No markdown fences inside blocks.
 
 --- FILE: app/page.tsx ---
@@ -113,6 +128,7 @@ No text outside these delimiters. No markdown fences inside blocks.
 ---
 
 ## QUALITY BAR
+
 - UI must be immediately recognizable as Claymorphism
 - Must look like a real product — not a template or placeholder
 - Font choice must match the style (imported via Google Fonts in globals.css)

@@ -1,12 +1,19 @@
 # AGENT PROMPT — digital-3
+
 # Tool: AssetVault | UI: Aurora
+
 # Deployment domain: assetvault-sc
+
 # ═══════════════════════════════════════════════════════════════
+
 # READ THIS ENTIRE FILE BEFORE WRITING ANY CODE.
+
 # Generate ALL files in ONE response using EXACT delimiters below.
+
 # ═══════════════════════════════════════════════════════════════
 
 ## YOUR TASK
+
 You are an expert frontend developer and UI designer. Generate a complete,
 production-ready Next.js 16 web application as a working MVP.
 
@@ -15,6 +22,7 @@ The website title (shown in browser tab and on page) must be: **AssetVault**
 ---
 
 ## PROBLEM CONTEXT
+
 Sports organizations generate massive volumes of high-value digital media that rapidly
 scatter across global platforms, making it nearly impossible to track. This vast visibility gap
 leaves proprietary content highly vulnerable to widespread digital misappropriation, unauthorized
@@ -28,6 +36,7 @@ in near real-time.
 ---
 
 ## THIS TOOL
+
 **Name:** AssetVault
 **Tagline:** Describe your media library — get a theft vulnerability ranking
 **Domain:** digital sports media, copyright protection, IP rights management
@@ -39,12 +48,14 @@ in near real-time.
 ---
 
 ## UI STYLE
+
 AURORA UI STYLE
 ━━━━━━━━━━━━━━
 Core concept: Dark background with flowing, ethereal gradient overlays inspired by the
 northern lights. Deep, immersive, and premium feeling.
 
 Visual language:
+
 - Very dark background (#050810 or #0a0a1a)
 - 2-4 large blurred gradient orbs (position: absolute, blur: 100-150px, opacity: 0.4-0.6)
   Colors: teal (#00d4aa), purple (#7c3aed), blue (#2563eb), pink (#db2777)
@@ -61,9 +72,10 @@ DO NOT: use light backgrounds, use flat colors, skip the gradient orbs.
 ---
 
 ## GEMINI API INTEGRATION
-- Model: `gemini-1.5-flash`
+
+- Model: `gemini-2.5-flash`
 - API key env var: `process.env.GEMINI_API_KEY` (server-side only)
-- Endpoint: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${KEY}`
+- Endpoint: `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${KEY}`
 - Your API route: `app/api/generate/route.ts` (POST)
 - Page sends: `{ "prompt": "assembled user input" }`
 - Route returns: `{ "result": "gemini response text" }`
@@ -76,6 +88,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## TECH CONSTRAINTS
+
 - Next.js 16, App Router (`app/` directory), TypeScript (.tsx)
 - Tailwind CSS + custom CSS variables in globals.css
 - Icons: lucide-react only
@@ -89,6 +102,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## FUNCTIONAL REQUIREMENTS
+
 1. Page title and prominent heading = **AssetVault**
 2. Tagline shown below title: "Describe your media library — get a theft vulnerability ranking"
 3. Input form matching the UI style — all required fields visible
@@ -101,6 +115,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## OUTPUT FORMAT — MANDATORY
+
 No text outside these delimiters. No markdown fences inside blocks.
 
 --- FILE: app/page.tsx ---
@@ -114,6 +129,7 @@ No text outside these delimiters. No markdown fences inside blocks.
 ---
 
 ## QUALITY BAR
+
 - UI must be immediately recognizable as Aurora
 - Must look like a real product — not a template or placeholder
 - Font choice must match the style (imported via Google Fonts in globals.css)

@@ -1,12 +1,19 @@
 # AGENT PROMPT — volunteer-3
+
 # Tool: CommunityPulse | UI: Aurora
+
 # Deployment domain: communitypulse-sc
+
 # ═══════════════════════════════════════════════════════════════
+
 # READ THIS ENTIRE FILE BEFORE WRITING ANY CODE.
+
 # Generate ALL files in ONE response using EXACT delimiters below.
+
 # ═══════════════════════════════════════════════════════════════
 
 ## YOUR TASK
+
 You are an expert frontend developer and UI designer. Generate a complete,
 production-ready Next.js 16 web application as a working MVP.
 
@@ -15,6 +22,7 @@ The website title (shown in browser tab and on page) must be: **CommunityPulse**
 ---
 
 ## PROBLEM CONTEXT
+
 Local social groups and NGOs collect a lot of important information about community needs
 through paper surveys and field reports. However, this valuable data is often scattered across
 different places, making it hard to see the biggest problems clearly.
@@ -26,6 +34,7 @@ with the specific tasks and areas where they are needed most.
 ---
 
 ## THIS TOOL
+
 **Name:** CommunityPulse
 **Tagline:** Paste community social media posts — extract hidden needs for NGO action
 **Domain:** NGO operations, volunteer management, community needs assessment, social impact
@@ -37,12 +46,14 @@ with the specific tasks and areas where they are needed most.
 ---
 
 ## UI STYLE
+
 AURORA UI STYLE
 ━━━━━━━━━━━━━━
 Core concept: Dark background with flowing, ethereal gradient overlays inspired by the
 northern lights. Deep, immersive, and premium feeling.
 
 Visual language:
+
 - Very dark background (#050810 or #0a0a1a)
 - 2-4 large blurred gradient orbs (position: absolute, blur: 100-150px, opacity: 0.4-0.6)
   Colors: teal (#00d4aa), purple (#7c3aed), blue (#2563eb), pink (#db2777)
@@ -59,9 +70,10 @@ DO NOT: use light backgrounds, use flat colors, skip the gradient orbs.
 ---
 
 ## GEMINI API INTEGRATION
-- Model: `gemini-1.5-flash`
+
+- Model: `gemini-2.5-flash`
 - API key env var: `process.env.GEMINI_API_KEY` (server-side only)
-- Endpoint: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${KEY}`
+- Endpoint: `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${KEY}`
 - Your API route: `app/api/generate/route.ts` (POST)
 - Page sends: `{ "prompt": "assembled user input" }`
 - Route returns: `{ "result": "gemini response text" }`
@@ -74,6 +86,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## TECH CONSTRAINTS
+
 - Next.js 16, App Router (`app/` directory), TypeScript (.tsx)
 - Tailwind CSS + custom CSS variables in globals.css
 - Icons: lucide-react only
@@ -87,6 +100,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## FUNCTIONAL REQUIREMENTS
+
 1. Page title and prominent heading = **CommunityPulse**
 2. Tagline shown below title: "Paste community social media posts — extract hidden needs for NGO action"
 3. Input form matching the UI style — all required fields visible
@@ -99,6 +113,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## OUTPUT FORMAT — MANDATORY
+
 No text outside these delimiters. No markdown fences inside blocks.
 
 --- FILE: app/page.tsx ---
@@ -112,6 +127,7 @@ No text outside these delimiters. No markdown fences inside blocks.
 ---
 
 ## QUALITY BAR
+
 - UI must be immediately recognizable as Aurora
 - Must look like a real product — not a template or placeholder
 - Font choice must match the style (imported via Google Fonts in globals.css)

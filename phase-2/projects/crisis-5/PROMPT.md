@@ -1,12 +1,19 @@
 # AGENT PROMPT — crisis-5
+
 # Tool: PostMortemPro | UI: Paper
+
 # Deployment domain: postmortempro-sc
+
 # ═══════════════════════════════════════════════════════════════
+
 # READ THIS ENTIRE FILE BEFORE WRITING ANY CODE.
+
 # Generate ALL files in ONE response using EXACT delimiters below.
+
 # ═══════════════════════════════════════════════════════════════
 
 ## YOUR TASK
+
 You are an expert frontend developer and UI designer. Generate a complete,
 production-ready Next.js 16 web application as a working MVP.
 
@@ -15,6 +22,7 @@ The website title (shown in browser tab and on page) must be: **PostMortemPro**
 ---
 
 ## PROBLEM CONTEXT
+
 Hospitality venues face unpredictable, high-stakes emergencies that demand instantaneous,
 coordinated reactions to protect lives and property. During a crisis, critical information is
 often siloed, fracturing communication between distressed guests, on-site staff, and first responders.
@@ -27,6 +35,7 @@ and emergency services.
 ---
 
 ## THIS TOOL
+
 **Name:** PostMortemPro
 **Tagline:** After a crisis — auto-generate a complete incident post-mortem report
 **Domain:** hospitality emergency management, crisis coordination, safety systems
@@ -38,12 +47,14 @@ and emergency services.
 ---
 
 ## UI STYLE
+
 PAPER / EDITORIAL UI STYLE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 Core concept: A well-designed newspaper or magazine layout. Serif fonts, structured
 columns, clear typographic hierarchy. Serious, trustworthy, readable.
 
 Visual language:
+
 - Background: off-white/cream (#fafaf7 or #f5f0e8)
 - Text: near-black (#1a1a1a) primary, dark grey secondary
 - Accent: one ink color (dark red, dark blue, or forest green)
@@ -62,9 +73,10 @@ DO NOT: use sans-serif for content, use gradients, use rounded cards, use bright
 ---
 
 ## GEMINI API INTEGRATION
-- Model: `gemini-1.5-flash`
+
+- Model: `gemini-2.5-flash`
 - API key env var: `process.env.GEMINI_API_KEY` (server-side only)
-- Endpoint: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${KEY}`
+- Endpoint: `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${KEY}`
 - Your API route: `app/api/generate/route.ts` (POST)
 - Page sends: `{ "prompt": "assembled user input" }`
 - Route returns: `{ "result": "gemini response text" }`
@@ -77,6 +89,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## TECH CONSTRAINTS
+
 - Next.js 16, App Router (`app/` directory), TypeScript (.tsx)
 - Tailwind CSS + custom CSS variables in globals.css
 - Icons: lucide-react only
@@ -90,6 +103,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## FUNCTIONAL REQUIREMENTS
+
 1. Page title and prominent heading = **PostMortemPro**
 2. Tagline shown below title: "After a crisis — auto-generate a complete incident post-mortem report"
 3. Input form matching the UI style — all required fields visible
@@ -102,6 +116,7 @@ Append the user's actual input to this prompt when calling Gemini.
 ---
 
 ## OUTPUT FORMAT — MANDATORY
+
 No text outside these delimiters. No markdown fences inside blocks.
 
 --- FILE: app/page.tsx ---
@@ -115,6 +130,7 @@ No text outside these delimiters. No markdown fences inside blocks.
 ---
 
 ## QUALITY BAR
+
 - UI must be immediately recognizable as Paper
 - Must look like a real product — not a template or placeholder
 - Font choice must match the style (imported via Google Fonts in globals.css)
