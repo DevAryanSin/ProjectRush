@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'demandsignal',
-  description: 'AI-powered MVP — Hackathon Factory Phase 2',
+  title: 'DemandSignal',
+  description: 'AI-powered demand forecasting — Supply Chain Intelligence',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
