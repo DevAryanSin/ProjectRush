@@ -1,4 +1,75 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg-color: #ece7e2;
+  --light-shadow: -10px -10px 20px #ffffff;
+  --dark-shadow: 10px 10px 20px #d1cdc7;
+  --inset-light: inset -4px -4px 8px #ffffff;
+  --inset-dark: inset 4px 4px 8px #d1cdc7;
+  --accent-color: #f59e0b; /* Amber */
+  --text-primary: #4a4542;
+  --text-secondary: #7c746e;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Nunito', sans-serif;
+  overflow-x: hidden;
+}
+
+.neo-out {
+  background: var(--bg-color);
+  box-shadow: var(--light-shadow), var(--dark-shadow);
+  border-radius: 24px;
+}
+
+.neo-in {
+  background: var(--bg-color);
+  box-shadow: var(--inset-light), var(--inset-dark);
+  border-radius: 24px;
+}
+
+.neo-btn {
+  background: var(--bg-color);
+  box-shadow: var(--light-shadow), var(--dark-shadow);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.neo-btn:active {
+  box-shadow: var(--inset-light), var(--inset-dark);
+  transform: scale(0.98);
+}
+
+.neo-input {
+  background: var(--bg-color);
+  box-shadow: var(--inset-light), var(--inset-dark);
+  border-radius: 16px;
+  border: 1px solid transparent;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.neo-input:focus {
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: #d1cdc7;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c1bcba;
+}
