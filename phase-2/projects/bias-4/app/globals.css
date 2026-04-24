@@ -1,4 +1,110 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --terminal-bg: #000000;
+  --terminal-green: #00ff41;
+  --terminal-green-dim: #008f11;
+  --terminal-cyan: #00ffff;
+  --terminal-white: #ffffff;
+  --terminal-glow: 0 0 5px rgba(0, 255, 65, 0.5);
+}
+
+@layer base {
+  body {
+    @apply bg-black text-[#00ff41] font-mono selection:bg-[#00ff41] selection:text-black;
+    font-family: 'JetBrains Mono', monospace;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .terminal-window {
+    @apply border border-[#00ff41] p-4 md:p-8 shadow-[0_0_15px_rgba(0,255,65,0.2)] relative overflow-hidden;
+    background: linear-gradient(180deg, rgba(0, 20, 0, 0.8) 0%, rgba(0, 0, 0, 1) 100%);
+  }
+
+  .terminal-window::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 10;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+  }
+
+  .terminal-input {
+    @apply bg-transparent border-none outline-none text-[#00ff41] w-full p-0 caret-transparent focus:ring-0;
+  }
+
+  .terminal-btn {
+    @apply border border-[#00ff41] px-4 py-2 hover:bg-[#00ff41] hover:text-black transition-all duration-200 uppercase font-bold;
+  }
+
+  .scanline {
+    width: 100%;
+    height: 100px;
+    z-index: 11;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 255, 65, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
+    opacity: 0.1;
+    position: absolute;
+    bottom: 100%;
+    animation: scanline 10s linear infinite;
+    pointer-events: none;
+  }
+
+  .cursor {
+    @apply inline-block w-2.5 h-5 bg-[#00ff41] align-middle;
+    animation: blink 1s step-end infinite;
+  }
+}
+
+@keyframes scanline {
+  0% { bottom: 100%; }
+  100% { bottom: -100px; }
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+.crt-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle, rgba(18, 16, 16, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
+  pointer-events: none;
+  z-index: 50;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #008f11;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00ff41;
+}
