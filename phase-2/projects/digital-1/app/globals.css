@@ -1,4 +1,126 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --brutalist-yellow: #eaff00;
+  --brutalist-black: #000000;
+  --brutalist-white: #ffffff;
+  --brutalist-bg: #fffdf0;
+}
+
+body {
+  background-color: var(--brutalist-bg);
+  color: var(--brutalist-black);
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, .brutalist-heading {
+  font-family: 'Archivo Black', sans-serif;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.brutalist-card {
+  background: var(--brutalist-white);
+  border: 4px solid var(--brutalist-black);
+  box-shadow: 8px 8px 0px 0px var(--brutalist-black);
+  transition: all 0.2s ease;
+}
+
+.brutalist-button {
+  background: var(--brutalist-yellow);
+  border: 4px solid var(--brutalist-black);
+  box-shadow: 6px 6px 0px 0px var(--brutalist-black);
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.brutalist-button:hover:not(:disabled) {
+  box-shadow: 8px 8px 0px 0px var(--brutalist-black);
+  transform: translate(-2px, -2px);
+}
+
+.brutalist-button:active:not(:disabled) {
+  box-shadow: 2px 2px 0px 0px var(--brutalist-black);
+  transform: translate(4px, 4px);
+}
+
+.brutalist-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.brutalist-input {
+  border: 4px solid var(--brutalist-black);
+  padding: 1rem;
+  width: 100%;
+  font-family: inherit;
+  font-weight: 700;
+  outline: none;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.brutalist-input:focus {
+  background: var(--brutalist-yellow);
+  box-shadow: 4px 4px 0px 0px var(--brutalist-black);
+}
+
+.brutalist-label {
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: block;
+  font-size: 0.875rem;
+}
+
+.result-section {
+  border-top: 4px solid var(--brutalist-black);
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.result-section:first-child {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.brutalist-badge {
+  background: var(--brutalist-black);
+  color: var(--brutalist-yellow);
+  padding: 0.25rem 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--brutalist-bg);
+  border-left: 4px solid var(--brutalist-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brutalist-black);
+  border: 2px solid var(--brutalist-yellow);
+}
