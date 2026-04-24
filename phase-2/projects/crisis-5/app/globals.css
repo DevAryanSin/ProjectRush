@@ -1,4 +1,78 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500;1,8..60,600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: #f5f0e8;
+  --foreground: #1a1a1a;
+  --accent: #5E1218;
+  --border: #d4cfc6;
+  --font-heading: 'Lora', serif;
+  --font-body: 'Source Serif 4', Georgia, serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* Editorial details */
+.newspaper-rule {
+  border-top: 1px solid var(--border);
+  border-bottom: 2px solid var(--border);
+  padding: 4px 0;
+  margin: 1rem 0;
+}
+
+.newspaper-rule-vertical {
+  border-right: 1px solid var(--border);
+}
+
+.column-text {
+  column-count: 2;
+  column-gap: 2rem;
+  column-rule: 1px solid var(--border);
+  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  .column-text {
+    column-count: 1;
+    column-rule: none;
+    text-align: left;
+  }
+}
+
+.pull-quote {
+  font-size: 1.5rem;
+  font-style: italic;
+  font-family: var(--font-heading);
+  color: var(--accent);
+  margin: 2rem 0;
+  padding-left: 1.5rem;
+  border-left: 4px solid var(--accent);
+  line-height: 1.3;
+}
+
+.accent-text {
+  color: var(--accent);
+}
