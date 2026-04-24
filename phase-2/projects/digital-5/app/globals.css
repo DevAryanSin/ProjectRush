@@ -1,4 +1,65 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: #fafaf7;
+  --foreground: #1a1a1a;
+  --accent: #8b0000; /* Dark Red Ink */
+  --secondary: #4a4a4a;
+  --border: #d1d1cf;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Source Serif 4', serif;
+  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+.paper-border {
+  border: 1px solid var(--border);
+}
+
+.newspaper-column {
+  column-gap: 2rem;
+  border-left: 1px solid var(--border);
+  padding-left: 2rem;
+}
+
+@layer base {
+  h1 {
+    @apply text-5xl md:text-7xl font-black tracking-tight mb-4;
+  }
+  h2 {
+    @apply text-3xl md:text-4xl font-bold mb-4 border-b border-black pb-2;
+  }
+  h3 {
+    @apply text-xl md:text-2xl font-bold mb-2 italic;
+  }
+}
+
+.ink-link {
+  @apply border-b border-accent text-accent hover:bg-accent hover:text-white transition-all duration-200;
+}
+
+/* Custom scrollbar for paper look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}
