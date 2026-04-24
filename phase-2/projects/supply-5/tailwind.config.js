@@ -4,15 +4,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
-        accent:     'var(--accent)',
-        muted:      'var(--muted)',
-        border:     'var(--border)',
-      },
-      fontFamily: {
-        serif: ['Source Serif 4', 'serif'],
-        'serif-display': ['Playfair Display', 'serif'],
+        background: 'hsl(var(--background) / <alpha-value>)',
+        foreground: 'hsl(var(--foreground) / <alpha-value>)',
+        primary:    'hsl(var(--primary)    / <alpha-value>)',
+        accent:     'hsl(var(--accent)     / <alpha-value>)',
+        card:       'hsl(var(--card)       / <alpha-value>)',
+        border:     'hsl(var(--border)     / <alpha-value>)',
       },
     },
   },

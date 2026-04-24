@@ -202,16 +202,16 @@ export default function ContractClausePage() {
 
               <div>
                 <label className="block text-sm uppercase tracking-wider font-bold text-muted mb-2">Risk Tolerance</label>
-                <div className="flex justify-between items-center bg-accent/5 p-4 rounded border border-accent/10">
+                <div className="flex justify-between items-center bg-accent/5 p-2 rounded border border-accent/10">
                   {['Conservative', 'Balanced', 'Aggressive'].map((level) => (
                     <button
                       key={level}
                       type="button"
                       onClick={() => setFormData(p => ({ ...p, riskTolerance: level }))}
-                      className={`px-4 py-2 text-sm font-bold uppercase tracking-widest transition-all ${
+                      className={`flex-1 px-2 py-2 text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all ${
                         formData.riskTolerance === level 
-                        ? 'bg-accent text-white scale-105' 
-                        : 'text-muted hover:text-accent'
+                        ? 'bg-[#3d4a2a] text-white shadow-md' 
+                        : 'text-gray-400 hover:text-[#3d4a2a]'
                       }`}
                     >
                       {level}
@@ -275,13 +275,13 @@ export default function ContractClausePage() {
 
               <div className="rule-line-thin"></div>
 
-              <div className="bg-foreground text-background p-8 relative overflow-hidden">
+              <div className="bg-[#3d4a2a] text-white p-8 relative overflow-hidden">
                 <Quote className="absolute -right-4 -bottom-4 w-32 h-32 opacity-10 rotate-12" />
                 <h3 className="text-2xl font-serif-display italic mb-4 text-white/90">Featured Insight</h3>
                 <p className="text-lg leading-relaxed font-serif text-white/80 relative z-10">
                   "Most contracts fail not because they lack detail, but because they lack context for the specific volatility of the routes they govern."
                 </p>
-                <p className="mt-4 text-sm font-bold uppercase tracking-widest text-accent">Editorial — Q2 2024</p>
+                <p className="mt-4 text-sm font-bold uppercase tracking-widest text-white/60">Editorial — Q2 2024</p>
               </div>
             </div>
           )}
