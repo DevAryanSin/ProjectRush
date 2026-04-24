@@ -1,4 +1,79 @@
 /* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg-color: #ebdacf;
+  --text-main: #5c4a3d;
+  --text-muted: #8c7a6d;
+  --accent: #6a8caf;
+  
+  --shadow-light: #ffffff;
+  --shadow-dark: #d1baab;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+}
+
+.neo-box {
+  background-color: var(--bg-color);
+  border-radius: 24px;
+  box-shadow: 10px 10px 20px var(--shadow-dark), -10px -10px 20px var(--shadow-light);
+}
+
+.neo-inset {
+  background-color: var(--bg-color);
+  border-radius: 16px;
+  box-shadow: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
+}
+
+.neo-button {
+  background-color: var(--bg-color);
+  border-radius: 16px;
+  box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+  transition: all 0.2s ease-in-out;
+  border: none;
+  outline: none;
+  color: var(--text-main);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.neo-button:hover {
+  color: var(--accent);
+}
+
+.neo-button:active {
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+}
+
+.neo-input {
+  background-color: var(--bg-color);
+  border-radius: 16px;
+  box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+  border: none;
+  outline: none;
+  padding: 1rem 1.25rem;
+  color: var(--text-main);
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+}
+
+.neo-input:focus {
+  box-shadow: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
+}
+
+.neo-input::placeholder {
+  color: var(--text-muted);
+}
+
