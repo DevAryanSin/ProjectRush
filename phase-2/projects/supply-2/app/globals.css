@@ -1,4 +1,70 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg-color: #e0e5ec;
+  --light-shadow: #ffffff;
+  --dark-shadow: rgba(163, 177, 198, 0.8);
+  --accent-color: #22543d; /* Forest Green */
+  --text-color: #4a5568;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+}
+
+@layer components {
+  .neo-flat {
+    background: var(--bg-color);
+    box-shadow: 9px 9px 16px var(--dark-shadow), -9px -9px 16px var(--light-shadow);
+    border-radius: 20px;
+  }
+
+  .neo-inset {
+    background: var(--bg-color);
+    box-shadow: inset 6px 6px 12px var(--dark-shadow), inset -6px -6px 12px var(--light-shadow);
+    border-radius: 12px;
+  }
+
+  .neo-button {
+    background: var(--bg-color);
+    box-shadow: 6px 6px 12px var(--dark-shadow), -6px -6px 12px var(--light-shadow);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+  }
+
+  .neo-button:active {
+    box-shadow: inset 4px 4px 8px var(--dark-shadow), inset -4px -4px 8px var(--light-shadow);
+    transform: scale(0.98);
+  }
+
+  .neo-input {
+    background: var(--bg-color);
+    box-shadow: inset 4px 4px 8px var(--dark-shadow), inset -4px -4px 8px var(--light-shadow);
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    width: 100%;
+    color: var(--text-color);
+  }
+
+  .neo-input:focus {
+    box-shadow: inset 5px 5px 10px var(--dark-shadow), inset -5px -5px 10px var(--light-shadow);
+  }
+
+  .accent-text {
+    color: var(--accent-color);
+  }
+
+  .accent-bg {
+    background-color: var(--accent-color);
+    color: white;
+  }
+}
