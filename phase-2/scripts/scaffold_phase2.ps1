@@ -212,8 +212,10 @@ export async function POST() {
 "@ | Set-Content "$DIR\app\api\generate\route.ts"
 
         # PROMPT.md placeholder
-        "# PROMPT — $slug`n(Run generate_prompts_phase2.py to fill this)" `
-            | Set-Content "$DIR\PROMPT.md"
+        @"
+        # PROMPT - $slug
+        (Run generate_prompts_phase2.py to fill this)
+"@ | Set-Content "$DIR\PROMPT.md"
 
         $COUNT++
         Write-Green "  OK: $slug ($vercelName)"
