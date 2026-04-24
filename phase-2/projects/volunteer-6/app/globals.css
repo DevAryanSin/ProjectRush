@@ -1,4 +1,41 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .font-display {
+    font-family: 'Fredoka One', cursive;
+  }
+  .font-body {
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .clay-shadow {
+    box-shadow: 
+      0 20px 60px rgba(34, 197, 94, 0.12), 
+      0 8px 25px rgba(34, 197, 94, 0.08),
+      inset 0 4px 0 rgba(255, 255, 255, 0.6);
+  }
+  
+  .clay-inner {
+    box-shadow: inset 0 6px 12px rgba(34, 197, 94, 0.15),
+                inset 0 2px 4px rgba(34, 197, 94, 0.1);
+  }
+
+  .clay-btn {
+    box-shadow: 
+      0 12px 30px rgba(234, 179, 8, 0.4),
+      inset 0 -6px 0 rgba(202, 138, 4, 0.4),
+      inset 0 6px 0 rgba(255, 255, 255, 0.5);
+  }
+  
+  .clay-btn:active {
+    transform: translateY(4px);
+    box-shadow: 
+      0 6px 15px rgba(234, 179, 8, 0.4),
+      inset 0 -2px 0 rgba(202, 138, 4, 0.4),
+      inset 0 2px 0 rgba(255, 255, 255, 0.5);
+  }
+}
