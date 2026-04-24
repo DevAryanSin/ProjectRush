@@ -57,8 +57,7 @@ if ($Slug -ne "") {
     $projectList = @($Slug)
     Write-Yellow "Mode: single -> $Slug"
 } else {
-    $projectList = Get-ChildItem -Path $PROJECTS -Directory `
-                  | Select-Object -ExpandProperty Name
+    $projectList = Get-ChildItem -Path $PROJECTS -Directory | Select-Object -ExpandProperty Name
     Write-Yellow "Mode: all $($projectList.Count) projects"
 }
 
@@ -102,8 +101,8 @@ foreach ($P_SLUG in $projectList) {
         $SKIPPED++; Write-Host ""; continue
     }
     $pageContent = Get-Content $PAGE -Raw
-    if ($pageContent -match "Awaiting generation") {
-        Write-Yellow "  SKIP: Placeholder — run Claude generation first"
+    if ($pageContent -match 'Awaiting generation') {
+        Write-Yellow '  SKIP: Placeholder - run Claude generation first'
         Add-Content $FAILED_LOG "$P_SLUG - not generated"
         $SKIPPED++; Write-Host ""; continue
     }
@@ -202,5 +201,5 @@ if (($FAILED_COUNT -gt 0) -or ($SKIPPED -gt 0)) {
 }
 
 Write-Host ""
-Write-Blue "Done. Each project deployed as <toolname>-sc.vercel.app"
+Write-Blue 'Done. Each project deployed as <toolname>-sc.vercel.app'
 Write-Host ""
