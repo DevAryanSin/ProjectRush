@@ -1,4 +1,70 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --forest-green: #000000;
+  --cream: #FFFFFF;
+  --brutal-black: #000000;
+  --loud-accent: #000000;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--brutal-black);
+  font-family: 'Space Mono', monospace;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.brutal-border {
+  border: 4px solid var(--brutal-black);
+}
+
+.brutal-shadow {
+  box-shadow: 8px 8px 0px var(--brutal-black);
+}
+
+.brutal-shadow-hover:hover {
+  box-shadow: 2px 2px 0px var(--brutal-black);
+  transform: translate(6px, 6px);
+}
+
+.brutal-button {
+  @apply brutal-border brutal-shadow bg-[#808000] text-white font-black uppercase px-6 py-3 transition-all active:translate-y-1 active:translate-x-1 active:shadow-none;
+}
+
+.brutal-input {
+  @apply brutal-border bg-white p-4 w-full text-lg outline-none focus:bg-[#f5f5dc] transition-colors;
+}
+
+.brutal-card {
+  @apply brutal-border brutal-shadow bg-white p-6 relative;
+}
+
+.bg-forest {
+  background-color: var(--forest-green);
+}
+
+.text-cream {
+  color: var(--cream);
+}
+
+@keyframes glitch {
+  0% { transform: translate(0) }
+  20% { transform: translate(-2px, 2px) }
+  40% { transform: translate(-2px, -2px) }
+  60% { transform: translate(2px, 2px) }
+  80% { transform: translate(2px, -2px) }
+  100% { transform: translate(0) }
+}
+
+.animate-glitch {
+  animation: glitch 0.3s cubic-bezier(.25,.46,.45,.94) both infinite;
+}
