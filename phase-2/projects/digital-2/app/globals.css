@@ -1,4 +1,83 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: 215 25% 92%;
+  --foreground: 222 47% 11%;
+  
+  --primary: 222 47% 20%;
+  --accent: 215 25% 85%;
+  
+  --card: 215 25% 92%;
+  --border: 215 25% 85%;
+
+  --neo-light: 0 0% 100%;
+  --neo-dark: 215 20% 80%;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+}
+
+@layer components {
+  .neo-flat {
+    background: hsl(var(--background));
+    box-shadow: 8px 8px 16px rgba(163, 177, 198, 0.6), 
+                -8px -8px 16px rgba(255, 255, 255, 1);
+    border-radius: 20px;
+    border: none;
+  }
+
+  .neo-inset {
+    background: hsl(var(--background));
+    box-shadow: inset 6px 6px 12px rgba(163, 177, 198, 0.6), 
+                inset -6px -6px 12px rgba(255, 255, 255, 1);
+    border-radius: 12px;
+    border: none;
+  }
+
+  .neo-button {
+    background: hsl(var(--background));
+    box-shadow: 6px 6px 12px rgba(163, 177, 198, 0.6), 
+                -6px -6px 12px rgba(255, 255, 255, 1);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    border: none;
+  }
+
+  .neo-button:active {
+    box-shadow: inset 4px 4px 8px rgba(163, 177, 198, 0.6), 
+                inset -4px -4px 8px rgba(255, 255, 255, 1);
+    transform: scale(0.98);
+  }
+
+  .neo-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(163, 177, 198, 0.6);
+  border-radius: 10px;
+  border: 2px solid hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(163, 177, 198, 0.8);
+}
