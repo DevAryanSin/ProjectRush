@@ -1,4 +1,102 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: #050810;
+  --foreground: #f8fafc;
+  --accent-teal: #00d4aa;
+  --accent-purple: #7c3aed;
+  --accent-blue: #2563eb;
+  --accent-pink: #db2777;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .bg-aurora {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 50%, #0a0a1a 0%, #050810 100%);
+  }
+
+  .orb {
+    position: absolute;
+    filter: blur(120px);
+    opacity: 0.5;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: float 15s ease-in-out infinite alternate;
+  }
+
+  .orb-teal {
+    width: 500px;
+    height: 500px;
+    background: var(--accent-teal);
+    top: -10%;
+    left: -10%;
+    animation-delay: 0s;
+  }
+
+  .orb-purple {
+    width: 600px;
+    height: 600px;
+    background: var(--accent-purple);
+    bottom: -15%;
+    right: -10%;
+    animation-delay: -3s;
+  }
+
+  .orb-blue {
+    width: 450px;
+    height: 450px;
+    background: var(--accent-blue);
+    top: 40%;
+    right: 15%;
+    animation-delay: -7s;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .glass-input {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .glass-input:focus {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--accent-teal);
+    outline: none;
+    box-shadow: 0 0 15px rgba(0, 212, 170, 0.2);
+  }
+
+  .text-gradient-teal {
+    background: linear-gradient(135deg, #00d4aa 0%, #2563eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(5%, 10%) scale(1.1); }
+    100% { transform: translate(-5%, -5%) scale(0.9); }
+  }
+}
