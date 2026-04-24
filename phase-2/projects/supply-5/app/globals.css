@@ -1,4 +1,126 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: 250, 250, 247;
+  --foreground: 26, 26, 26;
+  --accent: 45, 74, 62;
+  --muted: 74, 74, 74;
+  --border: 209, 209, 207;
+  --paper-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+body {
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+  font-family: 'Source Serif 4', serif;
+  -webkit-font-smoothing: antialiased;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5) 0%, transparent 100%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Ffilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4, .font-serif-display {
+  font-family: 'Playfair Display', serif;
+}
+
+.newspaper-column {
+  border-left: 1px solid var(--border);
+  padding-left: 2rem;
+}
+
+@media (max-width: 768px) {
+  .newspaper-column {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+  }
+}
+
+.ink-link {
+  color: rgb(var(--accent));
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.paper-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  box-shadow: var(--paper-shadow);
+  position: relative;
+}
+
+.paper-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent);
+}
+
+.rule-line {
+  height: 1px;
+  background: var(--border);
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.rule-line-thin {
+  height: 1px;
+  background: var(--border);
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.rule-line-double {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  height: 4px;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.pull-quote {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: rgb(var(--accent));
+  border-left: 4px solid rgb(var(--accent));
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  line-height: 1.4;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--border));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--muted));
+}
+
+/* Loading Animation */
+@keyframes ink-spread {
+  0% { opacity: 0.3; transform: scale(0.95); }
+  50% { opacity: 0.6; transform: scale(1); }
+  100% { opacity: 0.3; transform: scale(0.95); }
+}
+
+.loading-ink {
+  animation: ink-spread 2s infinite ease-in-out;
+}
