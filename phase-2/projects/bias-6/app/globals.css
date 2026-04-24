@@ -1,4 +1,158 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: #fdf2f2; /* Very soft red tint for background */
+  --clay-card: #ffffff;
+  --clay-red: #ff6b6b;
+  --clay-red-light: #ff8787;
+  --clay-grey: #f0f2f5;
+  --clay-text: #4a4a4a;
+  --clay-shadow: 0 20px 40px rgba(255, 107, 107, 0.1), 0 8px 16px rgba(0, 0, 0, 0.05);
+  --clay-inner-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.8), inset 0 -2px 5px rgba(0, 0, 0, 0.05);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--clay-text);
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-weight: 800;
+  color: #333;
+}
+
+.clay-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.clay-card {
+  background: var(--clay-card);
+  border-radius: 35px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08), 0 10px 20px rgba(0,0,0,0.05);
+  border: 6px solid #ffffff;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.clay-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+  pointer-events: none;
+}
+
+.clay-input {
+  background: var(--clay-grey);
+  border: 4px solid transparent;
+  border-radius: 25px;
+  padding: 18px 24px;
+  font-size: 1rem;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 4px 8px rgba(0,0,0,0.05);
+  color: #444;
+}
+
+.clay-input:focus {
+  outline: none;
+  border-color: var(--clay-red-light);
+  background: white;
+  box-shadow: 0 12px 24px rgba(255, 107, 107, 0.1);
+}
+
+.clay-button {
+  background: var(--clay-red);
+  color: white;
+  border-radius: 30px;
+  padding: 16px 32px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  border: none;
+  box-shadow: 0 12px 24px rgba(255, 107, 107, 0.3), inset 0 4px 4px rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.clay-button:hover:not(:disabled) {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 18px 32px rgba(255, 107, 107, 0.4), inset 0 4px 4px rgba(255, 255, 255, 0.3);
+}
+
+.clay-button:active:not(:disabled) {
+  transform: translateY(2px) scale(0.98);
+}
+
+.clay-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  filter: grayscale(0.5);
+}
+
+.clay-badge {
+  background: #f8e7e7;
+  color: var(--clay-red);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: inline-block;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.clay-result-item {
+  background: white;
+  border-radius: 25px;
+  padding: 25px;
+  margin-bottom: 25px;
+  border: 4px solid #fff;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.clay-result-item:hover {
+  transform: translateX(10px);
+}
+
+.loading-puff {
+  animation: puff 2s infinite ease-in-out;
+}
+
+@keyframes puff {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Custom Scrollbar for clay feel */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: #e0e0e0;
+  border-radius: 10px;
+  border: 3px solid var(--background);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d0d0d0;
+}
