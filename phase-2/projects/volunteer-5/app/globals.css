@@ -1,4 +1,107 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: #fafaf7;
+  --foreground: #1a1a1a;
+  --primary: #0f4c5c; /* Deep teal */
+  --secondary: #4a4a4a;
+  --accent: #e36414; /* Warm ink */
+  --border: #d4d4d0;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Source Serif 4', Georgia, serif;
+}
+
+h1, h2, h3, h4, h5, h6, .heading-font {
+  font-family: 'Lora', Playfair Display, serif;
+}
+
+/* Custom Paper UI styling */
+.paper-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  background: #fafaf7;
+  min-height: 100vh;
+}
+
+.newspaper-rule {
+  border-top: 2px solid var(--foreground);
+  border-bottom: 1px solid var(--foreground);
+  padding-bottom: 2px;
+  margin-bottom: 1.5rem;
+}
+
+.column-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .column-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.input-field {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  padding: 0.5rem 0;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--foreground);
+  transition: border-color 0.2s;
+  resize: none;
+}
+
+.input-field:focus {
+  outline: none;
+  border-bottom-color: var(--primary);
+}
+
+.label-text {
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.submit-btn {
+  background-color: var(--foreground);
+  color: var(--background);
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.75rem 2rem;
+  border: 1px solid var(--foreground);
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background-color: transparent;
+  color: var(--foreground);
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
