@@ -1,4 +1,124 @@
-/* Filled by agentic Claude from PROMPT.md */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700;1,8..60,400;1,8..60,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --paper-bg: #fafaf7;
+  --paper-ink: #1a1a1a;
+  --paper-ink-soft: #4a4a4a;
+  --paper-accent: #7c2d12; /* Dark terracotta/ink red */
+  --paper-border: #d1d1cf;
+}
+
+body {
+  background-color: var(--paper-bg);
+  color: var(--paper-ink);
+  font-family: 'Source Serif 4', 'Lora', Georgia, serif;
+  selection-background: var(--paper-accent);
+  selection-color: white;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: -0.02em;
+}
+
+/* Paper Texture Effect */
+.paper-texture {
+  background-image: url("https://www.transparenttextures.com/patterns/paper.png");
+  background-attachment: fixed;
+}
+
+/* Custom Rule Lines */
+.rule-thin {
+  border-bottom: 1px solid var(--paper-border);
+}
+
+.rule-thick {
+  border-bottom: 3px solid var(--paper-ink);
+}
+
+.rule-double {
+  border-bottom: 4px double var(--paper-ink);
+}
+
+/* Newspaper Column Layout Utilities */
+.newspaper-cols {
+  column-count: 1;
+  column-gap: 2rem;
+  column-rule: 1px solid var(--paper-border);
+}
+
+@media (min-width: 768px) {
+  .newspaper-cols {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .newspaper-cols-3 {
+    column-count: 3;
+  }
+}
+
+/* Pull Quotes */
+.pull-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  color: var(--paper-accent);
+  border-top: 1px solid var(--paper-border);
+  border-bottom: 1px solid var(--paper-border);
+  padding: 1.5rem 0;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+/* Inputs styled as editorial elements */
+input[type="text"] {
+  background: transparent;
+  border-bottom: 1px solid var(--paper-ink);
+  padding: 0.5rem 0;
+  font-size: 1.25rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus {
+  border-bottom: 2px solid var(--paper-accent);
+}
+
+button.editorial-btn {
+  background: var(--paper-ink);
+  color: var(--paper-bg);
+  padding: 0.75rem 2rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.2s ease;
+}
+
+button.editorial-btn:hover {
+  background: var(--paper-accent);
+  transform: translateY(-1px);
+}
+
+button.editorial-btn:disabled {
+  background: var(--paper-ink-soft);
+  cursor: not-allowed;
+}
+
+/* Animation for news reveal */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  animation: fadeIn 0.8s ease-out forwards;
+}
