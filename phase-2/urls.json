@@ -1,0 +1,152 @@
+[
+  {
+    "slug": "bias-1",
+    "project_name": "PromptBias",
+    "url": "https://promptbias-sc.vercel.app"
+  },
+  {
+    "slug": "bias-2",
+    "project_name": "HiringLens",
+    "url": "https://hiringlens-sc.vercel.app"
+  },
+  {
+    "slug": "bias-3",
+    "project_name": "ModelCard",
+    "url": "https://modelcard-sc.vercel.app"
+  },
+  {
+    "slug": "bias-4",
+    "project_name": "CounterfactualAI",
+    "url": "https://counterfactualai-sc.vercel.app"
+  },
+  {
+    "slug": "bias-5",
+    "project_name": "BiasTranslator",
+    "url": "https://biastranslator-sc.vercel.app"
+  },
+  {
+    "slug": "bias-6",
+    "project_name": "RedTeamAI",
+    "url": "https://redteamai-sc.vercel.app"
+  },
+  {
+    "slug": "crisis-1",
+    "project_name": "PanicTranslate",
+    "url": "https://panictranslate-sc.vercel.app"
+  },
+  {
+    "slug": "crisis-2",
+    "project_name": "StaffPulse",
+    "url": "https://staffpulse-sc.vercel.app"
+  },
+  {
+    "slug": "crisis-3",
+    "project_name": "GuestSOS",
+    "url": "https://guestsos-sc.vercel.app"
+  },
+  {
+    "slug": "crisis-4",
+    "project_name": "CrisisScript",
+    "url": "https://crisisscript-sc.vercel.app"
+  },
+  {
+    "slug": "crisis-5",
+    "project_name": "PostMortemPro",
+    "url": "https://postmortempro-sc.vercel.app"
+  },
+  {
+    "slug": "crisis-6",
+    "project_name": "HazardMap",
+    "url": "https://hazardmap-sc.vercel.app"
+  },
+  {
+    "slug": "digital-1",
+    "project_name": "WatermarkIQ",
+    "url": "https://watermarkiq-sc.vercel.app"
+  },
+  {
+    "slug": "digital-2",
+    "project_name": "CloneCourt",
+    "url": "https://clonecourt-sc.vercel.app"
+  },
+  {
+    "slug": "digital-3",
+    "project_name": "AssetVault",
+    "url": "https://assetvault-sc.vercel.app"
+  },
+  {
+    "slug": "digital-4",
+    "project_name": "PlatformSpy",
+    "url": "https://platformspy-sc.vercel.app"
+  },
+  {
+    "slug": "digital-5",
+    "project_name": "ReverseTrace",
+    "url": "https://reversetrace-sc.vercel.app"
+  },
+  {
+    "slug": "digital-6",
+    "project_name": "LicenseGen",
+    "url": "https://licensegen-sc.vercel.app"
+  },
+  {
+    "slug": "supply-1",
+    "project_name": "WeatherShield",
+    "url": "https://weathershield-sc.vercel.app"
+  },
+  {
+    "slug": "supply-2",
+    "project_name": "VendorScore",
+    "url": "https://vendorscore-sc.vercel.app"
+  },
+  {
+    "slug": "supply-3",
+    "project_name": "ShipmentNarrator",
+    "url": "https://shipmentnarrator-sc.vercel.app"
+  },
+  {
+    "slug": "supply-4",
+    "project_name": "CostLeakFinder",
+    "url": "https://costleakfinder-sc.vercel.app"
+  },
+  {
+    "slug": "supply-5",
+    "project_name": "ContractClause",
+    "url": "https://contractclause-sc.vercel.app"
+  },
+  {
+    "slug": "supply-6",
+    "project_name": "DemandSignal",
+    "url": "https://demandsignal-sc.vercel.app"
+  },
+  {
+    "slug": "volunteer-1",
+    "project_name": "GrantWriter",
+    "url": "https://grantwriter-sc.vercel.app"
+  },
+  {
+    "slug": "volunteer-2",
+    "project_name": "VolunteerBio",
+    "url": "https://volunteerbio-sc.vercel.app"
+  },
+  {
+    "slug": "volunteer-3",
+    "project_name": "CommunityPulse",
+    "url": "https://communitypulse-sc.vercel.app"
+  },
+  {
+    "slug": "volunteer-4",
+    "project_name": "TaskNarrator",
+    "url": "https://tasknarrator-sc.vercel.app"
+  },
+  {
+    "slug": "volunteer-5",
+    "project_name": "SkillGapFinder",
+    "url": "https://skillgapfinder-sc.vercel.app"
+  },
+  {
+    "slug": "volunteer-6",
+    "project_name": "EventPlanner",
+    "url": "https://eventplanner-sc.vercel.app"
+  }
+]
