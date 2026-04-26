@@ -1,0 +1,152 @@
+[
+  {
+    "slug": "bias-1",
+    "project_name": "PromptBias",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/bias-1/PromptBias.zip"
+  },
+  {
+    "slug": "bias-2",
+    "project_name": "HiringLens",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/bias-2/HiringLens.zip"
+  },
+  {
+    "slug": "bias-3",
+    "project_name": "ModelCard",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/bias-3/ModelCard.zip"
+  },
+  {
+    "slug": "bias-4",
+    "project_name": "CounterfactualAI",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/bias-4/CounterfactualAI.zip"
+  },
+  {
+    "slug": "bias-5",
+    "project_name": "BiasTranslator",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/bias-5/BiasTranslator.zip"
+  },
+  {
+    "slug": "bias-6",
+    "project_name": "RedTeamAI",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/bias-6/RedTeamAI.zip"
+  },
+  {
+    "slug": "crisis-1",
+    "project_name": "PanicTranslate",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/crisis-1/PanicTranslate.zip"
+  },
+  {
+    "slug": "crisis-2",
+    "project_name": "StaffPulse",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/crisis-2/StaffPulse.zip"
+  },
+  {
+    "slug": "crisis-3",
+    "project_name": "GuestSOS",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/crisis-3/GuestSOS.zip"
+  },
+  {
+    "slug": "crisis-4",
+    "project_name": "CrisisScript",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/crisis-4/CrisisScript.zip"
+  },
+  {
+    "slug": "crisis-5",
+    "project_name": "PostMortemPro",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/crisis-5/PostMortemPro.zip"
+  },
+  {
+    "slug": "crisis-6",
+    "project_name": "HazardMap",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/crisis-6/HazardMap.zip"
+  },
+  {
+    "slug": "digital-1",
+    "project_name": "WatermarkIQ",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/digital-1/WatermarkIQ.zip"
+  },
+  {
+    "slug": "digital-2",
+    "project_name": "CloneCourt",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/digital-2/CloneCourt.zip"
+  },
+  {
+    "slug": "digital-3",
+    "project_name": "AssetVault",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/digital-3/AssetVault.zip"
+  },
+  {
+    "slug": "digital-4",
+    "project_name": "PlatformSpy",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/digital-4/PlatformSpy.zip"
+  },
+  {
+    "slug": "digital-5",
+    "project_name": "ReverseTrace",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/digital-5/ReverseTrace.zip"
+  },
+  {
+    "slug": "digital-6",
+    "project_name": "LicenseGen",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/digital-6/LicenseGen.zip"
+  },
+  {
+    "slug": "supply-1",
+    "project_name": "WeatherShield",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/supply-1/WeatherShield.zip"
+  },
+  {
+    "slug": "supply-2",
+    "project_name": "VendorScore",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/supply-2/VendorScore.zip"
+  },
+  {
+    "slug": "supply-3",
+    "project_name": "ShipmentNarrator",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/supply-3/ShipmentNarrator.zip"
+  },
+  {
+    "slug": "supply-4",
+    "project_name": "CostLeakFinder",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/supply-4/CostLeakFinder.zip"
+  },
+  {
+    "slug": "supply-5",
+    "project_name": "ContractClause",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/supply-5/ContractClause.zip"
+  },
+  {
+    "slug": "supply-6",
+    "project_name": "DemandSignal",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/supply-6/DemandSignal.zip"
+  },
+  {
+    "slug": "volunteer-1",
+    "project_name": "GrantWriter",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/volunteer-1/GrantWriter.zip"
+  },
+  {
+    "slug": "volunteer-2",
+    "project_name": "VolunteerBio",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/volunteer-2/VolunteerBio.zip"
+  },
+  {
+    "slug": "volunteer-3",
+    "project_name": "CommunityPulse",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/volunteer-3/CommunityPulse.zip"
+  },
+  {
+    "slug": "volunteer-4",
+    "project_name": "TaskNarrator",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/volunteer-4/TaskNarrator.zip"
+  },
+  {
+    "slug": "volunteer-5",
+    "project_name": "SkillGapFinder",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/volunteer-5/SkillGapFinder.zip"
+  },
+  {
+    "slug": "volunteer-6",
+    "project_name": "EventPlanner",
+    "zip_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/volunteer-6/EventPlanner.zip"
+  }
+]
