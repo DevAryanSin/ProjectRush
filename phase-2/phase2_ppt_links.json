@@ -1,0 +1,152 @@
+[
+  {
+    "slug": "bias-1",
+    "project_name": "PromptBias",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/bias-1/PromptBias.pptx"
+  },
+  {
+    "slug": "bias-2",
+    "project_name": "HiringLens",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/bias-2/HiringLens.pptx"
+  },
+  {
+    "slug": "bias-3",
+    "project_name": "ModelCard",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/bias-3/ModelCard.pptx"
+  },
+  {
+    "slug": "bias-4",
+    "project_name": "CounterfactualAI",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/bias-4/CounterfactualAI.pptx"
+  },
+  {
+    "slug": "bias-5",
+    "project_name": "BiasTranslator",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/bias-5/BiasTranslator.pptx"
+  },
+  {
+    "slug": "bias-6",
+    "project_name": "RedTeamAI",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/bias-6/RedTeamAI.pptx"
+  },
+  {
+    "slug": "crisis-1",
+    "project_name": "PanicTranslate",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/crisis-1/PanicTranslate.pptx"
+  },
+  {
+    "slug": "crisis-2",
+    "project_name": "StaffPulse",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/crisis-2/StaffPulse.pptx"
+  },
+  {
+    "slug": "crisis-3",
+    "project_name": "GuestSOS",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/crisis-3/GuestSOS.pptx"
+  },
+  {
+    "slug": "crisis-4",
+    "project_name": "CrisisScript",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/crisis-4/CrisisScript.pptx"
+  },
+  {
+    "slug": "crisis-5",
+    "project_name": "PostMortemPro",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/crisis-5/PostMortemPro.pptx"
+  },
+  {
+    "slug": "crisis-6",
+    "project_name": "HazardMap",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/crisis-6/HazardMap.pptx"
+  },
+  {
+    "slug": "digital-1",
+    "project_name": "WatermarkIQ",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/digital-1/WatermarkIQ.pptx"
+  },
+  {
+    "slug": "digital-2",
+    "project_name": "CloneCourt",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/digital-2/CloneCourt.pptx"
+  },
+  {
+    "slug": "digital-3",
+    "project_name": "AssetVault",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/digital-3/AssetVault.pptx"
+  },
+  {
+    "slug": "digital-4",
+    "project_name": "PlatformSpy",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/digital-4/PlatformSpy.pptx"
+  },
+  {
+    "slug": "digital-5",
+    "project_name": "ReverseTrace",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/digital-5/ReverseTrace.pptx"
+  },
+  {
+    "slug": "digital-6",
+    "project_name": "LicenseGen",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/digital-6/LicenseGen.pptx"
+  },
+  {
+    "slug": "supply-1",
+    "project_name": "WeatherShield",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/supply-1/WeatherShield.pptx"
+  },
+  {
+    "slug": "supply-2",
+    "project_name": "VendorScore",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/supply-2/VendorScore.pptx"
+  },
+  {
+    "slug": "supply-3",
+    "project_name": "ShipmentNarrator",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/supply-3/ShipmentNarrator.pptx"
+  },
+  {
+    "slug": "supply-4",
+    "project_name": "CostLeakFinder",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/supply-4/CostLeakFinder.pptx"
+  },
+  {
+    "slug": "supply-5",
+    "project_name": "ContractClause",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/supply-5/ContractClause.pptx"
+  },
+  {
+    "slug": "supply-6",
+    "project_name": "DemandSignal",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/supply-6/DemandSignal.pptx"
+  },
+  {
+    "slug": "volunteer-1",
+    "project_name": "GrantWriter",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/volunteer-1/GrantWriter.pptx"
+  },
+  {
+    "slug": "volunteer-2",
+    "project_name": "VolunteerBio",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/volunteer-2/VolunteerBio.pptx"
+  },
+  {
+    "slug": "volunteer-3",
+    "project_name": "CommunityPulse",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/volunteer-3/CommunityPulse.pptx"
+  },
+  {
+    "slug": "volunteer-4",
+    "project_name": "TaskNarrator",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/volunteer-4/TaskNarrator.pptx"
+  },
+  {
+    "slug": "volunteer-5",
+    "project_name": "SkillGapFinder",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/volunteer-5/SkillGapFinder.pptx"
+  },
+  {
+    "slug": "volunteer-6",
+    "project_name": "EventPlanner",
+    "ppt_url": "https://raw.githubusercontent.com/DevAryanSin/ProjectRush/main/phase-2/projects/volunteer-6/EventPlanner.pptx"
+  }
+]
