@@ -1,0 +1,1 @@
+This solution provides a Next.js 16 application emulating a 90s hacker terminal UI to help users identify cost inefficiencies in their supply chains. Users input their supply chain details, and the application leverages the Gemini API to analyze the data, presenting a prioritized list of cost leaks, estimated waste, and actionable solutions.

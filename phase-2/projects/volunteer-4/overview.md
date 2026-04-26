@@ -1,0 +1,1 @@
+TaskNarrator is a Next.js 16 web application designed to transform raw task completion data into compelling, donor-facing impact stories. It uses a terminal-like UI and integrates with the Gemini API to humanize data, highlight key metrics, and inspire continued support for non-profit initiatives.

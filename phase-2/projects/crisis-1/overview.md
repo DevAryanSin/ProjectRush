@@ -1,0 +1,1 @@
+PanicTranslate is a Next.js 16 MVP application designed to handle emergency guest communications in hospitality. It utilizes Gemini AI to transform raw, panicked messages into structured, actionable emergency reports. The UI follows a strict Brutalism aesthetic, employing high contrast, bold typography, and thick borders to ensure immediate attention and clarity during crises.

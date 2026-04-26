@@ -6,14 +6,16 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # ========= CONFIG =========
 
-ROOT_DIR = Path("projects")
+BASE_DIR = Path(__file__).resolve().parent
+ROOT_DIR = BASE_DIR.parent / "projects"   # points to phase-2/projects
+
 API_KEY = os.getenv("GEMINI_API_KEY")
 
 MODEL_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key={API_KEY}"
 
-MAX_WORKERS = 5          # parallelism
-RETRY_LIMIT = 3          # retry on bad output
-SKIP_EXISTING = True     # skip if ppt.md + overview.md exist
+MAX_WORKERS = 2          # keep low to avoid 429
+RETRY_LIMIT = 3
+SKIP_EXISTING = True
 
 # ========= PROMPT =========
 
@@ -75,7 +77,6 @@ def call_gemini(prompt_text: str) -> str:
     response.raise_for_status()
 
     data = response.json()
-
     return data["candidates"][0]["content"]["parts"][0]["text"]
 
 # ========= PARSING =========
@@ -84,11 +85,8 @@ def split_output(text: str):
     if "=== OVERVIEW ===" not in text or "=== PPT ===" not in text:
         raise ValueError("Missing required sections")
 
-    try:
-        overview = text.split("=== OVERVIEW ===")[1].split("=== PPT ===")[0].strip()
-        ppt = text.split("=== PPT ===")[1].strip()
-    except Exception:
-        raise ValueError("Failed to parse output")
+    overview = text.split("=== OVERVIEW ===")[1].split("=== PPT ===")[0].strip()
+    ppt = text.split("=== PPT ===")[1].strip()
 
     if not overview or not ppt:
         raise ValueError("Empty sections")
@@ -98,7 +96,7 @@ def split_output(text: str):
 
     return overview, ppt
 
-# ========= PROCESS ONE PROJECT =========
+# ========= PROCESS =========
 
 def process_project(folder: Path):
     prompt_file = folder / "prompt.md"
@@ -111,20 +109,25 @@ def process_project(folder: Path):
     ppt_exists = ppt_file.exists()
     overview_exists = overview_file.exists()
 
-    # Skip only if BOTH exist
+    print(f"{folder.name} -> ppt:{ppt_exists}, overview:{overview_exists}")
+
+    # ✅ skip only if BOTH exist
     if SKIP_EXISTING and ppt_exists and overview_exists:
         return f"Skipped (both exist): {folder.name}"
 
     prompt_text = prompt_file.read_text(encoding="utf-8")
 
+    delay = 1.5
+    last_error = None
+
     for attempt in range(RETRY_LIMIT):
         try:
+            # ✅ API is called here
             result = call_gemini(prompt_text)
             overview, ppt = split_output(result)
 
             actions = []
 
-            # Write only missing files
             if not ppt_exists:
                 ppt_file.write_text(ppt, encoding="utf-8")
                 actions.append("ppt")
@@ -133,21 +136,34 @@ def process_project(folder: Path):
                 overview_file.write_text(overview, encoding="utf-8")
                 actions.append("overview")
 
-            if not actions:
-                return f"Skipped (nothing to write): {folder.name}"
-
             return f"Done ({'+'.join(actions)}): {folder.name}"
 
+        except requests.exceptions.HTTPError as e:
+            last_error = e
+            if e.response.status_code == 429:
+                time.sleep(delay)
+                delay *= 2
+            else:
+                break
+
         except Exception as e:
-            if attempt == RETRY_LIMIT - 1:
-                return f"Failed: {folder.name} | {e}"
-            time.sleep(1.5)
+            last_error = e
+            time.sleep(delay)
+            delay *= 2
+
+    # ✅ ALWAYS return something
+    return f"Failed: {folder.name} | {last_error}"
 
 # ========= MAIN =========
 
 def main():
     if not API_KEY:
         raise ValueError("GEMINI_API_KEY not set")
+
+    if not ROOT_DIR.exists():
+        raise FileNotFoundError(f"Projects folder not found: {ROOT_DIR}")
+
+    print(f"ROOT_DIR = {ROOT_DIR.resolve()}\n")
 
     projects = [p for p in ROOT_DIR.iterdir() if p.is_dir()]
 
@@ -164,13 +180,9 @@ def main():
             results.append(res)
 
     print("\n=== SUMMARY ===")
-    success = sum(1 for r in results if r.startswith("Done"))
-    skipped = sum(1 for r in results if r.startswith("Skipped"))
-    failed = sum(1 for r in results if r.startswith("Failed"))
-
-    print(f"Done: {success}")
-    print(f"Skipped: {skipped}")
-    print(f"Failed: {failed}")
+    print(f"Done: {sum(r.startswith('Done') for r in results)}")
+    print(f"Skipped: {sum(r.startswith('Skipped') for r in results)}")
+    print(f"Failed: {sum(r.startswith('Failed') for r in results)}")
 
 
 if __name__ == "__main__":

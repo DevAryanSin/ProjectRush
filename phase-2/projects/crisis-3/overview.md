@@ -1,0 +1,1 @@
+GuestSOS is a Next.js 16 MVP web application designed to provide immediate, calm guidance during hospitality emergencies. It bridges communication gaps by allowing guests to report crises and receive step-by-step safety instructions in plain language, powered by Gemini. The UI adheres to the "Aurora" style with a dark, immersive theme and gradient overlays for a premium feel.
