@@ -1,159 +1,82 @@
-# 🏭 Hackathon Factory
+# 🚀 ProjectRush: The AI Hackathon Factory
 
-30 standalone Next.js 16 MVPs — 5 problem statements × 6 UI styles.
-Each powered by Gemini AI. Each deployed independently to Vercel.
+ProjectRush is an automated ecosystem that generated **30 standalone, production-ready Next.js 16 MVPs** in a single sprint. 
+Each project addresses a unique real-world problem across 5 domains, utilizes 1 of 6 distinct UI design systems, is powered by Google Gemini AI, and is independently deployed to Vercel.
 
----
+## 🌟 The Vision
 
-## Project Matrix
+We built a factory that goes from idea to deployed code in minutes. By leveraging agentic AI workflows, we scaled up the development process to produce 30 distinct, fully-functional web applications. Each application is not just a template, but a custom-designed solution addressing specific industry challenges.
 
-| | s1-Bento | s2-Glassmorphism | s3-Flat | s4-Minimalism | s5-Normal | s6-GlassUI |
+## 🏗️ Project Matrix (30 MVPs)
+
+We mapped 5 problem statements against 6 unique UI design systems to create the following matrix of applications:
+
+| Domain | 🧱 Brutalism (s1) | 🪞 Neumorphism (s2) | 🌌 Aurora (s3) | 💻 Hacker/Terminal (s4) | 📰 Editorial/Paper (s5) | 🏺 Claymorphism (s6) |
 |---|---|---|---|---|---|---|
-| **P1** Digital Asset | ScanGuard | PropagationMap | DMCA Forge | AuthentiProof | TamperLens | RightsDesk |
-| **P2** Crisis Response | AlertBridge | CrisisSync | EvacuGuide | FirstContact | IncidentLog | ResponderBrief |
-| **P3** Supply Chain | DisruptRadar | RouteRethink | BottleneckBot | ETA Shield | SupplierPulse | CargoDebrief |
-| **P4** Unbiased AI | BiasScope | FairnessAudit | DataMirror | DecisionTrace | FixItFlow | EthicsCheck |
-| **P5** Volunteer Coord | NeedMapper | VolunteerMatch | TaskForge | ImpactPulse | FieldDebrief | UrgencyRank |
+| **P1: Digital Asset Protection** | WatermarkIQ | CloneCourt | AssetVault | PlatformSpy | ReverseTrace | LicenseGen |
+| **P2: Crisis Response** | PanicTranslate | StaffPulse | GuestSOS | CrisisScript | PostMortemPro | HazardMap |
+| **P3: Supply Chain** | WeatherShield | VendorScore | ShipmentNarrator | CostLeakFinder | ContractClause | DemandSignal |
+| **P4: Unbiased AI** | PromptBias | HiringLens | ModelCard | CounterfactualAI | BiasTranslator | RedTeamAI |
+| **P5: Volunteer Coord** | GrantWriter | VolunteerBio | CommunityPulse | TaskNarrator | SkillGapFinder | EventPlanner |
 
----
+> **Note:** All 30 finished projects are located in `phase-2/projects/`. Their respective live deployments, PPTX presentations, and Source Code ZIP links can be found in `phase-2/paste_ready.txt`.
 
-## Prerequisites
-
-- Node.js 24.x → https://nodejs.org
-- Vercel CLI → `npm i -g vercel` then `vercel login`
-- Python 3.8+
-- Gemini API Key → https://aistudio.google.com/app/apikey
-
----
-
-## Setup
-
-```bash
-# 1. Clone repo
-git clone <your-repo-url>
-cd hackathon-factory
-
-# 2. Create .env
-cp .env.example .env
-# Edit .env and add your GEMINI_API_KEY
-
-# 3. Run scaffold (creates all 30 project folders + configs)
-bash scripts/scaffold.sh
-
-# 4. Generate all 30 PROMPT.md files
-python3 scripts/generate_prompts.py
-```
-
----
-
-## Generating a Website (One at a Time)
-
-```bash
-# Step 1: Get the prompt for a project
-bash scripts/generate_one.sh p1-digital-asset-s1-bento
-# → Prints PROMPT.md to terminal + copies to clipboard
-
-# Step 2: Paste into your agentic Claude session
-# Claude outputs the website code in delimited blocks
-
-# Step 3: Save Claude's response to a file
-# e.g. /tmp/claude_out.txt
-
-# Step 4: Parse output and write files
-python3 scripts/parse_output.py p1-digital-asset-s1-bento /tmp/claude_out.txt
-
-# Step 5: Test locally
-cd projects/p1-digital-asset-s1-bento
-npm install
-npm run dev
-# Visit http://localhost:3000
-```
-
----
-
-## Deploying to Vercel
-
-```bash
-# Deploy all 30
-bash scripts/deploy.sh
-
-# Deploy a single project
-bash scripts/deploy.sh p1-digital-asset-s1-bento
-
-# View all deployed URLs
-cat manifest.json
-```
-
----
-
-## Auto-Deploy on Git Push
-
-Each project's `vercel.json` has an `ignoreCommand` that scopes redeployment
-to only that project's subfolder. This means:
-
-- Push a change to `projects/p1-digital-asset-s1-bento/` → **only that project redeploys**
-- All other 29 projects **ignore the push**
-
-This is automatic after the first Vercel CLI deploy links each project to your Git repo.
-
----
-
-## Folder Structure
-
-```
-hackathon-factory/
-├── .env                    ← Your GEMINI_API_KEY (never commit)
-├── .env.example            ← Template
-├── .gitignore
-├── package.json
-├── manifest.json           ← Auto-filled with 30 Vercel URLs
-├── scripts/
-│   ├── scaffold.sh         ← Phase 1+2: env check + create folders
-│   ├── generate_prompts.py ← Phase 3: write PROMPT.md to each project
-│   ├── generate_one.sh     ← Helper: print/copy prompt for one project
-│   ├── parse_output.py     ← Helper: parse Claude output → write files
-│   └── deploy.sh           ← Phase 4: vercel deploy all 30
-└── projects/
-    ├── p1-digital-asset-s1-bento/
-    │   ├── PROMPT.md           ← Agentic Claude reads this
-    │   ├── package.json
-    │   ├── next.config.js
-    │   ├── tailwind.config.js
-    │   ├── postcss.config.js
-    │   ├── tsconfig.json
-    │   ├── vercel.json
-    │   ├── .env.local
-    │   └── app/
-    │       ├── layout.tsx
-    │       ├── globals.css      ← Claude fills this
-    │       ├── page.tsx         ← Claude fills this
-    │       └── api/generate/
-    │           └── route.ts     ← Claude fills this
-    └── ... (29 more)
-```
-
----
-
-## Tech Stack
+## 🛠️ Tech Stack
 
 - **Framework**: Next.js 16 (App Router)
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS + CSS HSL variables
-- **AI**: Google Gemini 1.5 Flash
-- **Deployment**: Vercel
-- **Node**: 24.x
+- **Styling**: Tailwind CSS + Custom CSS Variables
+- **AI Integration**: Google Gemini 1.5/2.5 Flash API
+- **Deployment**: Vercel (Automated & Isolated)
+
+## 📁 Repository Structure
+
+```text
+ProjectRush_SC/
+├── README.md               # You are here
+├── phase-2/                # Finalized Phase 2 Generation
+│   ├── projects/           # The 30 Next.js Apps (Final Source Code)
+│   ├── scripts/            # Automation scripts for PPT, ZIP, Links
+│   └── paste_ready.txt     # Complete index of projects, URLs, and Downloads
+├── projects/               # Phase 1 Initial generation workspace
+├── scripts/                # Scaffolding and Deployment automation
+└── manifest.json           # Vercel Deployment URLs map
+```
+
+## 🚀 How It Works (The Factory Pipeline)
+
+This repository is more than just code; it's a pipeline for generating applications:
+
+1. **Scaffolding**: `scripts/scaffold.sh` generates 30 independent Next.js environments with all necessary configuration files.
+2. **Prompt Generation**: `scripts/generate_prompts.py` creates highly specific instructions (`PROMPT.md`) for each app, dynamically combining the domain problem with the assigned UI style constraints.
+3. **Agentic Code Generation**: An AI agent reads the prompt and outputs the entire Next.js application codebase.
+4. **Parsing & Writing**: `scripts/parse_output.py` converts the AI's output into actual files (`page.tsx`, `globals.css`, `route.ts`).
+5. **Deployment**: `scripts/deploy.sh` automatically deploys each subfolder to Vercel independently using custom `vercel.json` configurations.
+
+## 💡 Key Features of Each MVP
+
+- **Standalone Architecture**: Each MVP has its own `package.json`, dependencies, and build configuration, ensuring isolation.
+- **AI-Powered Workflows**: Deep integration with the Gemini API to solve the core functional problem (e.g., analyzing bias, generating crisis scripts, forensic breakdowns).
+- **Beautiful, Distinct UI**: Strict adherence to specific design aesthetics (Aurora, Claymorphism, Hacker/Terminal, etc.) avoiding generic look-and-feels.
+- **Production-Ready**: Fully responsive, hydration-error-free, and handles loading/error states gracefully.
+
+## 🔧 Local Development
+
+To run any of the 30 projects locally, navigate to its directory, install dependencies, and start the development server.
+
+```bash
+# Example: Running the 'EventPlanner' project
+cd phase-2/projects/volunteer-6
+npm install
+npm run dev
+
+# Visit http://localhost:3000 in your browser
+```
+
+> **Important:** You must create a `.env.local` file inside the specific project directory containing your Google Gemini API key:
+> ```env
+> GEMINI_API_KEY=your_api_key_here
+> ```
 
 ---
-
-## Known Issues & Fixes
-
-Based on prior battle-testing:
-
-| Issue | Fix Applied |
-|---|---|
-| Vercel workspace detection failure | Each project is fully standalone with own deps |
-| TypeScript not found on build | TypeScript in devDependencies of each project |
-| PostCSS / Tailwind build failure | `postcss.config.js` in every project root |
-| Turbopack instability | `--no-turbo` in build script |
-| API key not in production | `vercel env add` in deploy script |
-| Other projects redeploy on unrelated push | `ignoreCommand` in each `vercel.json` |
+*Built with ❤️ using Agentic AI workflows and Next.js.*
