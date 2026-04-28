@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color: #e8ecf1;
+  --neo-light: #ffffff;
+  --neo-dark: #c5c9cd;
+  --primary: #6D28D9;
+  --warning: #EF4444;
+  --success: #10B981;
+  --black: #000000;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: #1f2937;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Neomorphic Styles */
+.neo-out {
+  background: var(--bg-color);
+  box-shadow: 8px 8px 16px var(--neo-dark), -8px -8px 16px var(--neo-light);
+}
+
+.neo-in {
+  background: var(--bg-color);
+  box-shadow: inset 8px 8px 16px var(--neo-dark), inset -8px -8px 16px var(--neo-light);
+}
+
+/* Brutal Accents */
+.brutal-border {
+  border: 3px solid var(--black);
+}
+
+.brutal-shadow {
+  box-shadow: 6px 6px 0px var(--black);
+}
+
+.brutal-shadow-sm {
+  box-shadow: 3px 3px 0px var(--black);
+}
+
+.brutal-shadow-primary {
+  box-shadow: 4px 4px 0px var(--primary);
+}
+
+/* Fusion Components */
+.fusion-card {
+  @apply neo-out brutal-border rounded-xl p-6 transition-all duration-300;
+}
+
+.fusion-button {
+  @apply neo-out brutal-border px-6 py-3 rounded-lg font-bold uppercase tracking-wider transition-all active:translate-x-0.5 active:translate-y-0.5 active:shadow-none;
+  box-shadow: 4px 4px 0px var(--black);
+}
+
+.fusion-button:active {
+  box-shadow: 0px 0px 0px var(--black);
+}
+
+.fusion-button-primary {
+  @apply fusion-button bg-[#6D28D9] text-white border-black;
+}
+
+.fusion-input {
+  @apply neo-in brutal-border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-purple-500 transition-all;
+}
+
+/* Results Formatting */
+.bias-tag {
+  @apply brutal-border brutal-shadow-sm px-2 py-1 bg-red-100 text-red-700 font-bold text-xs uppercase;
+}
+
+.highlight-red {
+  @apply bg-red-100 border-b-2 border-red-500 font-medium px-0.5;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
