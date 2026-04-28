@@ -5,118 +5,135 @@
 :root {
   --bg-soft: #e5e7eb;
   --primary: #1e3a8a;
+  --primary-dark: #172554;
   --accent: #facc15;
   --alert: #ef4444;
-  --text-charcoal: #374151;
+  --text-charcoal: #1f2937;
   --neo-shadow-light: #ffffff;
-  --neo-shadow-dark: #d1d5db;
+  --neo-shadow-dark: #cbd5e1;
+  --brutal-border: 4px;
 }
 
-body {
-  background-color: var(--bg-soft);
-  color: var(--text-charcoal);
-  font-family: 'Inter', sans-serif;
-  min-height: 100vh;
+@layer base {
+  body {
+    @apply bg-[#e5e7eb] text-[#1f2937] antialiased selection:bg-yellow-300 selection:text-black;
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-space), system-ui, sans-serif;
+    @apply font-black uppercase tracking-tighter;
+  }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Space Grotesk', sans-serif;
+@layer components {
+  /* Neomorphic Layer */
+  .neo-panel {
+    @apply bg-[#e5e7eb] rounded-[2rem];
+    box-shadow: 20px 20px 60px var(--neo-shadow-dark),
+                -20px -20px 60px var(--neo-shadow-light);
+  }
+
+  .neo-inset {
+    @apply bg-[#e5e7eb] rounded-xl border-none outline-none transition-all duration-200;
+    box-shadow: inset 8px 8px 16px var(--neo-shadow-dark),
+                inset -8px -8px 16px var(--neo-shadow-light);
+  }
+
+  .neo-inset:focus {
+    @apply ring-4 ring-blue-900/10;
+    box-shadow: inset 4px 4px 8px var(--neo-shadow-dark),
+                inset -4px -4px 8px var(--neo-shadow-light);
+  }
+
+  /* Brutalist Overlay */
+  .brutal-card {
+    @apply bg-white border-black border-[4px] p-6 relative;
+    box-shadow: 12px 12px 0px 0px rgba(0,0,0,1);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .brutal-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 16px 16px 0px 0px rgba(0,0,0,1);
+  }
+
+  .brutal-button {
+    @apply bg-[#1e3a8a] text-white border-black border-[4px] px-8 py-4 font-black uppercase tracking-wider text-sm flex items-center justify-center gap-2 transition-all active:translate-x-1 active:translate-y-1 active:shadow-none;
+    box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+  }
+
+  .brutal-button-accent {
+    @apply bg-[#facc15] text-black border-black border-[4px] px-8 py-4 font-black uppercase tracking-wider text-sm flex items-center justify-center gap-2 transition-all active:translate-x-1 active:translate-y-1 active:shadow-none;
+    box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+  }
+
+  .brutal-tag {
+    @apply bg-[#facc15] text-black border-black border-2 px-3 py-1 font-black text-xs uppercase tracking-tighter inline-block;
+    box-shadow: 3px 3px 0px 0px rgba(0,0,0,1);
+  }
+
+  .brutal-input {
+    @apply neo-inset p-4 font-bold text-lg placeholder:text-gray-400 placeholder:font-normal;
+  }
+
+  /* Mode Switch */
+  .mode-switch-container {
+    @apply neo-inset p-2 flex gap-2 w-fit mx-auto mb-12;
+  }
+
+  .mode-switch-btn {
+    @apply px-8 py-3 rounded-lg font-black uppercase tracking-tight text-sm transition-all duration-300;
+  }
+
+  .mode-switch-btn.active {
+    @apply bg-white border-2 border-black text-black;
+    box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+  }
+
+  .mode-switch-btn.inactive {
+    @apply text-gray-500 hover:text-black;
+  }
 }
 
-/* Neomorphic Containers */
-.neo-card {
-  background: var(--bg-soft);
-  border-radius: 24px;
-  box-shadow: 12px 12px 24px var(--neo-shadow-dark),
-             -12px -12px 24px var(--neo-shadow-light);
-  transition: all 0.3s ease;
+/* Custom Utilities */
+.text-stroke {
+  -webkit-text-stroke: 1.5px black;
 }
 
-.neo-inset {
-  background: var(--bg-soft);
-  border-radius: 12px;
-  box-shadow: inset 6px 6px 12px var(--neo-shadow-dark),
-             inset -6px -6px 12px var(--neo-shadow-light);
-  border: none;
-  outline: none;
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
 }
 
-.neo-inset:focus {
-  box-shadow: inset 6px 6px 12px var(--neo-shadow-dark),
-             inset -6px -6px 12px var(--neo-shadow-light),
-             0 0 0 2px var(--primary);
+.scanline {
+  position: relative;
+  overflow: hidden;
 }
 
-/* Brutalist Elements */
-.brutal-card {
-  background: white;
-  border: 3px solid black;
-  box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
-  padding: 1.5rem;
+.scanline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(to bottom, transparent, rgba(30, 58, 138, 0.1), transparent);
+  animation: scanline 3s linear infinite;
+  pointer-events: none;
 }
 
-.brutal-button {
-  background: var(--primary);
-  color: white;
-  border: 3px solid black;
-  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: all 0.1s ease;
+.loading-dots::after {
+  content: "...";
+  display: inline-block;
+  width: 1em;
+  text-align: left;
+  animation: dots 1.5s steps(4, end) infinite;
 }
 
-.brutal-button:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
-}
-
-.brutal-button:active {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px 0px rgba(0,0,0,1);
-}
-
-.brutal-accent {
-  background: var(--accent);
-  border: 3px solid black;
-  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
-}
-
-.brutal-alert {
-  background: var(--alert);
-  color: white;
-  border: 3px solid black;
-  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
-}
-
-/* Loading Animation */
-@keyframes brutal-pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.02); }
-  100% { transform: scale(1); }
-}
-
-.loading-pulse {
-  animation: brutal-pulse 0.8s infinite ease-in-out;
-}
-
-/* Typography Overrides */
-.title-font {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 800;
-}
-
-.label-font {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-}
-
-/* Layout Utilities */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+@keyframes dots {
+  0%, 20% { content: ""; }
+  40% { content: "."; }
+  60% { content: ".."; }
+  80%, 100% { content: "..."; }
 }

@@ -5,62 +5,55 @@ export async function POST(req: Request) {
     const { prompt } = await req.json();
 
     if (!process.env.GEMINI_API_KEY) {
-      return NextResponse.json({ error: 'API key not configured' }, { status: 500 });
+      return NextResponse.json({ error: 'API configuration missing' }, { status: 500 });
     }
 
-    const systemPrompt = `You are a digital IP protection and legal analysis AI.
+    const systemPrompt = `You are a digital IP protection and legal analysis AI for IPForge.
 
-If the input is about asset creation:
-* Generate:
-  (1) A unique watermark signature
-  (2) Encoded ownership token
-  (3) Clear embedding instructions
+MODE: WATERMARK GENERATION (If input is about asset creation/protection)
+1. Generate a unique, cryptographically-inspired steganographic watermark signature (e.g., [IPF-XXXX-XXXX]).
+2. Provide an encoded ownership token (Base64-like string).
+3. Give 3-4 clear, technical embedding instructions (e.g., bit-depth manipulation, metadata injection).
 
-If the input is about infringement:
-* Generate:
-  (1) Case title
-  (2) Legal basis (copyright/DMCA)
-  (3) Evidence chain (have vs need)
-  (4) Estimated damages range
-  (5) 5 prioritized legal actions
+MODE: LEGAL CASE BUILDER (If input is about infringement/violations)
+1. Case Title: A professional, descriptive title.
+2. Legal Basis: Specify Copyright Law / DMCA sections relevant to the input.
+3. Evidence Chain: List "Items Secured" vs "Missing Documentation".
+4. Estimated Damages: Provide a realistic range in USD based on the context.
+5. Action Plan: 5 prioritized, legal-focused steps (e.g., Cease & Desist, platform takedown notice, statutory damages filing).
 
-Always:
-* Be precise and actionable
-* Avoid vague statements
-* Structure output clearly`;
+Constraint: Be precise, authoritative, and actionable. Avoid generic advice. Use technical terminology appropriate for digital rights management.`;
 
     const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         contents: [
           {
             role: 'user',
-            parts: [{ text: `${systemPrompt}\n\nUser Input: ${prompt}` }],
+            parts: [{ text: `${systemPrompt}\n\nUSER INPUT: ${prompt}` }],
           },
         ],
         generationConfig: {
-          temperature: 0.7,
-          topK: 40,
-          topP: 0.95,
+          temperature: 0.1, // Lower temperature for more consistent, professional legal/technical output
+          topK: 32,
+          topP: 1,
           maxOutputTokens: 2048,
         },
       }),
     });
 
-    const data = await response.json();
-    
-    if (data.error) {
-      return NextResponse.json({ error: data.error.message }, { status: 500 });
+    if (!response.ok) {
+      const errorData = await response.json();
+      return NextResponse.json({ error: errorData.error?.message || 'Gemini API Error' }, { status: response.status });
     }
 
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || 'No response from AI';
+    const data = await response.json();
+    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Protocol analysis failed to yield results.';
 
     return NextResponse.json({ text });
   } catch (error: any) {
-    console.error('Gemini API Error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    console.error('IPForge API Exception:', error);
+    return NextResponse.json({ error: 'Internal protocol failure' }, { status: 500 });
   }
 }
