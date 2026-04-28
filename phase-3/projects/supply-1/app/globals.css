@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0e1116;
+  --foreground: #f8fafc;
+  --primary: #22d3ee;
+  --alert: #ef4444;
+  --warning: #f59e0b;
+  --safe: #22c55e;
+  --border: rgba(34, 211, 238, 0.2);
+  --panel-bg: rgba(17, 24, 39, 0.8);
+}
+
+@layer base {
+  body {
+    @apply bg-[#0e1116] text-slate-50 min-h-screen overflow-x-hidden;
+    font-family: 'IBM Plex Sans', sans-serif;
+    background-image: 
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 40px 40px;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 50;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .industrial-panel {
+    @apply bg-[#111827]/80 border-2 border-cyan-500/20 backdrop-blur-md relative overflow-hidden;
+    box-shadow: inset 0 0 20px rgba(34, 211, 238, 0.05);
+  }
+
+  .industrial-panel::after {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-[2px] bg-cyan-500/50 shadow-[0_0_10px_rgba(34,211,238,0.5)];
+  }
+
+  .industrial-input {
+    @apply bg-transparent border-b-2 border-cyan-500/30 py-2 px-1 focus:border-cyan-400 outline-none transition-all duration-300 placeholder:text-slate-600 w-full text-cyan-50;
+  }
+
+  .industrial-button {
+    @apply relative px-6 py-3 bg-cyan-500/10 border-2 border-cyan-500 text-cyan-400 font-bold uppercase tracking-widest transition-all duration-300 hover:bg-cyan-500 hover:text-black hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] active:scale-95;
+  }
+
+  .radar-sweep {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg at 50% 50%, rgba(34, 211, 238, 0.1) 0deg, transparent 90deg);
+    animation: sweep 4s linear infinite;
+    pointer-events: none;
+    transform-origin: center;
+  }
+
+  .glow-cyan {
+    text-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+  }
+
+  .glow-red {
+    text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+  }
+}
+
+@keyframes sweep {
+  from { transform: translate(-25%, -25%) rotate(0deg); }
+  to { transform: translate(-25%, -25%) rotate(360deg); }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+  52% { opacity: 1; }
+  54% { opacity: 0.7; }
+  56% { opacity: 1; }
+}
+
+.animate-flicker {
+  animation: flicker 2s infinite;
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to bottom, transparent, rgba(34, 211, 238, 0.2), transparent);
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+}
