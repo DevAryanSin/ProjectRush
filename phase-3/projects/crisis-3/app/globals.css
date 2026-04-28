@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f5f0e8;
+  --foreground: #1a1a1a;
+  --accent-red: #8b0000;
+  --accent-blue: #002366;
+  --clay-bg: #ffffff;
+  --clay-shadow: rgba(0, 0, 0, 0.12);
+  
+  --risk-high: #ff9999;
+  --risk-medium: #ffcc66;
+  --risk-low: #99ff99;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Source Serif 4', Georgia, serif;
+}
+
+h1, h2, h3, h4, .font-editorial {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-ui {
+  font-family: 'Nunito', sans-serif;
+}
+
+/* Claymorphism styles */
+.clay-card {
+  background: var(--clay-bg);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px var(--clay-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.clay-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+}
+
+.clay-button {
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  border-radius: 9999px;
+  box-shadow: 4px 4px 10px #d1d1d1, -4px -4px 10px #ffffff;
+  transition: all 0.2s ease;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+}
+
+.clay-button:active {
+  box-shadow: inset 4px 4px 10px #d1d1d1, inset -4px -4px 10px #ffffff;
+  transform: scale(0.98);
+}
+
+.clay-input {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05);
+  padding: 12px 20px;
+  transition: border-color 0.2s ease;
+  font-family: 'Nunito', sans-serif;
+}
+
+.clay-input:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+}
+
+/* Editorial styles */
+.editorial-rule {
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+.risk-tag {
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.risk-high { background-color: var(--risk-high); color: #600; }
+.risk-medium { background-color: var(--risk-medium); color: #640; }
+.risk-low { background-color: var(--risk-low); color: #050; }
+
+/* Hydration fix: prevent transitions on load */
+.no-transitions * {
+  transition: none !important;
+}
