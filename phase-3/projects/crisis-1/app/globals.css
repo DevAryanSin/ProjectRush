@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Poppins:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --base-bg: #e6e9ef;
+  --neo-light: #ffffff;
+  --neo-dark: #d1d9e6;
+  --emergency-red: #dc2626;
+  --amber: #f59e0b;
+  --charcoal: #1f2937;
+  --success-green: #10b981;
+}
+
+body {
+  background-color: var(--base-bg);
+  color: var(--charcoal);
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Neomorphic Styles */
+.neo-flat {
+  background: var(--base-bg);
+  box-shadow: 10px 10px 20px var(--neo-dark),
+              -10px -10px 20px var(--neo-light);
+}
+
+.neo-inset {
+  background: var(--base-bg);
+  box-shadow: inset 5px 5px 10px var(--neo-dark),
+              inset -5px -5px 10px var(--neo-light);
+}
+
+.neo-button {
+  background: var(--base-bg);
+  box-shadow: 6px 6px 12px var(--neo-dark),
+              -6px -6px 12px var(--neo-light);
+  transition: all 0.2s ease;
+}
+
+.neo-button:active {
+  box-shadow: inset 4px 4px 8px var(--neo-dark),
+              inset -4px -4px 8px var(--neo-light);
+}
+
+/* Brutalist Styles */
+.brutal-card {
+  border: 3px solid black;
+  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+  background: white;
+}
+
+.brutal-btn {
+  border: 3px solid black;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  transition: all 0.1s ease;
+}
+
+.brutal-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.brutal-btn-red {
+  background-color: var(--emergency-red);
+  color: white;
+}
+
+.brutal-btn-amber {
+  background-color: var(--amber);
+  color: black;
+}
+
+/* Transitions */
+.page-transition {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mode Switch */
+.mode-switch-active {
+  background: white;
+  border: 2px solid black;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--base-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neo-dark);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bfc9d8;
+}
