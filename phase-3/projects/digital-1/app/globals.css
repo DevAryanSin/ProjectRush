@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-soft: #e5e7eb;
+  --primary: #1e3a8a;
+  --accent: #facc15;
+  --alert: #ef4444;
+  --text-charcoal: #374151;
+  --neo-shadow-light: #ffffff;
+  --neo-shadow-dark: #d1d5db;
+}
+
+body {
+  background-color: var(--bg-soft);
+  color: var(--text-charcoal);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Neomorphic Containers */
+.neo-card {
+  background: var(--bg-soft);
+  border-radius: 24px;
+  box-shadow: 12px 12px 24px var(--neo-shadow-dark),
+             -12px -12px 24px var(--neo-shadow-light);
+  transition: all 0.3s ease;
+}
+
+.neo-inset {
+  background: var(--bg-soft);
+  border-radius: 12px;
+  box-shadow: inset 6px 6px 12px var(--neo-shadow-dark),
+             inset -6px -6px 12px var(--neo-shadow-light);
+  border: none;
+  outline: none;
+}
+
+.neo-inset:focus {
+  box-shadow: inset 6px 6px 12px var(--neo-shadow-dark),
+             inset -6px -6px 12px var(--neo-shadow-light),
+             0 0 0 2px var(--primary);
+}
+
+/* Brutalist Elements */
+.brutal-card {
+  background: white;
+  border: 3px solid black;
+  box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+  padding: 1.5rem;
+}
+
+.brutal-button {
+  background: var(--primary);
+  color: white;
+  border: 3px solid black;
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.1s ease;
+}
+
+.brutal-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+}
+
+.brutal-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px rgba(0,0,0,1);
+}
+
+.brutal-accent {
+  background: var(--accent);
+  border: 3px solid black;
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+}
+
+.brutal-alert {
+  background: var(--alert);
+  color: white;
+  border: 3px solid black;
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+}
+
+/* Loading Animation */
+@keyframes brutal-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.loading-pulse {
+  animation: brutal-pulse 0.8s infinite ease-in-out;
+}
+
+/* Typography Overrides */
+.title-font {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+}
+
+.label-font {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+/* Layout Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
