@@ -1,0 +1,6 @@
+﻿{
+  "name": "digital-1",
+  "framework": "nextjs",
+  "buildCommand": "next build ",
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- phase-3/projects/digital-1/"
+}
