@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f5f0e8;
+  --foreground: #1a1a1a;
+  --accent-ink: #2c3e50;
+  --accent-pastel-lavender: #e8e8ff;
+  --accent-pastel-peach: #fff0e0;
+  --accent-pastel-mint: #e0fff0;
+  --clay-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  --clay-shadow-inset: inset 0 -4px 8px rgba(0,0,0,0.05), inset 0 4px 8px rgba(255,255,255,0.8);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Source Serif 4', serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-editorial {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-ui {
+  font-family: 'Nunito', sans-serif;
+}
+
+@layer components {
+  .clay-card {
+    @apply rounded-[30px] bg-white transition-all duration-300;
+    box-shadow: var(--clay-shadow), var(--clay-shadow-inset);
+  }
+
+  .clay-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.15), var(--clay-shadow-inset);
+  }
+
+  .clay-button {
+    @apply font-ui px-8 py-3 rounded-full transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1), inset 0 -2px 4px rgba(0,0,0,0.1), inset 0 2px 4px rgba(255,255,255,0.5);
+  }
+
+  .clay-input {
+    @apply font-ui px-6 py-4 rounded-2xl border-none bg-white focus:ring-4 focus:ring-blue-100 transition-all outline-none;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .editorial-rule {
+    @apply border-t border-black/10 my-8;
+  }
+
+  .pastel-lavender { background-color: var(--accent-pastel-lavender); }
+  .pastel-peach { background-color: var(--accent-pastel-peach); }
+  .pastel-mint { background-color: var(--accent-pastel-mint); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1cbc2;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bdb7ad;
+}

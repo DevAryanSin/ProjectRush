@@ -1,4 +1,21 @@
-﻿import './globals.css'
-export default function RootLayout({ children }) {
-  return <html><body>{children}</body></html>
+import './globals.css'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'BiasLab',
+  description: 'Understand bias. Then break your system to find it.',
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en">
+      <body className="antialiased">
+        {children}
+      </body>
+    </html>
+  )
 }
