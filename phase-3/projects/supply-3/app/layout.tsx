@@ -1,4 +1,25 @@
-﻿import './globals.css'
-export default function RootLayout({ children }) {
-  return <html><body>{children}</body></html>
+import type { Metadata } from 'next';
+import './globals.css';
+
+export const metadata: Metadata = {
+  title: 'SignalContract',
+  description: 'Predict demand. Protect your agreements.',
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
+      <body className="antialiased">
+        {children}
+      </body>
+    </html>
+  );
 }
