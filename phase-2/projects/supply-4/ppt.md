@@ -1,17 +1,23 @@
 # Brief
+
 CostLeakFinder is a web application designed to preemptively detect and flag potential supply chain disruptions and hidden cost inefficiencies. It analyzes user-provided supply chain descriptions to identify waste points, estimate financial impact, and prescribe targeted cost-saving interventions, all within a stylized terminal interface.
 
 # Opportunities
+
 ## Differentiation
+
 The core differentiator is the unique "hacker terminal" UI, which provides a novel and engaging user experience for a typically complex business problem. This retro-futuristic aesthetic appeals to a niche audience and makes the analytics feel more immediate and direct.
 
 ## Problem Solving Approach
+
 The application utilizes a prompt-engineered Gemini API integration to perform sophisticated analysis of supply chain data. It focuses on uncovering non-obvious inefficiencies beyond user-stated pain points, offering data-driven insights and actionable recommendations for cost optimization and route adjustment.
 
 ## USP
+
 "Describe your supply chain — find hidden cost inefficiencies instantly." The USP lies in the combination of advanced AI-powered supply chain analysis delivered through a distinct, immersive terminal UI, making complex optimization accessible and visually compelling.
 
 # Features
+
 - **Supply Chain Input Form:** User-friendly terminal-style input for describing supply chain stages, vendors, transport modes, and pain points.
 - **AI-Powered Analysis:** Gemini API integration for identifying and prioritizing supply chain cost leaks.
 - **Cost Leak Reporting:** Clear presentation of identified inefficiencies, estimated waste magnitude (low/medium/high $), and ranked savings potential.
@@ -21,21 +27,23 @@ The application utilizes a prompt-engineered Gemini API integration to perform s
 - **Responsive Design:** Optimized for both desktop and mobile viewing.
 
 # Technologies
+
 - **Frontend:** Next.js 16 (App Router), TypeScript, Tailwind CSS, Lucide React
 - **Backend:** Next.js API Routes (`app/api/generate/route.ts`)
 - **AI Integration:** Gemini API (`gemini-2.5-flash`)
 - **Styling:** Custom CSS variables, Google Fonts (imported)
-- **Build Tool:** `next build --no-turbo`
+- **Build Tool:** `next build `
 - **Node.js:** 24.x
 
 --- FILE: app/page.tsx ---
-```tsx
-'use client';
 
-import { useState, useEffect } from 'react';
+```tsx
+"use client";
+
+import { useState, useEffect } from "react";
 
 export default function HomePage() {
-  const [supplyChainDescription, setSupplyChainDescription] = useState('');
+  const [supplyChainDescription, setSupplyChainDescription] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [geminiResponse, setGeminiResponse] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -51,17 +59,19 @@ export default function HomePage() {
     setError(null);
 
     try {
-      const response = await fetch('/api/generate', {
-        method: 'POST',
+      const response = await fetch("/api/generate", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ prompt: supplyChainDescription }),
       });
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+        throw new Error(
+          errorData.error || `HTTP error! status: ${response.status}`,
+        );
       }
 
       const data = await response.json();
@@ -78,7 +88,9 @@ export default function HomePage() {
     <div className="min-h-screen bg-black p-8 font-mono text-green-500">
       <header className="mb-8">
         <h1 className="text-4xl font-bold mb-2">CostLeakFinder</h1>
-        <p className="text-lg text-green-400">Describe your supply chain — find hidden cost inefficiencies instantly</p>
+        <p className="text-lg text-green-400">
+          Describe your supply chain — find hidden cost inefficiencies instantly
+        </p>
       </header>
 
       <main>
@@ -96,10 +108,10 @@ export default function HomePage() {
           </div>
           <button
             type="submit"
-            className={`px-4 py-2 border-2 border-cyan-400 transition-all duration-300 ${isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-cyan-500 hover:text-black'}`}
+            className={`px-4 py-2 border-2 border-cyan-400 transition-all duration-300 ${isLoading ? "opacity-50 cursor-not-allowed" : "hover:bg-cyan-500 hover:text-black"}`}
             disabled={isLoading}
           >
-            {isLoading ? '> PROCESSING...' : '[> ANALYZE]'}
+            {isLoading ? "> PROCESSING..." : "[> ANALYZE]"}
           </button>
         </form>
 
@@ -120,8 +132,12 @@ export default function HomePage() {
 
           {geminiResponse && (
             <div className="border-t-2 border-green-500 pt-4">
-              <h2 className="text-2xl font-bold mb-4 text-cyan-400">Analysis Results:</h2>
-              <pre className="whitespace-pre-wrap text-green-400 leading-relaxed">{geminiResponse}</pre>
+              <h2 className="text-2xl font-bold mb-4 text-cyan-400">
+                Analysis Results:
+              </h2>
+              <pre className="whitespace-pre-wrap text-green-400 leading-relaxed">
+                {geminiResponse}
+              </pre>
             </div>
           )}
         </section>
@@ -130,11 +146,14 @@ export default function HomePage() {
   );
 }
 ```
---- FILE: app/api/generate/route.ts ---
-```typescript
-import { NextResponse } from 'next/server';
 
-const GEMINI_API_ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
+--- FILE: app/api/generate/route.ts ---
+
+```typescript
+import { NextResponse } from "next/server";
+
+const GEMINI_API_ENDPOINT =
+  "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
 
 export async function POST(req: Request) {
   const { prompt } = await req.json();
@@ -142,62 +161,82 @@ export async function POST(req: Request) {
   const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
   if (!GEMINI_API_KEY) {
-    return NextResponse.json({ error: 'GEMINI_API_KEY environment variable not set.' }, { status: 500 });
+    return NextResponse.json(
+      { error: "GEMINI_API_KEY environment variable not set." },
+      { status: 500 },
+    );
   }
 
-  const systemPrompt = "You are a supply chain cost optimization AI. Analyze this supply chain for cost leaks: identify top 5 inefficiency points, estimate waste magnitude for each (low/medium/high $), rank by savings potential, and prescribe 1 specific fix per issue. Focus on non-obvious inefficiencies beyond the stated pain points.";
+  const systemPrompt =
+    "You are a supply chain cost optimization AI. Analyze this supply chain for cost leaks: identify top 5 inefficiency points, estimate waste magnitude for each (low/medium/high $), rank by savings potential, and prescribe 1 specific fix per issue. Focus on non-obvious inefficiencies beyond the stated pain points.";
 
   const fullPrompt = `${systemPrompt}\n\nUser Input:\n${prompt}`;
 
   try {
-    const response = await fetch(`${GEMINI_API_ENDPOINT}?key=${GEMINI_API_KEY}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    const response = await fetch(
+      `${GEMINI_API_ENDPOINT}?key=${GEMINI_API_KEY}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          contents: [
+            {
+              parts: [
+                {
+                  text: fullPrompt,
+                },
+              ],
+            },
+          ],
+        }),
       },
-      body: JSON.stringify({
-        contents: [
-          {
-            parts: [
-              {
-                text: fullPrompt,
-              },
-            ],
-          },
-        ],
-      }),
-    });
+    );
 
     if (!response.ok) {
       const errorBody = await response.json();
       console.error("Gemini API Error Response:", errorBody);
-      throw new Error(`Gemini API request failed with status ${response.status}: ${errorBody.error?.message || 'Unknown error'}`);
+      throw new Error(
+        `Gemini API request failed with status ${response.status}: ${errorBody.error?.message || "Unknown error"}`,
+      );
     }
 
     const data = await response.json();
 
     // Check for content and extract text
     let geminiResult = "No analysis generated.";
-    if (data.candidates && data.candidates.length > 0 && data.candidates[0].content && data.candidates[0].content.parts) {
-      geminiResult = data.candidates[0].content.parts.map((part: any) => part.text).join('');
+    if (
+      data.candidates &&
+      data.candidates.length > 0 &&
+      data.candidates[0].content &&
+      data.candidates[0].content.parts
+    ) {
+      geminiResult = data.candidates[0].content.parts
+        .map((part: any) => part.text)
+        .join("");
     }
 
     return NextResponse.json({ result: geminiResult });
-
   } catch (error: any) {
-    console.error('Error calling Gemini API:', error);
-    return NextResponse.json({ error: `Failed to generate content: ${error.message}` }, { status: 500 });
+    console.error("Error calling Gemini API:", error);
+    return NextResponse.json(
+      { error: `Failed to generate content: ${error.message}` },
+      { status: 500 },
+    );
   }
 }
 ```
+
 --- FILE: app/globals.css ---
+
 ```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap");
 
 :root {
   --terminal-bg: #0a0f0a; /* Very dark green-black */
@@ -212,18 +251,23 @@ export async function POST(req: Request) {
 body {
   background-color: var(--terminal-bg);
   color: var(--terminal-text-primary);
-  font-family: 'Fira Code', monospace;
+  font-family: "Fira Code", monospace;
   line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
   color: var(--terminal-accent);
 }
 
 input[type="text"],
 textarea {
-  font-family: 'Fira Code', monospace;
+  font-family: "Fira Code", monospace;
   color: var(--terminal-text-primary);
   caret-color: var(--terminal-cyan);
 }
@@ -235,13 +279,16 @@ textarea:focus {
 }
 
 button {
-  font-family: 'Fira Code', monospace;
+  font-family: "Fira Code", monospace;
   background-color: transparent;
   border: var(--terminal-border);
   color: var(--terminal-text-primary);
   padding: 0.5rem 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 button:hover:not(:disabled) {
@@ -265,14 +312,25 @@ button:disabled {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @keyframes blink-loading {
-  0% { opacity: 0; }
-  50% { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 /* Scanline effect - Optional, uncomment to enable */
@@ -302,8 +360,11 @@ body::before {
 @tailwind utilities;
 
 /* Explicitly set monospace for all elements that should inherit */
-body, input, button, pre {
-  font-family: 'Fira Code', monospace !important;
+body,
+input,
+button,
+pre {
+  font-family: "Fira Code", monospace !important;
 }
 
 /* Ensure no rounded corners sneak in */
@@ -361,4 +422,5 @@ body, input, button, pre {
   font-weight: 700 !important;
 }
 ```
+
 --- END ---

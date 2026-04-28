@@ -1,35 +1,43 @@
 # Brief
+
 The ShipmentNarrator is a Next.js 16 application designed to combat critical transit disruptions in global supply chains. It ingests raw shipment tracking data and leverages Gemini AI to generate a clear, chronological narrative. This narrative highlights shipment progress, pinpoints the causes and locations of delays, and provides insights into expected next steps, enabling proactive management of supply chain volatility.
 
 # Opportunities
+
 ## Differentiation
+
 The ShipmentNarrator differentiates itself through its specialized focus on translating complex, raw logistics data into accessible, actionable plain-language insights. Its Aurora UI provides a premium, immersive user experience, while the AI-driven narrative offers immediate clarity and predictive value, unlike traditional, often fragmented tracking systems.
 
 ## Problem Solving Approach
+
 The solution addresses the problem of delayed disruption identification by employing a two-pronged approach:
+
 1.  **Data Translation:** A user-friendly interface allows for easy submission of raw tracking data.
 2.  **AI-Powered Narrative:** Gemini 2.5 Flash translates this data into a coherent, easy-to-understand story, identifying delays, their root causes, and future implications. This empowers stakeholders to react quickly and optimize routes before issues escalate.
 
 ## USP
+
 Translate raw tracking data into an instantly understandable, AI-generated shipment story with predictive insights and a premium, immersive Aurora UI.
 
 # Features
--   **AI-Powered Shipment Narrative:** Converts raw logistics logs into chronological, plain-language stories.
--   **Delay Analysis:** Identifies and explains the reasons and locations of transit delays.
--   **Predictive Insights:** Offers simple explanations of what to expect next for a shipment.
--   **Immersive Aurora UI:** Features a dark, gradient-filled interface with dynamic elements for a premium user experience.
--   **Responsive Design:** Fully functional and visually appealing on both desktop and mobile devices.
--   **Loading & Error Handling:** Provides clear visual feedback during data processing and displays user-friendly error messages.
--   **Client-Side API Fetching:** Efficiently retrieves AI-generated content from a dedicated API route.
+
+- **AI-Powered Shipment Narrative:** Converts raw logistics logs into chronological, plain-language stories.
+- **Delay Analysis:** Identifies and explains the reasons and locations of transit delays.
+- **Predictive Insights:** Offers simple explanations of what to expect next for a shipment.
+- **Immersive Aurora UI:** Features a dark, gradient-filled interface with dynamic elements for a premium user experience.
+- **Responsive Design:** Fully functional and visually appealing on both desktop and mobile devices.
+- **Loading & Error Handling:** Provides clear visual feedback during data processing and displays user-friendly error messages.
+- **Client-Side API Fetching:** Efficiently retrieves AI-generated content from a dedicated API route.
 
 # Technologies
--   **Frontend Framework:** Next.js 16 (App Router)
--   **Language:** TypeScript
--   **Styling:** Tailwind CSS + Custom CSS Variables
--   **Icons:** Lucide React
--   **AI Integration:** Gemini API (gemini-2.5-flash)
--   **Deployment:** Node.js 24.x compatible
--   **Build Tool:** Next.js build (`next build --no-turbo`)
+
+- **Frontend Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS + Custom CSS Variables
+- **Icons:** Lucide React
+- **AI Integration:** Gemini API (gemini-2.5-flash)
+- **Deployment:** Node.js 24.x compatible
+- **Build Tool:** Next.js build (`next build `)
 
 --- FILE: app/page.tsx ---
 'use client';
@@ -38,26 +46,26 @@ import React, { useState, useEffect } from 'react';
 import { UploadCloud } from 'lucide-react';
 
 interface GenerationResponse {
-  result: string;
+result: string;
 }
 
 export default function HomePage() {
-  const [trackingData, setTrackingData] = useState<string>('');
-  const [shipmentStory, setShipmentStory] = useState<string>('');
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+const [trackingData, setTrackingData] = useState<string>('');
+const [shipmentStory, setShipmentStory] = useState<string>('');
+const [isLoading, setIsLoading] = useState<boolean>(false);
+const [error, setError] = useState<string | null>(null);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setTrackingData(event.target.value);
-    setError(null); // Clear error when user starts typing
-  };
+const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+setTrackingData(event.target.value);
+setError(null); // Clear error when user starts typing
+};
 
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    if (!trackingData.trim()) {
-      setError('Please paste your shipment tracking data.');
-      return;
-    }
+const handleSubmit = async (event: React.FormEvent) => {
+event.preventDefault();
+if (!trackingData.trim()) {
+setError('Please paste your shipment tracking data.');
+return;
+}
 
     setIsLoading(true);
     setShipmentStory('');
@@ -85,12 +93,13 @@ export default function HomePage() {
     } finally {
       setIsLoading(false);
     }
-  };
 
-  // Effect to add aurora background elements and animations
-  useEffect(() => {
-    const auroraContainer = document.getElementById('aurora-container');
-    if (!auroraContainer) return;
+};
+
+// Effect to add aurora background elements and animations
+useEffect(() => {
+const auroraContainer = document.getElementById('aurora-container');
+if (!auroraContainer) return;
 
     const orbColors = ['#00d4aa', '#7c3aed', '#2563eb', '#db2777']; // Teal, Purple, Blue, Pink
 
@@ -112,11 +121,12 @@ export default function HomePage() {
 
       auroraContainer.appendChild(orb);
     }
-  }, []);
 
-  return (
-    <div className="relative min-h-screen overflow-hidden font-sans text-white bg-gray-900" id="aurora-container">
-      {/* Aurora background elements will be appended here by useEffect */}
+}, []);
+
+return (
+<div className="relative min-h-screen overflow-hidden font-sans text-white bg-gray-900" id="aurora-container">
+{/_ Aurora background elements will be appended here by useEffect _/}
 
       <div className="relative z-10 container mx-auto px-4 py-12 md:py-20">
         <header className="text-center mb-16">
@@ -200,7 +210,8 @@ export default function HomePage() {
         </footer>
       </div>
     </div>
-  );
+
+);
 }
 --- FILE: app/api/generate/route.ts ---
 import { NextResponse } from 'next/server';
@@ -209,13 +220,13 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 
 export async function POST(request: Request) {
-  if (!GEMINI_API_KEY) {
-    console.error('GEMINI_API_KEY is not set.');
-    return NextResponse.json({ error: 'Internal server error: API key not configured.' }, { status: 500 });
-  }
+if (!GEMINI_API_KEY) {
+console.error('GEMINI_API_KEY is not set.');
+return NextResponse.json({ error: 'Internal server error: API key not configured.' }, { status: 500 });
+}
 
-  try {
-    const { prompt } = await request.json();
+try {
+const { prompt } = await request.json();
 
     if (!prompt || typeof prompt !== 'string') {
       return NextResponse.json({ error: 'Invalid input: prompt is required and must be a string.' }, { status: 400 });
@@ -251,158 +262,158 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Failed to parse Gemini response.' }, { status: 500 });
     }
 
-  } catch (error: any) {
-    console.error('Error in /api/generate:', error);
-    return NextResponse.json({ error: error.message || 'An internal server error occurred.' }, { status: 500 });
-  }
+} catch (error: any) {
+console.error('Error in /api/generate:', error);
+return NextResponse.json({ error: error.message || 'An internal server error occurred.' }, { status: 500 });
+}
 }
 --- FILE: app/globals.css ---
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Google Fonts Import */
+/_ Google Fonts Import _/
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --background-dark: #050810; /* Very dark, deep blue-black */
-  --card-background-transparent: rgba(255, 255, 255, 0.05);
-  --gradient-teal: #00d4aa;
-  --gradient-purple: #7c3aed;
-  --gradient-blue: #2563eb;
-  --gradient-pink: #db2777;
-  --text-primary: #ffffff;
-  --text-secondary: #b0b0b0;
+--background-dark: #050810; /_ Very dark, deep blue-black _/
+--card-background-transparent: rgba(255, 255, 255, 0.05);
+--gradient-teal: #00d4aa;
+--gradient-purple: #7c3aed;
+--gradient-blue: #2563eb;
+--gradient-pink: #db2777;
+--text-primary: #ffffff;
+--text-secondary: #b0b0b0;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--background-dark);
-  color: var(--text-primary);
-  line-height: 1.6;
+font-family: 'Inter', sans-serif;
+background-color: var(--background-dark);
+color: var(--text-primary);
+line-height: 1.6;
 }
 
-/* Custom Animations */
+/_ Custom Animations _/
 @keyframes aurora-move {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-    filter: blur(100px) opacity(0.5);
-  }
-  25% {
-    transform: translate(10%, 5%) rotate(5deg);
-    filter: blur(120px) opacity(0.6);
-  }
-  50% {
-    transform: translate(-5%, 10%) rotate(-3deg);
-    filter: blur(110px) opacity(0.5);
-  }
-  75% {
-    transform: translate(8%, -5%) rotate(2deg);
-    filter: blur(130px) opacity(0.4);
-  }
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-    filter: blur(100px) opacity(0.5);
-  }
+0% {
+transform: translate(0, 0) rotate(0deg);
+filter: blur(100px) opacity(0.5);
+}
+25% {
+transform: translate(10%, 5%) rotate(5deg);
+filter: blur(120px) opacity(0.6);
+}
+50% {
+transform: translate(-5%, 10%) rotate(-3deg);
+filter: blur(110px) opacity(0.5);
+}
+75% {
+transform: translate(8%, -5%) rotate(2deg);
+filter: blur(130px) opacity(0.4);
+}
+100% {
+transform: translate(0, 0) rotate(0deg);
+filter: blur(100px) opacity(0.5);
+}
 }
 
 .animate-aurora-move {
-  animation: aurora-move 10s ease-in-out infinite alternate;
+animation: aurora-move 10s ease-in-out infinite alternate;
 }
 
-/* Tailwind overrides and custom utilities */
+/_ Tailwind overrides and custom utilities _/
 .bg-gray-900 {
-  background-color: var(--background-dark);
+background-color: var(--background-dark);
 }
 
 .text-white {
-  color: var(--text-primary);
+color: var(--text-primary);
 }
 
 .text-gray-300 {
-  color: var(--text-secondary);
+color: var(--text-secondary);
 }
 
 .text-gray-400 {
-  color: var(--text-secondary);
+color: var(--text-secondary);
 }
 
 .text-gray-500 {
-  color: var(--text-secondary);
+color: var(--text-secondary);
 }
 
-/* Card Styling */
+/_ Card Styling _/
 .backdrop-blur-lg.bg-white\/5 {
-  background-color: var(--card-background-transparent);
-  backdrop-filter: blur(10px); /* Adjust blur as needed */
-  -webkit-backdrop-filter: blur(10px); /* For Safari */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+background-color: var(--card-background-transparent);
+backdrop-filter: blur(10px); /_ Adjust blur as needed _/
+-webkit-backdrop-filter: blur(10px); /_ For Safari _/
+border: 1px solid rgba(255, 255, 255, 0.1); /_ Subtle border _/
 }
 
-/* Input Field Styling */
+/_ Input Field Styling _/
 .dark textarea.focus\:ring-cyan-500,
 .dark input.focus\:ring-cyan-500 {
-  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.5); /* Tailwind's focus:ring-cyan-500 with alpha for gradient feel */
+box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.5); /_ Tailwind's focus:ring-cyan-500 with alpha for gradient feel _/
 }
 
 .dark textarea,
 .dark input {
-  background-color: rgba(0, 0, 0, 0.3); /* Dark glass-like background */
-  border: 1px solid rgba(255, 255, 255, 0.15); /* Subtle border */
+background-color: rgba(0, 0, 0, 0.3); /_ Dark glass-like background _/
+border: 1px solid rgba(255, 255, 255, 0.15); /_ Subtle border _/
 }
 
 .dark textarea::placeholder,
 .dark input::placeholder {
-  color: var(--text-secondary);
+color: var(--text-secondary);
 }
 
-/* Gradient Text/Borders for Accents */
+/_ Gradient Text/Borders for Accents _/
 .bg-gradient-to-r.from-cyan-400.via-purple-500.to-pink-500 {
-  background-image: linear-gradient(to right, var(--gradient-teal), var(--gradient-purple), var(--gradient-pink));
+background-image: linear-gradient(to right, var(--gradient-teal), var(--gradient-purple), var(--gradient-pink));
 }
 
 .bg-gradient-to-r.from-teal-400.to-cyan-400 {
-  background-image: linear-gradient(to right, var(--gradient-teal), var(--gradient-blue));
+background-image: linear-gradient(to right, var(--gradient-teal), var(--gradient-blue));
 }
 
 .bg-gradient-to-r.from-cyan-500.to-blue-600 {
-  background-image: linear-gradient(to right, var(--gradient-teal), var(--gradient-blue));
+background-image: linear-gradient(to right, var(--gradient-teal), var(--gradient-blue));
 }
 .hover\:from-cyan-400.hover\:to-blue-500 {
-  background-image: linear-gradient(to right, var(--gradient-teal), var(--gradient-blue));
+background-image: linear-gradient(to right, var(--gradient-teal), var(--gradient-blue));
 }
 
-/* Prose Mirroring Aurora */
+/_ Prose Mirroring Aurora _/
 .prose {
-  color: var(--text-secondary);
+color: var(--text-secondary);
 }
 .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
-  color: var(--text-primary);
-  margin-top: 1.5em;
-  margin-bottom: 0.8em;
-  font-weight: 700;
+color: var(--text-primary);
+margin-top: 1.5em;
+margin-bottom: 0.8em;
+font-weight: 700;
 }
 .prose h3 { color: var(--gradient-purple); }
 .prose h4 { color: var(--gradient-blue); }
 .prose p {
-  margin-bottom: 1em;
-  color: var(--text-secondary);
+margin-bottom: 1em;
+color: var(--text-secondary);
 }
 .prose a {
-  color: var(--gradient-teal);
-  text-decoration: underline;
+color: var(--gradient-teal);
+text-decoration: underline;
 }
 .prose strong {
-  color: var(--text-primary);
+color: var(--text-primary);
 }
 
-/* Specific Overrides for button */
+/_ Specific Overrides for button _/
 .shadow-lg {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
 }
 .hover\:shadow-xl {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -2px rgba(0, 0, 0, 0.3);
+box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -2px rgba(0, 0, 0, 0.3);
 }
 
-/* Placeholder for any global overrides */
+/_ Placeholder for any global overrides _/
 --- END ---

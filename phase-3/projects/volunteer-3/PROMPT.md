@@ -1,4 +1,3 @@
-Here is the merged system combining SkillGapFinder + EventPlanner into a single cohesive, higher-order product.
 
 ---
 
@@ -317,6 +316,4 @@ No text outside these delimiters. No markdown fences inside blocks.
 
 ---
 
-This should feel like:
 
-**a system NGOs use to decide what they need AND immediately act on it.**

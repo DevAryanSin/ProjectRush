@@ -1,22 +1,29 @@
 # Brief
+
 TaskNarrator is a functional MVP web application built with Next.js 16, TypeScript, and Tailwind CSS. It provides a unique terminal-inspired user interface for non-profit organizations to generate emotionally resonant impact stories from completed task data, enhancing donor engagement and support.
 
 # Opportunities
+
 ## Differentiation
+
 - **Unique UI/UX:** Adopts a nostalgic 90s hacker terminal aesthetic, setting it apart from conventional web applications.
 - **AI-Powered Storytelling:** Leverages Gemini AI to craft compelling narratives, not just present data.
 - **Focused Utility:** Specifically targets the need for clear, motivational communication in the non-profit sector.
 
 ## Problem Solving Approach
+
 The system addresses the challenge of fragmented community data by:
+
 1.  **Data Aggregation:** Providing a single interface to input detailed task completion information.
 2.  **AI Transformation:** Using Gemini to convert this data into engaging donor narratives.
 3.  **Impact Communication:** Presenting results in a structured, visually hierarchical format that emphasizes emotional impact and calls to action.
 
 ## USP
+
 Generates humanized, donor-motivating impact stories from raw task data, using a distinctive terminal UI and advanced AI to clearly demonstrate the tangible social good achieved by non-profit efforts.
 
 # Features
+
 - **Terminal UI:** Full command-line interface aesthetic (green-on-black, monospace fonts, styled inputs/buttons).
 - **AI-Driven Story Generation:** Input task details (volunteer, beneficiaries, resources, outcomes, location) to generate a donor-facing story.
 - **Dynamic Form:** User-friendly input fields styled to match the terminal theme.
@@ -27,6 +34,7 @@ Generates humanized, donor-motivating impact stories from raw task data, using a
 - **Page Title & Heading:** Prominently displays "TaskNarrator" as required.
 
 # Technologies
+
 - **Frontend Framework:** Next.js 16 (App Router)
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS, Custom CSS Variables (`globals.css`)
@@ -35,13 +43,15 @@ Generates humanized, donor-motivating impact stories from raw task data, using a
 - **Deployment Domain:** `tasknarrator-sc` (as per prompt, though actual deployment isn't part of the code generation)
 
 Constraints:
+
 - No external npm packages beyond Next.js, React, ReactDOM, lucide-react, Tailwind CSS.
 - All code generated in a single response with exact delimiters.
 - Strict adherence to the specified UI style and color palette.
 - Gemini API calls handled server-side only.
 - `'use client'` directive applied to `app/page.tsx`.
-- Build command: `next build --no-turbo`.
+- Build command: `next build `.
 - Node version: 24.x.
+
 ```
 
 --- FILE: app/page.tsx ---

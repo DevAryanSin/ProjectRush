@@ -106,7 +106,7 @@ Append the user's actual input to this system prompt when calling Gemini.
 - Styling: Tailwind CSS + custom CSS variables in globals.css
 - Icons: lucide-react only (already installed)
 - NO additional npm packages — only: next, react, react-dom, lucide-react, tailwindcss
-- Build command: `next build --no-turbo`
+- Build command: `next build `
 - Node engine: 24.x
 - The Gemini API call happens in `app/api/generate/route.ts` (server-side only)
 - The page uses client-side fetch to call `/api/generate`

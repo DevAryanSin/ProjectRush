@@ -1,21 +1,28 @@
 # Brief
+
 EventPlanner is a Next.js 16 application that acts as a central hub for community needs assessment and volunteer coordination. It empowers local social groups and NGOs to transform scattered community data into actionable insights by generating detailed volunteer event plans. The application utilizes a visually engaging claymorphism UI and integrates with the Gemini API to provide comprehensive event strategies, from concept to success metrics.
 
 # Opportunities
+
 ## Differentiation
+
 The application differentiates itself through its specialized focus on volunteer event planning for community needs, its unique claymorphism UI that creates an inviting and playful user experience, and its seamless integration with a powerful AI model for generating detailed, ready-to-execute plans.
 
 ## Problem Solving Approach
+
 The approach addresses the problem of scattered community data and inefficient volunteer matching by providing a single platform that:
+
 1. **Gathers Inputs:** Collects community needs, volunteer availability, budget, location, and timeframe.
 2. **Generates Plans:** Uses AI to create a structured event plan including concept, schedule, roles, materials, communication, and metrics.
 3. **Visualizes Data:** Presents the generated plan in a clear, hierarchical, and aesthetically pleasing claymorphism UI.
 4. **Facilitates Action:** Equips organizers with a complete blueprint to address community needs effectively.
 
 ## USP
+
 The Unique Selling Proposition of EventPlanner is its ability to provide an AI-generated, comprehensive, and visually appealing volunteer event plan tailored to specific community needs, all within an intuitive and delightful claymorphism user interface.
 
 # Features
+
 - **Community Need Input:** A user-friendly form to describe the community's specific needs.
 - **Resource Specification:** Fields for detailing available volunteers, budget, location, and timeframe.
 - **AI-Powered Plan Generation:** Integration with Gemini API to create detailed event plans.
@@ -25,6 +32,7 @@ The Unique Selling Proposition of EventPlanner is its ability to provide an AI-g
 - **Organized Output Display:** The generated event plan is parsed and presented with clear visual hierarchy.
 
 # Technologies
+
 - **Frontend Framework:** Next.js 16 (App Router)
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS with custom CSS variables
@@ -33,12 +41,13 @@ The Unique Selling Proposition of EventPlanner is its ability to provide an AI-g
 - **Deployment Domain:** eventplanner-sc
 
 Constraints:
+
 - No extra npm packages beyond core Next.js, React, ReactDOM, lucide-react, tailwindcss.
 - Strict adherence to the specified output format and file structure.
 - All UI elements must align with the claymorphism style guide.
 - Gemini API calls are server-side only.
 - `'use client'` directive applied to `app/page.tsx`.
-- Build command: `next build --no-turbo`.
+- Build command: `next build `.
 - Node.js version: 24.x.
 
 --- FILE: app/page.tsx ---
@@ -48,20 +57,20 @@ import { useState } from 'react';
 import { Loader2 } from 'lucide-react';
 
 export default function HomePage() {
-  const [communityNeed, setCommunityNeed] = useState('');
-  const [availableVolunteers, setAvailableVolunteers] = useState('');
-  const [budget, setBudget] = useState('');
-  const [location, setLocation] = useState('');
-  const [timeframe, setTimeframe] = useState('');
-  const [eventPlan, setEventPlan] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+const [communityNeed, setCommunityNeed] = useState('');
+const [availableVolunteers, setAvailableVolunteers] = useState('');
+const [budget, setBudget] = useState('');
+const [location, setLocation] = useState('');
+const [timeframe, setTimeframe] = useState('');
+const [eventPlan, setEventPlan] = useState<string | null>(null);
+const [isLoading, setIsLoading] = useState(false);
+const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setEventPlan(null);
-    setError(null);
+const handleSubmit = async (e: React.FormEvent) => {
+e.preventDefault();
+setIsLoading(true);
+setEventPlan(null);
+setError(null);
 
     const prompt = `
       Community need: ${communityNeed}
@@ -92,18 +101,19 @@ export default function HomePage() {
     } finally {
       setIsLoading(false);
     }
-  };
 
-  // Function to parse and display the event plan with better hierarchy
-  const renderEventPlan = (plan: string) => {
-    const sections = plan.split('\n\n');
-    return (
-      <div className="mt-8 space-y-6">
-        {sections.map((section, index) => {
-          if (!section.trim()) return null;
-          const lines = section.split('\n');
-          const title = lines[0];
-          const content = lines.slice(1).join('\n');
+};
+
+// Function to parse and display the event plan with better hierarchy
+const renderEventPlan = (plan: string) => {
+const sections = plan.split('\n\n');
+return (
+<div className="mt-8 space-y-6">
+{sections.map((section, index) => {
+if (!section.trim()) return null;
+const lines = section.split('\n');
+const title = lines[0];
+const content = lines.slice(1).join('\n');
 
           if (title.startsWith('(1)')) {
             return (
@@ -189,13 +199,14 @@ export default function HomePage() {
         })}
       </div>
     );
-  };
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-100 to-blue-100 p-8">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-5xl font-extrabold text-center text-purple-800 mb-2">EventPlanner</h1>
-        <p className="text-xl text-center text-purple-600 mb-8">Describe a community need — generate a complete volunteer event plan</p>
+};
+
+return (
+<div className="min-h-screen bg-gradient-to-br from-purple-100 via-pink-100 to-blue-100 p-8">
+<div className="max-w-4xl mx-auto">
+<h1 className="text-5xl font-extrabold text-center text-purple-800 mb-2">EventPlanner</h1>
+<p className="text-xl text-center text-purple-600 mb-8">Describe a community need — generate a complete volunteer event plan</p>
 
         <div className="bg-white/80 rounded-3xl p-8 shadow-clay-lg">
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -302,7 +313,8 @@ export default function HomePage() {
         )}
       </div>
     </div>
-  );
+
+);
 }
 --- FILE: app/api/generate/route.ts ---
 import { NextApiRequest, NextApiResponse } from 'next';
@@ -311,28 +323,28 @@ import { NextResponse } from 'next/ NextResponse';
 const GEMINI_API_ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
 
 export async function POST(req: Request) {
-  const { prompt } = await req.json();
-  const geminiApiKey = process.env.GEMINI_API_KEY;
+const { prompt } = await req.json();
+const geminiApiKey = process.env.GEMINI_API_KEY;
 
-  if (!geminiApiKey) {
-    console.error('GEMINI_API_KEY is not set in environment variables.');
-    return NextResponse.json({ error: 'Server configuration error.' }, { status: 500 });
-  }
+if (!geminiApiKey) {
+console.error('GEMINI_API_KEY is not set in environment variables.');
+return NextResponse.json({ error: 'Server configuration error.' }, { status: 500 });
+}
 
-  const systemPrompt = `You are a volunteer event planning AI. Create a complete event plan covering: (1) Event Concept and Name, (2) Full Day Schedule (hour by hour), (3) Volunteer Role Assignments (role name, responsibilities, count needed), (4) Materials and Resources List, (5) Pre-Event Communication Plan (what to send, when), (6) Success Metrics (how to measure impact). Make it ready to execute immediately.`;
+const systemPrompt = `You are a volunteer event planning AI. Create a complete event plan covering: (1) Event Concept and Name, (2) Full Day Schedule (hour by hour), (3) Volunteer Role Assignments (role name, responsibilities, count needed), (4) Materials and Resources List, (5) Pre-Event Communication Plan (what to send, when), (6) Success Metrics (how to measure impact). Make it ready to execute immediately.`;
 
-  const fullPrompt = `${systemPrompt}\n\n${prompt}`;
+const fullPrompt = `${systemPrompt}\n\n${prompt}`;
 
-  try {
-    const response = await fetch(`${GEMINI_API_ENDPOINT}?key=${geminiApiKey}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: fullPrompt }] }],
-      }),
-    });
+try {
+const response = await fetch(`${GEMINI_API_ENDPOINT}?key=${geminiApiKey}`, {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json',
+},
+body: JSON.stringify({
+contents: [{ parts: [{ text: fullPrompt }] }],
+}),
+});
 
     if (!response.ok) {
       const errorData = await response.json();
@@ -350,181 +362,181 @@ export async function POST(req: Request) {
       throw new Error('Unexpected response format from AI model.');
     }
 
-  } catch (error: any) {
-    console.error('Error calling Gemini API:', error);
-    // Use NextResponse for error responses in App Router
-    return NextResponse.json({ error: `Failed to generate plan: ${error.message}` }, { status: 500 });
-  }
+} catch (error: any) {
+console.error('Error calling Gemini API:', error);
+// Use NextResponse for error responses in App Router
+return NextResponse.json({ error: `Failed to generate plan: ${error.message}` }, { status: 500 });
+}
 }
 --- FILE: app/globals.css ---
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Google Font Import */
+/_ Google Font Import _/
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Fredoka+One&display=swap');
 
 :root {
-  --font-primary: 'Nunito', sans-serif;
-  --font-display: 'Fredoka One', cursive;
+--font-primary: 'Nunito', sans-serif;
+--font-display: 'Fredoka One', cursive;
 
-  /* Claymorphism Colors */
-  --color-background: #F0F4F8; /* Soft Lavender */
-  --color-card-gradient-start: #FFFFFF;
-  --color-card-gradient-end: #F8F9FA; /* Slightly off-white for subtle gradient */
-  --color-primary: #8B5CF6; /* Deep Purple */
-  --color-secondary: #EC4899; /* Hot Pink */
-  --color-accent: #F59E0B; /* Cheerful Yellow */
-  --color-accent-darker: #D97706; /* Darker Yellow */
-  --color-text-primary: #374151; /* Dark Gray */
-  --color-text-secondary: #6B7280; /* Medium Gray */
-  --color-pastel-blue: #A7F3D0; /* Mint Green */
-  --color-pastel-pink: #FECACA; /* Light Pink */
-  --color-pastel-peach: #FFDDC1; /* Soft Peach */
+/_ Claymorphism Colors _/
+--color-background: #F0F4F8; /_ Soft Lavender _/
+--color-card-gradient-start: #FFFFFF;
+--color-card-gradient-end: #F8F9FA; /_ Slightly off-white for subtle gradient _/
+--color-primary: #8B5CF6; /_ Deep Purple _/
+--color-secondary: #EC4899; /_ Hot Pink _/
+--color-accent: #F59E0B; /_ Cheerful Yellow _/
+--color-accent-darker: #D97706; /_ Darker Yellow _/
+--color-text-primary: #374151; /_ Dark Gray _/
+--color-text-secondary: #6B7280; /_ Medium Gray _/
+--color-pastel-blue: #A7F3D0; /_ Mint Green _/
+--color-pastel-pink: #FECACA; /_ Light Pink _/
+--color-pastel-peach: #FFDDC1; /_ Soft Peach _/
 }
 
 body {
-  font-family: var(--font-primary);
-  color: var(--color-text-primary);
-  background-color: var(--color-background);
-  line-height: 1.6;
+font-family: var(--font-primary);
+color: var(--color-text-primary);
+background-color: var(--color-background);
+line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  color: var(--color-primary);
+font-family: var(--font-display);
+color: var(--color-primary);
 }
 
-/* Claymorphism Shadow Utility */
+/_ Claymorphism Shadow Utility _/
 .shadow-clay-lg {
-  box-shadow: 0 25px 60px rgba(0,0,0,0.12), 0 10px 30px rgba(0,0,0,0.08);
+box-shadow: 0 25px 60px rgba(0,0,0,0.12), 0 10px 30px rgba(0,0,0,0.08);
 }
 
 .shadow-clay-md {
-  box-shadow: 0 15px 40px rgba(0,0,0,0.10), 0 6px 15px rgba(0,0,0,0.07);
+box-shadow: 0 15px 40px rgba(0,0,0,0.10), 0 6px 15px rgba(0,0,0,0.07);
 }
 
 .shadow-clay-sm {
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.05);
+box-shadow: 0 10px 25px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.05);
 }
 
-/* Claymorphism Card Styling */
+/_ Claymorphism Card Styling _/
 .card-clay {
-  background: linear-gradient(135deg, var(--color-card-gradient-start), var(--color-card-gradient-end));
-  border-radius: 25px; /* Generous rounding */
+background: linear-gradient(135deg, var(--color-card-gradient-start), var(--color-card-gradient-end));
+border-radius: 25px; /_ Generous rounding _/
 }
 
-/* Claymorphism Input/Button Styling */
+/_ Claymorphism Input/Button Styling _/
 input, textarea, button {
-  font-family: var(--font-primary);
-  border-radius: 20px; /* Rounded inputs and buttons */
-  border: 2px solid transparent; /* Default transparent border, Tailwind handles focus */
-  transition: all 0.3s ease-in-out;
+font-family: var(--font-primary);
+border-radius: 20px; /_ Rounded inputs and buttons _/
+border: 2px solid transparent; /_ Default transparent border, Tailwind handles focus _/
+transition: all 0.3s ease-in-out;
 }
 
 button {
-  padding: 0.8rem 1.5rem;
-  font-weight: 700;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.10), 0 6px 15px rgba(0,0,0,0.07); /* Button specific shadow */
+padding: 0.8rem 1.5rem;
+font-weight: 700;
+box-shadow: 0 15px 40px rgba(0,0,0,0.10), 0 6px 15px rgba(0,0,0,0.07); /_ Button specific shadow _/
 }
 
 button:hover {
-  box-shadow: 0 20px 50px rgba(0,0,0,0.12), 0 8px 20px rgba(0,0,0,0.08);
-  transform: translateY(-2px);
+box-shadow: 0 20px 50px rgba(0,0,0,0.12), 0 8px 20px rgba(0,0,0,0.08);
+transform: translateY(-2px);
 }
 
 button:active {
-  transform: translateY(0);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.05);
+transform: translateY(0);
+box-shadow: 0 10px 25px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.05);
 }
 
 input:focus,
 textarea:focus {
-  outline: none;
-  border-color: var(--color-primary); /* Example focus color */
-  ring-width: 2px;
-  ring-color: var(--color-accent);
+outline: none;
+border-color: var(--color-primary); /_ Example focus color _/
+ring-width: 2px;
+ring-color: var(--color-accent);
 }
 
-/* Specific overrides for Tailwind focus styles to match claymorphism */
+/_ Specific overrides for Tailwind focus styles to match claymorphism _/
 .focus\:ring-2:focus {
-  --tw-ring-offset-color: var(--color-background); /* Match background */
+--tw-ring-offset-color: var(--color-background); /_ Match background _/
 }
 
-/* Adjusting text selection color for better contrast */
+/_ Adjusting text selection color for better contrast _/
 ::selection {
-  background-color: var(--color-accent);
-  color: var(--color-text-primary);
+background-color: var(--color-accent);
+color: var(--color-text-primary);
 }
 
-/* Custom scrollbar styles for a smoother feel */
+/_ Custom scrollbar styles for a smoother feel _/
 ::-webkit-scrollbar {
-  width: 10px;
+width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-background);
-  border-radius: 10px;
+background: var(--color-background);
+border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
-  border-radius: 10px;
-  border: 2px solid var(--color-background); /* Creates a padded effect */
+background: var(--color-primary);
+border-radius: 10px;
+border: 2px solid var(--color-background); /_ Creates a padded effect _/
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-secondary);
+background: var(--color-secondary);
 }
 
-/* Example for the generated plan sections */
+/_ Example for the generated plan sections _/
 .plan-section {
-  background: linear-gradient(135deg, var(--color-card-gradient-start), var(--color-card-gradient-end));
-  border-radius: 25px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 8px 25px rgba(0,0,0,0.08);
-  padding: 24px;
-  margin-bottom: 24px;
+background: linear-gradient(135deg, var(--color-card-gradient-start), var(--color-card-gradient-end));
+border-radius: 25px;
+box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 8px 25px rgba(0,0,0,0.08);
+padding: 24px;
+margin-bottom: 24px;
 }
 
 .plan-section h3 {
-  font-size: 28px;
-  margin-bottom: 16px;
-  font-weight: 700;
-  color: var(--color-primary);
+font-size: 28px;
+margin-bottom: 16px;
+font-weight: 700;
+color: var(--color-primary);
 }
 
 .plan-section ul,
 .plan-section pre {
-  color: var(--color-text-secondary);
-  font-size: 16px;
+color: var(--color-text-secondary);
+font-size: 16px;
 }
 
 .plan-section pre {
-  white-space: pre-wrap; /* Ensures wrapped text is displayed */
-  word-wrap: break-word; /* Breaks long words */
+white-space: pre-wrap; /_ Ensures wrapped text is displayed _/
+word-wrap: break-word; /_ Breaks long words _/
 }
 
 .plan-section li {
-  margin-bottom: 8px;
+margin-bottom: 8px;
 }
 
-/* Role assignment cards */
+/_ Role assignment cards _/
 .role-card {
-  background-color: var(--color-pastel-blue); /* Using a pastel for variety */
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.05);
-  padding: 16px;
+background-color: var(--color-pastel-blue); /_ Using a pastel for variety _/
+border-radius: 20px;
+box-shadow: 0 10px 25px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.05);
+padding: 16px;
 }
 
 .role-card h4 {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--color-primary);
-  margin-bottom: 6px;
+font-size: 18px;
+font-weight: 700;
+color: var(--color-primary);
+margin-bottom: 6px;
 }
 
 .role-card p {
-  font-size: 14px;
-  color: var(--color-text-secondary);
+font-size: 14px;
+color: var(--color-text-secondary);
 }
 --- END ---

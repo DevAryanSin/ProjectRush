@@ -72,7 +72,7 @@ foreach ($problem in $PROBLEMS) {
   "engines": { "node": ">=24.0.0" },
   "scripts": {
     "dev":   "next dev",
-    "build": "next build --no-turbo",
+    "build": "next build ",
     "start": "next start"
   },
   "dependencies": {
@@ -157,7 +157,7 @@ module.exports = { plugins: { tailwindcss: {}, autoprefixer: {} } }
   "name": "$vercelName",
   "version": 2,
   "framework": "nextjs",
-  "buildCommand": "next build --no-turbo",
+  "buildCommand": "next build ",
   "outputDirectory": ".next",
   "installCommand": "npm install",
   "ignoreCommand": "git diff --quiet HEAD^ HEAD -- $rootPath/"

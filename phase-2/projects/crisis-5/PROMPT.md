@@ -94,7 +94,7 @@ Append the user's actual input to this prompt when calling Gemini.
 - Tailwind CSS + custom CSS variables in globals.css
 - Icons: lucide-react only
 - NO extra npm packages beyond: next, react, react-dom, lucide-react, tailwindcss
-- Build: `next build --no-turbo`
+- Build: `next build `
 - Node: 24.x
 - Add `'use client'` to app/page.tsx
 - Gemini call is server-side only in route.ts
